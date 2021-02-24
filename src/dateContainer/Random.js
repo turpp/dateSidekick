@@ -9,7 +9,8 @@ export default class Random extends React.Component{
     state={
         dateType: '',
         dateFood: '',
-        dateActivity: ''
+        dateActivity: '',
+        zipcode: ''
     }
 
     renderFoodSelction=()=>{
@@ -54,6 +55,12 @@ export default class Random extends React.Component{
 
 
     render(){
-        return <p>Random Component</p>
+        return <div>
+            <form onSubmit={this.handleSubmit}>
+                <label>Zipcode:</label>
+                <input type='number' value={this.state.zipcode} onChange={this.handleChange}/>
+                <input type='submit'/>
+            </form>
+        </div>
     }
 }
