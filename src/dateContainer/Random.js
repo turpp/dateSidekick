@@ -8,8 +8,6 @@ import FoodSelection from '../datePresentation/FoodSelection'
 export default class Random extends React.Component{
     state={
         dateType: '',
-        // dateFood: 'test Food',
-        // dateActivity: 'test Activity',
         zipcode: '',
         foodResults: ['test food'],
         activityResults: ['test actvity'],
@@ -17,12 +15,9 @@ export default class Random extends React.Component{
 
     }
 
+//remvoing stuff now
 
-    renderActivitySelection=()=>{
-        return this.state.activityResults.map(result=>{
-            return <ActivitySelection result={result} addActivityToDate={this.addActivityToDate}/>
-        })
-    }
+
 
     addFoodToDate=(event)=>{
         debugger
@@ -40,16 +35,6 @@ export default class Random extends React.Component{
 
 
 
-    renderTemplate=()=>{
-        switch(this.state.dateType){
-            case 'food':
-                return <FoodSelection/>
-            case 'food-activity':
-                return <ActivitySelection/>
-            default:
-                return <DateTemplates handleClick={this.handleClick}/>
-        }
-    }
 
     handleChange=(event)=>{
         this.setState({
@@ -64,17 +49,6 @@ export default class Random extends React.Component{
         })
     }
 
-    addFoodToDate=(event)=>{
-        debugger
-        this.setState({
-            dateFood: event.target.value
-        })
-    }
-    addActivityToDate=(event)=>{
-        this.setState({
-            dateActivity: event.target.value
-        })
-    }
 
 
     renderFoodSelction=()=>{
@@ -94,20 +68,15 @@ export default class Random extends React.Component{
         return <div>
             {this.renderFoodSelction()}
             {this.renderActivitySelection()}
-        {/* <FoodSelection result={result} addFoodToDate={this.addFoodToDate}/>
-        <ActivitySelection result={result} addActivityToDate={this.addActivityToDate}/> */}
         </div>
     }
     renderRandomDate=()=>{
         return <div>
-        {/* {this.renderFoodSelction()}
-        {this.renderActivitySelection()} */}
 
         {this.state.dateType=='food'? this.renderFoodSelction(): '' }
         {this.state.dateType=='food-activity'? this.renderFoodAndActivty(): ''}
 
         
-        {/* <FoodSelection addFoodToDate={this.addFoodToDate} result={this.state.results[0]}/> */}
     </div>
 
     }
@@ -115,10 +84,16 @@ export default class Random extends React.Component{
     handleSubmit=(event)=>{
         event.preventDefault()
         
-          
+        if(this.state.dateType !== ''){
         this.setState({
             renderDate: true
         })
+    }else{
+        this.setState({
+            renderDate: false
+        })
+        
+    }
 
     }
 
@@ -130,9 +105,7 @@ export default class Random extends React.Component{
                 <input type='number' value={this.state.zipcode} onChange={this.handleChange}/>
                 <input type='submit'/>
             </form>
-            {/* {this.state.dateType=='food'? this.renderFoodSelction(): '' }
-            {this.state.dateType=='food-activity'? this.renderRandomDate(): ''} */}
-            {this.state.renderDate ? this.renderRandomDate():''}
+            {this.state.renderDate ? this.renderRandomDate():'Please select a date template and enter zipcode'}
         </div>
         
     }

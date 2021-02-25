@@ -75,7 +75,7 @@ export default class Custom extends React.Component{
                 <input type='number' value={this.state.zipcode} onChange={this.handleChange}/>
                 <input type='submit'/>
             </form>
-            {this.state.renderFood == true ? <Food/>: '' }
+            {this.state.renderFood == true ? <Food zipcode={this.state.zipcode} type='food'/>: '' }
             {this.state.renderFoodActivity == true ? <FoodActivity />: ''}
             </div>
 

@@ -1,17 +1,21 @@
 import React from 'react'
 
-function FoodSelection(props){
+class FoodSelection extends React.Component {
+    
+    render(){
+        // debugger
     return <div>
-        <img src="imgurl"/>
-        <h3>Food Name</h3>
-        <h6>Price</h6>
-        <p>Address</p>
-        <p>Phone Number</p>
+        <img src={this.props.food.img_url}/>
+        <h3>{this.props.food.name}</h3>
+        <h6>{this.props.food.price}</h6>
+        <p>{this.props.food.location.display_address}</p>
+        <p>{this.props.food.display_phone}</p>
         <ul>
             <li>Categories</li>
         </ul>
-        <button value={props.result} onClick={(event)=>props.addFoodToDate(event)}>Add To Date</button>
+        <button value={this.props.food.result} onClick={(event)=>this.props.addFoodToDate(event)}>Add To Date</button>
     </div>
+}
 }
 
 export default FoodSelection
