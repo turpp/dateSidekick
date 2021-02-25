@@ -1,6 +1,6 @@
 import React from 'react'
 import FoodSelection from '../datePresentation/FoodSelection'
-
+import CardDeck from 'react-bootstrap/CardDeck'
 
 export default class Food extends React.Component{
 
@@ -76,7 +76,9 @@ export default class Food extends React.Component{
     render(){
         // debugger
         return <div>
+            <CardDeck>
             {this.renderFoodSelction()}
+            </CardDeck>
             {/* <FoodSelection addFoodToDate={this.addFoodToDate} result={this.state.results[0]}/> */}
         </div>
     }
