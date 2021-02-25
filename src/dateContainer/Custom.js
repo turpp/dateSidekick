@@ -76,7 +76,7 @@ export default class Custom extends React.Component{
                 <input type='submit'/>
             </form>
             {this.state.renderFood == true ? <Food zipcode={this.state.zipcode} type='food'/>: '' }
-            {this.state.renderFoodActivity == true ? <FoodActivity />: ''}
+            {this.state.renderFoodActivity == true ? <FoodActivity zipcode={this.state.zipcode} type='food-activity' />: ''}
             </div>
 
         //can put a if statement to render the buttons and also zipcode and once both submit render the swtich statement

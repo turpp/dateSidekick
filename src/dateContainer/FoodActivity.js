@@ -7,24 +7,31 @@ import ActivitySelection from '../datePresentation/ActivitySelection'
 export default class FoodActivity extends React.Component{
     state={
         search: '', 
-        foodResults: ['test'],
-        activityResults: ['test activity'],
-        zipcode: 72923,
+        foodResults: [],
+        activityResults: [],
         dateFood: {},
         dateActivity:{}
     }
 
     renderFoodSelction=()=>{
+        if(this.state.foodResults.length>0){
         return this.state.foodResults.map(result=>{
-            return <FoodSelection result={result} addFoodToDate={this.addFoodToDate}/>
+            return <FoodSelection food={result} addFoodToDate={this.addFoodToDate}/>
         })
+    } else{
+        return <h4>Loading...</h4>
+    }
 
     }
 
     renderActivitySelection=()=>{
+        if(this.state.activityResults.length >0){
         return this.state.activityResults.map(result=>{
-            return <ActivitySelection result={result} addActivityToDate={this.addActivityToDate}/>
+            return <ActivitySelection activity={result} addActivityToDate={this.addActivityToDate}/>
         })
+    }else{
+        return <h4>Loading...</h4>
+    }
     }
 
     addFoodToDate=(event)=>{
@@ -41,9 +48,21 @@ export default class FoodActivity extends React.Component{
     }
 
 
+
+    componentDidMount(){
+        fetch(`http://localhost:3000/search/${this.props.zipcode}/${this.props.type}`).then(resp=>resp.json()).then(json=>{
+            console.log(json)
+            this.setState({
+                foodResults: json.food.businesses,
+                activityResults: json.activity.businesses
+            })           
+        })
+
+    }
     render(){
         return <div>
             {this.renderFoodSelction()}
+            <p>===========================================</p>
             {this.renderActivitySelection()}
             {/* <FoodSelection addFoodToDate={this.addFoodToDate} result={this.state.results[0]}/> */}
         </div>
