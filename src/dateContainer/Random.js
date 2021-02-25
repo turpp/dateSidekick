@@ -2,8 +2,13 @@ import React from 'react'
 import DateTemplates from '../datePresentation/DateTemplates'
 import ActivitySelection from '../datePresentation/ActivitySelection'
 import FoodSelection from '../datePresentation/FoodSelection'
+import Food from './Food'
+import FoodActivity from './FoodActivity'
 
-
+//when I come back make random work
+//decided that I am going to use the same food and foodActivity
+//only difference is that I will pass a props random
+//in my render food and activity I will check for random and have a fucntion that will pick one at random
 
 export default class Random extends React.Component{
     state={
@@ -73,9 +78,15 @@ export default class Random extends React.Component{
     renderRandomDate=()=>{
         return <div>
 
-        {this.state.dateType=='food'? this.renderFoodSelction(): '' }
-        {this.state.dateType=='food-activity'? this.renderFoodAndActivty(): ''}
+        {/* {this.state.dateType=='food'? this.renderFoodSelction(): '' }
+        {this.state.dateType=='food-activity'? this.renderFoodAndActivty(): ''} */}
 
+        {this.state.dateType=='food'? <Food zipcode={this.state.zipcode} type='food' random='true'/>: '' }
+        {this.state.dateType=='food-activity'? <FoodActivity zipcode={this.state.zipcode} type='food-activity' random={'true'} />: ''}
+
+
+{/* <Food zipcode={this.state.zipcode} type='food'/>: '' }
+<FoodActivity zipcode={this.state.zipcode} type='food-activity' />: ''} */}
         
     </div>
 
