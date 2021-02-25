@@ -4,6 +4,8 @@ import ActivitySelection from '../datePresentation/ActivitySelection'
 import FoodSelection from '../datePresentation/FoodSelection'
 import Food from './Food'
 import FoodActivity from './FoodActivity'
+import {CardDeck} from 'react-bootstrap'
+// import CardDeck from 'react-bootstrap/CardDeck'
 
 //when I come back make random work
 //decided that I am going to use the same food and foodActivity
@@ -116,7 +118,9 @@ export default class Random extends React.Component{
                 <input type='number' value={this.state.zipcode} onChange={this.handleChange}/>
                 <input type='submit'/>
             </form>
+            <CardDeck>
             {this.state.renderDate ? this.renderRandomDate():'Please select a date template and enter zipcode'}
+            </CardDeck>
         </div>
         
     }
