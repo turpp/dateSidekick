@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 class Profile extends React.Component{
 
     render(){
-        debugger
+        // debugger
        return <div>Welcome {this.props.user.username}, this is your profile</div>
     }
 }

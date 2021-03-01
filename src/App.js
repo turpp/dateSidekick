@@ -3,7 +3,7 @@ import './App.css';
 import React from 'react'
 import Custom from './dateContainer/Custom'
 import Random from './dateContainer/Random'
-import SignIn from './dateContainer/SignIn'
+import Login from './dateContainer/Login'
 import Home from './datePresentation/Home'
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Signup from './dateContainer/Signup'
@@ -44,7 +44,7 @@ export default class App extends React.Component {
       case 'random-date':
         return <Random/>
       case 'sign-in':
-        return <SignIn/>
+        return <Login/>
       default: 
 
     }
@@ -66,7 +66,7 @@ render(){
           <Route exact path='/' component={Home}/>
           <Route exact path='/random' component={Random}/>
           <Route exact path='/custom' component={Custom}/>
-          <Route exact path='/signin' component={SignIn}/>
+          <Route exact path='/login' component={Login}/>
           <Route exact path='/profile' component={Profile}/>
           <Route exact path='/signup' component={Signup}/>
         </Switch>

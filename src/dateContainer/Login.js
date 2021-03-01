@@ -1,13 +1,14 @@
 import React from 'react'
+import {login} from '../redux/actions/authActions'
+import {connect} from 'react-redux'
 
-
-export default class SignIn extends React.Component{
+class Login extends React.Component{
 
     state={
         username: '',
         password: '',
-        loginProcess: false
     }
+
 
     handleChange=(event)=>{
         this.setState({
@@ -16,23 +17,11 @@ export default class SignIn extends React.Component{
     }
 
     handleSubmit=(event)=>{
-        // debugger
         event.preventDefault()
-        fetch(`http://localhost:3000/users`, {
-            method: 'post', 
-            headers: { 'Content-Type': 'application/json',
-            Authorization: 'nothing' },
-            body: JSON.stringify({
-                username: this.state.username,
-                password: this.state.password
-            })
-        }).then(resp=>resp.json()).then(json=>{
-            console.log(json)
-
-    }
-        )
+        // debugger
+       this.props.login(this.state, this.props.history)
 }
-    
+
 
     render(){
         return <div>
@@ -42,10 +31,17 @@ export default class SignIn extends React.Component{
                 <label>Password:</label>
                 <input name='password' type='password' value={this.state.password} placeholder='password' onChange={this.handleChange}/>
                 <input type='submit'/>
+                
             </form>
-            {this.state.username}
-            <br></br>
-            {this.state.password}
+
         </div>
     }
 }
+
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        login : (user, history)=>{dispatch(login(user,history))}
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Login)
