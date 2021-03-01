@@ -4,10 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import store from './redux'
+import {Provider} from 'react-redux'
 
 ReactDOM.render(
   <div>
+    <Provider store={store}>
     <App />
+    </Provider>
   </div>,
   document.getElementById('root')
 );
