@@ -44,7 +44,7 @@ export const login=(user, history)=>{
     }
 }
 
-export const checkLoggedIn = () =>{
+export const checkLoggedIn = (callback) =>{
     return(dispatch)=>{
     fetch('http://localhost:3000/logged_in',{
       credentials: 'include'
@@ -54,6 +54,7 @@ export const checkLoggedIn = () =>{
           type: 'AUTH_SUCCESSFUL',
           payload: {loggedIn: json.logged_in, currentUser: json.user}
         })
+        callback()
     })
 }
   }

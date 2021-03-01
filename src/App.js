@@ -5,13 +5,14 @@ import Custom from './dateContainer/Custom'
 import Random from './dateContainer/Random'
 import Login from './dateContainer/Login'
 import Home from './datePresentation/Home'
-import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import Signup from './dateContainer/Signup'
 import Profile from './dateContainer/Profile'
 import Navbar from './dateContainer/Navbar'
 import { compose } from 'redux';
 import {checkLoggedIn} from './redux/actions/authActions'
 import {connect} from 'react-redux'
+import {redirect} from 'react-router-dom'
 
 
 class App extends React.Component {
@@ -55,9 +56,18 @@ class App extends React.Component {
   }
 
   //===============
+  state={
+    loading: true
+  }
+
+    toggleLoading =()=>{
+      this.setState({
+        loading: !this.state.loading
+      })
+    }
 
   componentDidMount(){
-    this.props.checkLoggedIn()
+    this.props.checkLoggedIn(this.toggleLoading)
   }
 
   checkLoginStatus = () =>{
@@ -73,6 +83,7 @@ class App extends React.Component {
 
 
 render(){
+  if(this.state.loading) return <h1>Loading...</h1>
   return (
     <div className="App">
       {/* <body>
@@ -91,7 +102,14 @@ render(){
           <Route exact path='/random' component={Random}/>
           <Route exact path='/custom' component={Custom}/>
           <Route exact path='/login' component={Login}/>
-          <Route exact path='/profile' component={Profile}/>
+          <Route exact path='/profile' render={props=>{
+            if(this.props.loggedIn){
+              return <Profile {...props}/>
+            }else{
+              return <Redirect to='/login'/>
+              // return <Login {...props}/>
+            }
+          }}  />
           <Route exact path='/signup' component={Signup}/>
         </Switch>
       </Router>
@@ -102,8 +120,14 @@ render(){
 
 const mapDispatchToProps=(dispatch)=>{
   return {
-    checkLoggedIn: ()=>{dispatch(checkLoggedIn())}
+    checkLoggedIn: (callback)=>{dispatch(checkLoggedIn(callback))}
   }
 }
-export default connect(null, mapDispatchToProps)(App)
+
+const mapStateToProps=(state)=>{
+  return {
+    loggedIn: state.authReducer.loggedIn
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App)
 
