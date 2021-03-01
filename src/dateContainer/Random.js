@@ -48,16 +48,31 @@ export default class Random extends React.Component{
         //     zipcode: event.target.value
         // })
         let prevState=this.state.zipcode
-        if(prevState.length < 6){
+        
+        // if(prevState.length < 6){
+        //     this.setState({
+        //         renderDate: false,
+        //         zipcode: event.target.value
+        //     })
+        // }else{
+        //     this.setState({
+        //         zipcode: event.target.value
+        //     })
+        //     }
+
+        if(event.target.value !== 5){
             this.setState({
                 renderDate: false,
                 zipcode: event.target.value
             })
-        }else{
+        } else{
             this.setState({
                 zipcode: event.target.value
             })
-            }
+        }
+        
+        
+        
     }
 
     handleClick=(event)=>{
@@ -109,7 +124,7 @@ export default class Random extends React.Component{
         event.preventDefault()
         // debugger
        
-        if(this.state.dateType !== ''){
+        if((this.state.dateType !== '') && (this.state.zipcode.length == 5)){
         this.setState({
             renderDate: true,
             // zipcode: event.target.zipcode.value
