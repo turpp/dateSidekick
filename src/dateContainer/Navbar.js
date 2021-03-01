@@ -2,16 +2,24 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {logout} from '../redux/actions/authActions'
 import {connect} from 'react-redux'
-
+import {withRouter} from 'react-router-dom'
 class Navbar extends React.Component{
-
     render(){
+        console.log(this.props.loggedIn)
+
         return <div>
             <Link to='/'>Home</Link>
+            {this.props.loggedIn?(
+                <>
             <Link to='/profile'>Profile</Link>
-            <Link to='/signup'>Signup</Link>
-            <Link to='/login'>Login</Link>
-            <Link to='' onClick={()=>this.props.logout()}>Logout</Link>
+            <Link to='' onClick={()=>this.props.logout(this.props.history)}>Logout</Link>
+                </>
+            ) : (
+                <>
+                <Link to='/signup'>Signup</Link>
+                <Link to='/login'>Login</Link>
+                </>
+            )}
 
         </div>
     }
@@ -19,7 +27,13 @@ class Navbar extends React.Component{
 
 const mapDispatchToProps=(dispatch)=>{
     return{
-        logout: ()=>{dispatch(logout())}
+        logout: (history)=>{dispatch(logout(history))}
     }
 }
-export default connect(null, mapDispatchToProps)(Navbar)
+
+const mapStateToProps=(state)=>{
+    return{
+        loggedIn: state.authReducer.loggedIn
+    }
+}
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar))

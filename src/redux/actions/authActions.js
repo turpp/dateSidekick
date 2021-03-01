@@ -58,7 +58,7 @@ export const checkLoggedIn = () =>{
 }
   }
 
-  export const logout =()=>{
+  export const logout =(history)=>{
       return dispatch=>{
           fetch('http://localhost:3000/logout',{
               method:'DELETE',
@@ -67,6 +67,7 @@ export const checkLoggedIn = () =>{
               dispatch({
                   type: 'LOGOUT'
               })
+              history.push('/login')
           })
       }
   }
