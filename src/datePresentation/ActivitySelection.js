@@ -30,7 +30,6 @@ class ActivitySelection extends React.Component{
         </Card.Text>
         {this.props.random ==='false' ? <Button variant='primary' value={this.props.activity.result} onClick={(event)=>this.props.addactivityToDate(event)}>Add To Date</Button>: ''}
         <a href={this.props.activity.url} target='_blank'><Button variant='secondary'>Check out on Yelp!</Button></a>
-        {/* <Button variant='secondary'  onClick={()=>window.open(this.props.food.url)}>Check out on Yelp!</Button> */}
 
         </Card.Body>
         </Card>

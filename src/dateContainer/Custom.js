@@ -14,15 +14,33 @@ export default class Custom extends React.Component{
 
     handleClick=(event)=>{
         this.setState({
-            dateType: event.target.id
+            dateType: event.target.id,
+            renderFood: false,
+            renderFoodActivity: false
         })
     }
 
+
     handleChange=(event)=>{
-        this.setState({
-            zipcode: event.target.value
-        })
+        let prevState=this.state.zipcode
+        
+
+        if(event.target.value !== 5){
+            this.setState({
+                renderFood: false,
+                renderFoodActivity: false,
+                zipcode: event.target.value
+            })
+        } else{
+            this.setState({
+                zipcode: event.target.value
+            })
+        }
+        
+        
+        
     }
+
 
     handleSubmit=(event)=>{
         event.preventDefault()
@@ -65,6 +83,16 @@ export default class Custom extends React.Component{
     }
 
     
+    renderChoices=()=>{
+        switch(true){
+            case(this.state.renderFood):
+               return <Food zipcode={this.state.zipcode} type='food' random='false'/>
+            case (this.state.renderFoodActivity):
+                return <FoodActivity zipcode={this.state.zipcode} type='food-activity' random='false'/>
+            default: 
+             return <p>Select date type and enter 5 digit zipcode</p>
+        }
+    }
 
     render
     render(){
@@ -75,9 +103,11 @@ export default class Custom extends React.Component{
                 <input type='number' value={this.state.zipcode} onChange={this.handleChange}/>
                 <input type='submit'/>
             </form> */}
-            {this.state.renderFood == true ? <Food zipcode={this.state.zipcode} type='food'/>: '' }
-            {this.state.renderFoodActivity == true ? <FoodActivity zipcode={this.state.zipcode} type='food-activity' />: ''}
+            {/* {this.state.renderFood == true ? <Food zipcode={this.state.zipcode} type='food' random='false'/>: '' }
+            {this.state.renderFoodActivity == true ? <FoodActivity zipcode={this.state.zipcode} type='food-activity' random='false'/>: ''} */}
+            {this.renderChoices()}
             </div>
+            
 
         //can put a if statement to render the buttons and also zipcode and once both submit render the swtich statement
     }
