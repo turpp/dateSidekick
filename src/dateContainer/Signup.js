@@ -1,12 +1,13 @@
 import React from 'react'
+import {signup} from '../redux/actions/authActions'
+import {connect} from 'react-redux'
 
 class Signup extends React.Component{
 
     state={
         username: '',
         password: '',
-        passwordConfirmation: '',
-        loginProcess: false
+        password_confirmation: '',
     }
 
 
@@ -19,19 +20,7 @@ class Signup extends React.Component{
     handleSubmit=(event)=>{
         // debugger
         event.preventDefault()
-        fetch(`http://localhost:3000/users`, {
-            method: 'post', 
-            headers: { 'Content-Type': 'application/json',
-            Authorization: 'nothing' },
-            body: JSON.stringify({
-                username: this.state.username,
-                password: this.state.password
-            })
-        }).then(resp=>resp.json()).then(json=>{
-            console.log(json)
-
-    }
-        )
+       this.props.signup(this.state)
 }
 
 
@@ -43,7 +32,7 @@ class Signup extends React.Component{
                 <label>Password:</label>
                 <input name='password' type='password' value={this.state.password} placeholder='password' onChange={this.handleChange}/>
                 <label>Password Confirmation:</label>
-                <input name='passwordConfirmation' type='password' value ={this.state.passwordConfirmation} placeholder='retype password' onChange={this.handleChange}/>
+                <input name='password_confirmation' type='password' value ={this.state.password_confirmation} placeholder='retype password' onChange={this.handleChange}/>
                 <input type='submit'/>
                 
             </form>
@@ -52,4 +41,10 @@ class Signup extends React.Component{
     }
 }
 
-export default Signup
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        signup : (user)=>{dispatch(signup(user))}
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Signup)
