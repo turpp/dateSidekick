@@ -61,7 +61,7 @@ export default class Custom extends React.Component{
     //     return <DateTemplates handleClick={this.handleClick}/>
     // }
     // }
-        return <DateTemplates handleClick={this.handleClick}/>
+        return <DateTemplates handleClick={this.handleClick} handleSubmit={this.handleSubmit} handleChange={this.handleChange} zipcode={this.state.zipcode}/>
     }
 
     
@@ -70,11 +70,11 @@ export default class Custom extends React.Component{
     render(){
         return <div>
             {this.renderTemplate()}
-            <form onSubmit={this.handleSubmit}>
+            {/* <form onSubmit={this.handleSubmit}>
                 <label>Zipcode:</label>
                 <input type='number' value={this.state.zipcode} onChange={this.handleChange}/>
                 <input type='submit'/>
-            </form>
+            </form> */}
             {this.state.renderFood == true ? <Food zipcode={this.state.zipcode} type='food'/>: '' }
             {this.state.renderFoodActivity == true ? <FoodActivity zipcode={this.state.zipcode} type='food-activity' />: ''}
             </div>

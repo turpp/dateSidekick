@@ -9,6 +9,8 @@ class Navbar extends React.Component{
 
         return <div>
             <Link to='/'>Home</Link>
+            <Link to='/random'>Random Outing</Link>
+            <Link to='/custom'>Desgin Outing</Link>
             {this.props.loggedIn?(
                 <>
             <Link to='/profile'>Profile</Link>
