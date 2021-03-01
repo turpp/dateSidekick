@@ -8,9 +8,13 @@ import Home from './datePresentation/Home'
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Signup from './dateContainer/Signup'
 import Profile from './dateContainer/Profile'
+import Navbar from './dateContainer/Navbar'
+import { compose } from 'redux';
+import {checkLoggedIn} from './redux/actions/authActions'
+import {connect} from 'react-redux'
 
 
-export default class App extends React.Component {
+class App extends React.Component {
   state={
     activeButton: ''
   }
@@ -50,6 +54,24 @@ export default class App extends React.Component {
     }
   }
 
+  //===============
+
+  componentDidMount(){
+    this.props.checkLoggedIn()
+  }
+
+  checkLoginStatus = () =>{
+    fetch('http://localhost:3000/logged_in',{
+      credentials: 'include'
+    }).then(resp=>resp.json()).then(json=>{
+      console.log(json)
+    })
+  }
+
+
+
+
+
 render(){
   return (
     <div className="App">
@@ -62,6 +84,8 @@ render(){
       </body> */}
 
       <Router>
+        <Navbar/>
+
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route exact path='/random' component={Random}/>
@@ -75,4 +99,11 @@ render(){
   );
     }
 }
+
+const mapDispatchToProps=(dispatch)=>{
+  return {
+    checkLoggedIn: ()=>{dispatch(checkLoggedIn())}
+  }
+}
+export default connect(null, mapDispatchToProps)(App)
 

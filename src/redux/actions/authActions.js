@@ -43,3 +43,30 @@ export const login=(user, history)=>{
         })
     }
 }
+
+export const checkLoggedIn = () =>{
+    return(dispatch)=>{
+    fetch('http://localhost:3000/logged_in',{
+      credentials: 'include'
+    }).then(resp=>resp.json()).then(json=>{
+      console.log(json)
+      dispatch({
+          type: 'AUTH_SUCCESSFUL',
+          payload: {loggedIn: json.logged_in, currentUser: json.user}
+        })
+    })
+}
+  }
+
+  export const logout =()=>{
+      return dispatch=>{
+          fetch('http://localhost:3000/logout',{
+              method:'DELETE',
+              credentials: 'include'
+          }).then(resp=>resp.json()).then(json=>{
+              dispatch({
+                  type: 'LOGOUT'
+              })
+          })
+      }
+  }
