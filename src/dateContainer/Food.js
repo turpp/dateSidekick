@@ -62,7 +62,6 @@ export default class Food extends React.Component{
 
 
 
-
         // fetch('https://crossorigin.me/https://api.yelp.com/v3/autocomplete?text=del&latitude=37.786882&longitude=-122.399972m/search?q=GET+https%3A%2F%2Fapi.yelp.com%2Fv3%2Fautocomplete%3Ftext%3Ddel%26latitude%3D37.786882%26longitude%3D-122.399972&rlz=1C5CHFA_enUS914US914&oq=GET+https%3A%2F%2Fapi.yelp.com%2Fv3%2Fautocomplete%3Ftext%3Ddel%26latitude%3D37.786882%26longitude%3D-122.399972&aqs=chrome..69i57.2375j0j7&sourceid=chrome&ie=UTF-8', {
         //     headers: {
         //         Origin: 'https://localhost:3000',

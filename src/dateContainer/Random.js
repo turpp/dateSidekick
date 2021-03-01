@@ -44,9 +44,20 @@ export default class Random extends React.Component{
 
 
     handleChange=(event)=>{
-        this.setState({
-            zipcode: event.target.value
-        })
+        // this.setState({
+        //     zipcode: event.target.value
+        // })
+        let prevState=this.state.zipcode
+        if(prevState.length < 6){
+            this.setState({
+                renderDate: false,
+                zipcode: event.target.value
+            })
+        }else{
+            this.setState({
+                zipcode: event.target.value
+            })
+            }
     }
 
     handleClick=(event)=>{
@@ -83,7 +94,7 @@ export default class Random extends React.Component{
         {/* {this.state.dateType=='food'? this.renderFoodSelction(): '' }
         {this.state.dateType=='food-activity'? this.renderFoodAndActivty(): ''} */}
 
-        {this.state.dateType=='food'? <Food zipcode={this.state.zipcode} type='food' random='true'/>: '' }
+        {this.state.dateType=='food'? <Food zipcode={this.state.zipcode} type='food'  random='true'/>: '' }
         {this.state.dateType=='food-activity'? <FoodActivity zipcode={this.state.zipcode} type='food-activity' random={'true'} />: ''}
 
 
@@ -96,10 +107,12 @@ export default class Random extends React.Component{
 
     handleSubmit=(event)=>{
         event.preventDefault()
-        
+        // debugger
+       
         if(this.state.dateType !== ''){
         this.setState({
-            renderDate: true
+            renderDate: true,
+            // zipcode: event.target.zipcode.value
         })
     }else{
         this.setState({
@@ -110,14 +123,11 @@ export default class Random extends React.Component{
 
     }
 
+
+
     render(){
         return <div>
-            <DateTemplates handleClick={this.handleClick}/>
-            <form onSubmit={this.handleSubmit}>
-                <label>Zipcode:</label>
-                <input type='number' value={this.state.zipcode} onChange={this.handleChange}/>
-                <input type='submit'/>
-            </form>
+            <DateTemplates handleClick={this.handleClick} handleSubmit={this.handleSubmit} handleChange={this.handleChange} zipcode={this.state.zipcode}/>  
             <CardDeck>
             {this.state.renderDate ? this.renderRandomDate():'Please select a date template and enter zipcode'}
             </CardDeck>

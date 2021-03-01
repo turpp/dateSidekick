@@ -9,7 +9,9 @@ function DateTemplates(props){
         <form onSubmit={props.handleSubmit}>
                 <label>Zipcode:</label>
                 <input type='number' value={props.zipcode} onChange={props.handleChange}/>
+                {/* <input type='number' name='zipcode'/> */}
                 <input type='submit'/>
+                
             </form>
 
     </div>
