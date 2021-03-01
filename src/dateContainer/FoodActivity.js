@@ -44,7 +44,7 @@ export default class FoodActivity extends React.Component{
     
 
     addFoodToDate=(event)=>{
-        debugger
+        // debugger
         this.setState({
             dateFood: event.target.value
         })

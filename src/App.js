@@ -7,6 +7,7 @@ import SignIn from './dateContainer/SignIn'
 import Home from './datePresentation/Home'
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Signup from './dateContainer/Signup'
+import Profile from './dateContainer/Profile'
 
 
 export default class App extends React.Component {
@@ -66,6 +67,7 @@ render(){
           <Route exact path='/random' component={Random}/>
           <Route exact path='/custom' component={Custom}/>
           <Route exact path='/signin' component={SignIn}/>
+          <Route exact path='/profile' component={Profile}/>
           <Route exact path='/signup' component={Signup}/>
         </Switch>
       </Router>

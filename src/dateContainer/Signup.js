@@ -18,9 +18,9 @@ class Signup extends React.Component{
     }
 
     handleSubmit=(event)=>{
-        // debugger
         event.preventDefault()
-       this.props.signup(this.state)
+        // debugger
+       this.props.signup(this.state, this.props.history)
 }
 
 
@@ -43,7 +43,7 @@ class Signup extends React.Component{
 
 const mapDispatchToProps = (dispatch)=>{
     return {
-        signup : (user)=>{dispatch(signup(user))}
+        signup : (user, history)=>{dispatch(signup(user,history))}
     }
 }
 
