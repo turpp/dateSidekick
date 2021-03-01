@@ -18,11 +18,11 @@ export default class FoodActivity extends React.Component{
         if(this.state.foodResults.length>0){
             if(this.props.random=='true'){
                 let randomFood = this.state.foodResults[Math.floor(Math.random() * this.state.foodResults.length)]
-                return <FoodSelection food={randomFood} addFoodToDate={this.addFoodToDate}/>
+                return <FoodSelection food={randomFood} addFoodToDate={this.addFoodToDate} random='true'/>
 
             }else{
         return this.state.foodResults.map(result=>{
-            return <FoodSelection food={result} addFoodToDate={this.addFoodToDate}/>
+            return <FoodSelection food={result} addFoodToDate={this.addFoodToDate} random='false'/>
         })
     } 
 }
@@ -33,10 +33,10 @@ export default class FoodActivity extends React.Component{
         if(this.state.activityResults.length >0){
             if(this.props.random=='true'){
                 let randomActivity = this.state.activityResults[Math.floor(Math.random() * this.state.activityResults.length)]
-                return <ActivitySelection activity={randomActivity} addActivityToDate={this.addActivityToDate}/>
+                return <ActivitySelection activity={randomActivity} addActivityToDate={this.addActivityToDate} random='true'/>
             }else{
         return this.state.activityResults.map(result=>{
-            return <ActivitySelection activity={result} addActivityToDate={this.addActivityToDate}/>
+            return <ActivitySelection activity={result} addActivityToDate={this.addActivityToDate} random='false'/>
         })
     }
 }

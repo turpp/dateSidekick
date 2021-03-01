@@ -15,11 +15,11 @@ export default class Food extends React.Component{
         if(this.state.results.length >0){
             if(this.props.random=='true'){
                 let randomFood = this.state.results[Math.floor(Math.random() * this.state.results.length)]
-                return <FoodSelection food={randomFood} addFoodToDate={this.addFoodToDate}/>
+                return <FoodSelection food={randomFood} addFoodToDate={this.addFoodToDate} random='true'/>
             }else{
         return this.state.results.map(result=>{
             // debugger
-            return <FoodSelection food={result} addFoodToDate={this.addFoodToDate}/>
+            return <FoodSelection food={result} addFoodToDate={this.addFoodToDate} random='false'/>
         })
     }
     }
