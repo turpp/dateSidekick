@@ -4,6 +4,9 @@ import React from 'react'
 import Custom from './dateContainer/Custom'
 import Random from './dateContainer/Random'
 import SignIn from './dateContainer/SignIn'
+import Home from './datePresentation/Home'
+import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Signup from './dateContainer/Signup'
 
 
 export default class App extends React.Component {
@@ -49,27 +52,23 @@ export default class App extends React.Component {
 render(){
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <body>
+      {/* <body>
         <h4>Welcome to Date Sidekick!</h4>
         <button id='random-date' onClick={this.handleClick} >Random Date</button> 
         <button id='custom-date' onClick={this.handleClick}>Create custom Date</button>
         <button id='sign-in' onClick={this.handleClick}>Sign In</button>
         {this.renderComponet()}
-      </body>
+      </body> */}
+
+      <Router>
+        <Switch>
+          <Route exact path='/' component={Home}/>
+          <Route exact path='/random' component={Random}/>
+          <Route exact path='/custom' component={Custom}/>
+          <Route exact path='/signin' component={SignIn}/>
+          <Route exact path='/signup' component={Signup}/>
+        </Switch>
+      </Router>
     </div>
   );
     }

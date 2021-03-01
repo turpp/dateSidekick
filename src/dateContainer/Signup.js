@@ -1,13 +1,14 @@
 import React from 'react'
 
-
-export default class SignIn extends React.Component{
+class Signup extends React.Component{
 
     state={
         username: '',
         password: '',
+        passwordConfirmation: '',
         loginProcess: false
     }
+
 
     handleChange=(event)=>{
         this.setState({
@@ -32,7 +33,7 @@ export default class SignIn extends React.Component{
     }
         )
 }
-    
+
 
     render(){
         return <div>
@@ -41,11 +42,14 @@ export default class SignIn extends React.Component{
                 <input name='username' type='text' value={this.state.username} placeholder='username' onChange={this.handleChange}/>
                 <label>Password:</label>
                 <input name='password' type='password' value={this.state.password} placeholder='password' onChange={this.handleChange}/>
+                <label>Password Confirmation:</label>
+                <input name='passwordConfirmation' type='password' value ={this.state.passwordConfirmation} placeholder='retype password' onChange={this.handleChange}/>
                 <input type='submit'/>
+                
             </form>
-            {this.state.username}
-            <br></br>
-            {this.state.password}
+
         </div>
     }
 }
+
+export default Signup
