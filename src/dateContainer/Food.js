@@ -16,22 +16,22 @@ export default class Food extends React.Component{
         if(this.state.results.length >0){
             if(this.props.random=='true'){
                 let randomFood = this.state.results[Math.floor(Math.random() * this.state.results.length)]
-                return <FoodSelection food={randomFood} addFoodToDate={this.addFoodToDate} random='true'/>
+                return <FoodSelection food={randomFood} addFoodToDate={this.props.addFoodToDate} random='true'/>
             }else{
         return this.state.results.map(result=>{
             // debugger
-            return <FoodSelection food={result} addFoodToDate={this.addFoodToDate} random='false'/>
+            return <FoodSelection food={result} addFoodToDate={this.props.addFoodToDate} random='false'/>
         })
     }
     }
     }
 
-    addFoodToDate=(food)=>{
-        // debugger
-        this.setState({
-            dateFood: food
-        })
-    }
+    // addFoodToDate=(food)=>{
+    //     // debugger
+    //     this.setState({
+    //         dateFood: food
+    //     })
+    // }
     componentDidMount(){
         // debugger
         // const access_token = "98NIBCJIciAPgPo1Qdn558i-1lKmM3j1FTAaVfauX3cYvhZPJVDRi63_WIMwKe2ojqsSqSqxkFg3Jf2t8Va52w1lemMFauj51kftEd582ZklUgEroI2SqQyRLVQ1YHYx";
@@ -76,7 +76,7 @@ export default class Food extends React.Component{
     render(){
         // debugger
         return <div>
-            <CurrentDate food={this.state.dateFood}/>
+            {/* <CurrentDate food={this.state.dateFood}/> */}
             <h4>Food offerings</h4>
             <CardDeck>
             {this.renderFoodSelction()}

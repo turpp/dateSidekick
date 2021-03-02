@@ -18,10 +18,10 @@ export default class Activity extends React.Component{
         if(this.state.activityResults.length >0){
             if(this.props.random=='true'){
                 let randomActivity = this.state.activityResults[Math.floor(Math.random() * this.state.activityResults.length)]
-                return <ActivitySelection activity={randomActivity} addActivityToDate={this.addActivityToDate} random='true'/>
+                return <ActivitySelection activity={randomActivity} addActivityToDate={this.props.addActivityToDate} random='true'/>
             }else{
         return this.state.activityResults.map(result=>{
-            return <ActivitySelection activity={result} addActivityToDate={this.addActivityToDate} random='false'/>
+            return <ActivitySelection activity={result} addActivityToDate={this.props.addActivityToDate} random='false'/>
         })
     }
 }
@@ -29,11 +29,11 @@ export default class Activity extends React.Component{
     
 
 
-    addActivityToDate=(activity)=>{
-        this.setState({
-            dateActivity: activity
-        })
-    }
+    // addActivityToDate=(activity)=>{
+    //     this.setState({
+    //         dateActivity: activity
+    //     })
+    // }
 
 
 

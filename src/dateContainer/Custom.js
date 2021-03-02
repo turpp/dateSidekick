@@ -2,6 +2,7 @@ import React from 'react'
 import DateTemplates from '../datePresentation/DateTemplates'
 import Food from './Food'
 import Activity from './Activity'
+import CurrentDate from '../datePresentation/CurrentDate'
 
 
 export default class Custom extends React.Component{
@@ -9,14 +10,18 @@ export default class Custom extends React.Component{
         dateType: '',
         zipcode: '',
         renderFood: false,
-        renderActivity: false
+        renderActivity: false,
+        dateFood:[],
+        dateActivity: []
     }
 
     handleClick=(event)=>{
         this.setState({
             dateType: event.target.id,
             renderFood: false,
-            renderActivity: false
+            renderActivity: false,
+            dateFood:[],
+            dateActivity: []
         })
     }
 
@@ -91,15 +96,34 @@ export default class Custom extends React.Component{
         switch(true){
             case(this.state.renderFood && this.state.renderActivity):
                return <div>
-               <Food zipcode={this.state.zipcode} type='food' random='false'/>
-               <Activity zipcode={this.state.zipcode} type='food-activity' random='false'/>
+               <CurrentDate food={this.state.dateFood} activity={this.state.dateActivity} type='food-activity'/>
+               <Food zipcode={this.state.zipcode} type='food' random='false' addFoodToDate={this.addFoodToDate}/>
+               <Activity zipcode={this.state.zipcode} type='food-activity' random='false' addActivityToDate={this.addActivityToDate}/>
                </div>
             case (!this.state.renderActivity && this.state.renderFood):
-                return <Food zipcode={this.state.zipcode} type='food' random='false'/>
+                return <div>
+                    <CurrentDate food={this.state.dateFood} activity={this.state.dateActivity} type='food'/>
+                    <Food zipcode={this.state.zipcode} type='food' random='false' addFoodToDate={this.addFoodToDate}/>
+                    </div>
             default: 
              return <p>Select date type and enter 5 digit zipcode</p>
         }
     }
+
+    addFoodToDate=(food)=>{
+        // debugger
+        this.setState({
+            dateFood: food
+        })
+    }
+
+    addActivityToDate=(activity)=>{
+        this.setState({
+            dateActivity: activity
+        })
+    }
+
+
 
     // render
     render(){

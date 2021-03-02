@@ -54,8 +54,7 @@ class FoodSelection extends React.Component {
             {this.renderCategories()}
         </ul>
         </Card.Text>
-        {this.props.random ==='false' ? <Button variant='primary' value={this.props.food} onClick={()=>this.props.addFoodToDate(this.props.food)}>Add To Date</Button> : ''
-}
+        {this.props.random ==='false' ? <Button variant='primary' value={this.props.food} onClick={()=>this.props.addFoodToDate(this.props.food)}>Add To Date</Button> : ''}
 
         {/* <Button variant='primary' value={this.props.food.result} onClick={(event)=>this.props.addFoodToDate(event)}>Add To Date</Button> */}
         <a href={this.props.food.url} target='_blank'><Button variant='secondary'>Check out on Yelp!</Button></a>
