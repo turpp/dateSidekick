@@ -2,7 +2,7 @@
   "name": "date_sidekick",
   "version": "0.1.0",
   "private": true,
-  "engine": {
+  "engines": {
     "node": "15.8.0"
   },
   "dependencies": {
