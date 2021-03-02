@@ -3,7 +3,7 @@ import DateTemplates from '../datePresentation/DateTemplates'
 import ActivitySelection from '../datePresentation/ActivitySelection'
 import FoodSelection from '../datePresentation/FoodSelection'
 import Food from './Food'
-import FoodActivity from './FoodActivity'
+import Activity from './Activity'
 import {CardDeck} from 'react-bootstrap'
 // import CardDeck from 'react-bootstrap/CardDeck'
 
@@ -110,7 +110,7 @@ export default class Random extends React.Component{
         {this.state.dateType=='food-activity'? this.renderFoodAndActivty(): ''} */}
 
         {this.state.dateType=='food'? <Food zipcode={this.state.zipcode} type='food'  random='true'/>: '' }
-        {this.state.dateType=='food-activity'? <FoodActivity zipcode={this.state.zipcode} type='food-activity' random={'true'} />: ''}
+        {this.state.dateType=='food-activity'? <div><Food zipcode={this.state.zipcode} type='food'  random='true'/><Activity zipcode={this.state.zipcode} type='food-activity' random={'true'} /></div>: ''}
 
 
 {/* <Food zipcode={this.state.zipcode} type='food'/>: '' }

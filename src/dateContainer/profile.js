@@ -19,7 +19,7 @@ componentDidMount(){
 
 
     fetch(`http://localhost:3000/users/${this.props.user.id}`).then(resp=>resp.json()).then(json=>{
-        console.log(json)
+        // console.log(json)
         this.setState({
             activities: json.activities,
             dates: json.outings

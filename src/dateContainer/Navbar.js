@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 class Navbar extends React.Component{
     render(){
-        console.log(this.props.loggedIn)
+        // console.log(this.props.loggedIn)
 
         return <div>
             <Link to='/'>Home</Link>

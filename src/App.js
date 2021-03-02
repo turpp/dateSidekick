@@ -74,7 +74,6 @@ class App extends React.Component {
     fetch('http://localhost:3000/logged_in',{
       credentials: 'include'
     }).then(resp=>resp.json()).then(json=>{
-      console.log(json)
     })
   }
 

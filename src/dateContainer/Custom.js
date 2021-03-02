@@ -1,7 +1,7 @@
 import React from 'react'
 import DateTemplates from '../datePresentation/DateTemplates'
 import Food from './Food'
-import FoodActivity from './FoodActivity'
+import Activity from './Activity'
 
 
 export default class Custom extends React.Component{
@@ -9,14 +9,14 @@ export default class Custom extends React.Component{
         dateType: '',
         zipcode: '',
         renderFood: false,
-        renderFoodActivity: false
+        renderActivity: false
     }
 
     handleClick=(event)=>{
         this.setState({
             dateType: event.target.id,
             renderFood: false,
-            renderFoodActivity: false
+            renderActivity: false
         })
     }
 
@@ -28,7 +28,7 @@ export default class Custom extends React.Component{
         if(event.target.value !== 5){
             this.setState({
                 renderFood: false,
-                renderFoodActivity: false,
+                renderActivity: false,
                 zipcode: event.target.value
             })
         } else{
@@ -50,16 +50,20 @@ export default class Custom extends React.Component{
             case 'food':
                this.setState({
                    renderFood: true,
-                   renderFoodActivity: false
+                   renderActivity: false
                })
                break
             case 'food-activity':
                 this.setState({
-                    renderFoodActivity: true,
-                    renderFood: false
+                    renderActivity: true,
+                    renderFood: true
                 })
                 break
             default:
+                this.setState({
+                    renderFood: false,
+                    renderActivity: false
+                })
                 // return <DateTemplates handleClick={this.handleClick}/>
         }
     }
@@ -85,16 +89,19 @@ export default class Custom extends React.Component{
     
     renderChoices=()=>{
         switch(true){
-            case(this.state.renderFood):
-               return <Food zipcode={this.state.zipcode} type='food' random='false'/>
-            case (this.state.renderFoodActivity):
-                return <FoodActivity zipcode={this.state.zipcode} type='food-activity' random='false'/>
+            case(this.state.renderFood && this.state.renderActivity):
+               return <div>
+               <Food zipcode={this.state.zipcode} type='food' random='false'/>
+               <Activity zipcode={this.state.zipcode} type='food-activity' random='false'/>
+               </div>
+            case (!this.state.renderActivity && this.state.renderFood):
+                return <Food zipcode={this.state.zipcode} type='food' random='false'/>
             default: 
              return <p>Select date type and enter 5 digit zipcode</p>
         }
     }
 
-    render
+    // render
     render(){
         return <div>
             {this.renderTemplate()}

@@ -1,33 +1,18 @@
 import React from 'react'
-import FoodSelection from '../datePresentation/FoodSelection'
 import ActivitySelection from '../datePresentation/ActivitySelection'
 import CardDeck from 'react-bootstrap/CardDeck'
+import CurrentDate from '../datePresentation/CurrentDate'
 
 
 
-export default class FoodActivity extends React.Component{
+
+export default class Activity extends React.Component{
     state={
         search: '', 
-        foodResults: [],
         activityResults: [],
-        dateFood: {},
         dateActivity:{}
     }
 
-    renderFoodSelction=()=>{
-        if(this.state.foodResults.length>0){
-            if(this.props.random=='true'){
-                let randomFood = this.state.foodResults[Math.floor(Math.random() * this.state.foodResults.length)]
-                return <FoodSelection food={randomFood} addFoodToDate={this.addFoodToDate} random='true'/>
-
-            }else{
-        return this.state.foodResults.map(result=>{
-            return <FoodSelection food={result} addFoodToDate={this.addFoodToDate} random='false'/>
-        })
-    } 
-}
-
-    }
 
     renderActivitySelection=()=>{
         if(this.state.activityResults.length >0){
@@ -43,16 +28,10 @@ export default class FoodActivity extends React.Component{
     }
     
 
-    addFoodToDate=(event)=>{
-        // debugger
-        this.setState({
-            dateFood: event.target.value
-        })
-    }
 
-    addActivityToDate=(event)=>{
+    addActivityToDate=(activity)=>{
         this.setState({
-            dateActivity: event.target.value
+            dateActivity: activity
         })
     }
 
@@ -60,9 +39,8 @@ export default class FoodActivity extends React.Component{
 
     componentDidMount(){
         fetch(`http://localhost:3000/search/${this.props.zipcode}/${this.props.type}`).then(resp=>resp.json()).then(json=>{
-            console.log(json)
+            // console.log(json)
             this.setState({
-                foodResults: json.food.businesses,
                 activityResults: json.activity.businesses
             })           
         })
@@ -70,10 +48,7 @@ export default class FoodActivity extends React.Component{
     }
     render(){
         return <div>
-            <CardDeck>
-            {this.renderFoodSelction()}
-            </CardDeck>
-            <p>===========================================</p>
+            <h4>Activity offerings</h4>
             <CardDeck>
             {this.renderActivitySelection()}
             </CardDeck>
