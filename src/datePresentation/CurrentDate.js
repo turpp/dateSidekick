@@ -49,7 +49,7 @@ class CurrentDate extends React.Component{
 
 const mapDispatchToProps = (dispatch)=>{
     return{
-        saveDate: (date,history)=>{dispatch(saveDate(date, history))}
+        saveDate: (date,user,history)=>{dispatch(saveDate(date,user, history))}
     }
 }
 
