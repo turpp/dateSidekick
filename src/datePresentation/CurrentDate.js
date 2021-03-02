@@ -3,15 +3,20 @@ import FoodSelection from './FoodSelection'
 import ActivitySelection from './ActivitySelection'
 import {Card} from 'react-bootstrap'
 import {connect} from 'react-redux'
-import {saveDate} from '../redux/actions/authActions'
+import {saveFoodDate} from '../redux/actions/authActions'
+import {saveFoodActivityDate} from '../redux/actions/authActions'
 import {withRouter} from 'react-router-dom'
 
 
 class CurrentDate extends React.Component{
 
-    handleClick=(event)=>{
+    handleFoodDate=(event)=>{
         // debugger
-        this.props.saveDate(this.props.food, this.props.user, this.props.history)
+        this.props.saveFoodDate(this.props.food, this.props.user, this.props.history)
+    }
+
+    handleFoodActivityDate=(event)=>{
+        this.props.saveFoodActivityDate(this.props.food, this.props.activity, this.props.user, this.props.history)
     }
     renderCurrentDate=()=>{
         switch(this.props.type){
@@ -25,7 +30,7 @@ class CurrentDate extends React.Component{
                     </Card.Header>
                     <FoodSelection food={this.props.food} addFoodToDate={''} random='true' />
                     <Card.Footer>
-                        <button onClick={()=>this.handleClick()}>Save date to profile</button>
+                        <button onClick={()=>this.handleFoodDate()}>Save date to profile</button>
                     </Card.Footer>
                     </Card>
                     
@@ -52,7 +57,7 @@ class CurrentDate extends React.Component{
                     {!Array.isArray(this.props.activity)? <ActivitySelection activity={this.props.activity} addActivityToDate={''} random='true'/> : ''}
                     
                     <Card.Footer>
-                        <button onClick={()=>this.handleClick()}>Save date to profile</button>
+                        <button onClick={()=>this.handleFoodActivityDate()}>Save date to profile</button>
                     </Card.Footer>
 
                     </Card>
@@ -107,7 +112,8 @@ class CurrentDate extends React.Component{
 
 const mapDispatchToProps = (dispatch)=>{
     return{
-        saveDate: (date,user,history)=>{dispatch(saveDate(date,user, history))}
+        saveFoodDate: (food,user,history)=>{dispatch(saveFoodDate(food,user, history))},
+        saveFoodActivityDate: (food,activity,user,history)=>{dispatch(saveFoodActivityDate(food,activity,user,history))}
     }
 }
 

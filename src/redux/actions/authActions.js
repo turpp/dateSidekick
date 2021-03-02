@@ -73,7 +73,7 @@ export const checkLoggedIn = (callback) =>{
       }
   }
 
-  export const saveDate = (date, user, history)=>{
+  export const saveFoodDate = (food, user, history)=>{
       return dispatch=>{
           fetch('http://localhost:3000/outings', {
             method: 'POST',
@@ -81,7 +81,7 @@ export const checkLoggedIn = (callback) =>{
                 'Content-Type': 'application/json'
             },
             credentials: 'include',
-            body: JSON.stringify({date: date, user: user})
+            body: JSON.stringify({food: food, user: user, type: 'food'})
           }).then(resp=>resp.json()).then(json=>{
               dispatch({
                 type: 'NOTHING'
@@ -90,3 +90,21 @@ export const checkLoggedIn = (callback) =>{
           })
       }
   }
+
+  export const saveFoodActivityDate = (food, activity, user, history)=>{
+    return dispatch=>{
+        fetch('http://localhost:3000/outings', {
+          method: 'POST',
+          headers:{
+              'Content-Type': 'application/json'
+          },
+          credentials: 'include',
+          body: JSON.stringify({food: food, activity: activity, user: user, type: 'foodActivity'})
+        }).then(resp=>resp.json()).then(json=>{
+            dispatch({
+              type: 'NOTHING'
+          })
+            history.push('/profile')
+        })
+    }
+}
