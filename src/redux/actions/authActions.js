@@ -73,7 +73,7 @@ export const checkLoggedIn = (callback) =>{
       }
   }
 
-  export const saveDate = (date,history)=>{
+  export const saveDate = (date, user, history)=>{
       return dispatch=>{
           fetch('http://localhost:3000/outings', {
             method: 'POST',
@@ -81,10 +81,11 @@ export const checkLoggedIn = (callback) =>{
                 'Content-Type': 'application/json'
             },
             credentials: 'include',
-            body: JSON.stringify({date: date})
+            body: JSON.stringify({date: date, user: user})
           }).then(resp=>resp.json()).then(json=>{
-              console.log(json)
-              
+              dispatch({
+                type: 'NOTHING'
+            })
               history.push('/profile')
           })
       }

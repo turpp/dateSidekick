@@ -10,7 +10,7 @@ class CurrentDate extends React.Component{
 
     handleClick=(event)=>{
         // debugger
-        this.props.saveDate(this.props.food, this.props.history)
+        this.props.saveDate(this.props.food, this.props.user, this.props.history)
     }
     renderCurrentDate=()=>{
         switch(false){
@@ -53,4 +53,11 @@ const mapDispatchToProps = (dispatch)=>{
     }
 }
 
-export default withRouter(connect(null,mapDispatchToProps)(CurrentDate))
+const mapStateToProps = (state)=>{
+
+    return {
+        user: state.authReducer.currentUser
+    }
+}
+
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(CurrentDate))
