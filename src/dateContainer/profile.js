@@ -37,7 +37,7 @@ componentDidMount(){
             }
             return a
         })
-        debugger
+        // debugger
         this.setState({
             activities: activities,
             dates: json.outings
