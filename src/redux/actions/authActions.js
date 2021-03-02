@@ -1,7 +1,10 @@
 export const signup=(user, history)=>{
     return dispatch=>{
-        fetch('http://localhost:3000/users',{
-            method: 'POST',
+        // fetch('http://localhost:3000/users',{
+            fetch('https://gentle-inlet-80267.herokuapp.com/users',{
+   
+        method: 'POST',
+
             headers:{
                 'Content-Type': 'application/json'
             },
@@ -24,7 +27,9 @@ export const signup=(user, history)=>{
 
 export const login=(user, history)=>{
     return dispatch=>{
-        fetch('http://localhost:3000/sessions',{
+        // fetch('http://localhost:3000/sessions',{
+            fetch('https://gentle-inlet-80267.herokuapp.com/sessions',{
+
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'
@@ -46,7 +51,9 @@ export const login=(user, history)=>{
 
 export const checkLoggedIn = (callback) =>{
     return(dispatch)=>{
-    fetch('http://localhost:3000/logged_in',{
+    // fetch('http://localhost:3000/logged_in',{
+        fetch('https://gentle-inlet-80267.herokuapp.com/logged_in',{
+
       credentials: 'include'
     }).then(resp=>resp.json()).then(json=>{
     //   console.log(json)
@@ -61,7 +68,9 @@ export const checkLoggedIn = (callback) =>{
 
   export const logout =(history)=>{
       return dispatch=>{
-          fetch('http://localhost:3000/logout',{
+        //   fetch('http://localhost:3000/logout',{
+            fetch('https://gentle-inlet-80267.herokuapp.com/logout',{
+
               method:'DELETE',
               credentials: 'include'
           }).then(resp=>resp.json()).then(json=>{
@@ -75,7 +84,9 @@ export const checkLoggedIn = (callback) =>{
 
   export const saveFoodDate = (food, user, history)=>{
       return dispatch=>{
-          fetch('http://localhost:3000/outings', {
+        //   fetch('http://localhost:3000/outings', {
+            fetch('https://gentle-inlet-80267.herokuapp.com/outings', {
+
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'
@@ -93,7 +104,9 @@ export const checkLoggedIn = (callback) =>{
 
   export const saveFoodActivityDate = (food, activity, user, history)=>{
     return dispatch=>{
-        fetch('http://localhost:3000/outings', {
+        // fetch('http://localhost:3000/outings', {
+            fetch('https://gentle-inlet-80267.herokuapp.com/outings', {
+
           method: 'POST',
           headers:{
               'Content-Type': 'application/json'

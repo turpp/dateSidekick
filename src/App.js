@@ -71,8 +71,11 @@ class App extends React.Component {
   }
 
   checkLoginStatus = () =>{
-    fetch('http://localhost:3000/logged_in',{
+    // fetch('http://localhost:3000/logged_in',{
+      fetch('https://gentle-inlet-80267.herokuapp.com/logged_in',{
+
       credentials: 'include'
+
     }).then(resp=>resp.json()).then(json=>{
     })
   }
