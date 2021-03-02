@@ -1,6 +1,7 @@
 import React from 'react'
 import FoodSelection from '../datePresentation/FoodSelection'
 import CardDeck from 'react-bootstrap/CardDeck'
+import CurrentDate from '../datePresentation/CurrentDate'
 
 export default class Food extends React.Component{
 
@@ -25,10 +26,10 @@ export default class Food extends React.Component{
     }
     }
 
-    addFoodToDate=(event)=>{
+    addFoodToDate=(food)=>{
         // debugger
         this.setState({
-            dateFood: event.target.value
+            dateFood: food
         })
     }
     componentDidMount(){
@@ -75,6 +76,8 @@ export default class Food extends React.Component{
     render(){
         // debugger
         return <div>
+            <CurrentDate food={this.state.dateFood}/>
+            <h4>Food offerings</h4>
             <CardDeck>
             {this.renderFoodSelction()}
             </CardDeck>
