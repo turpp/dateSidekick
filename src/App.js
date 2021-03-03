@@ -70,15 +70,15 @@ class App extends React.Component {
     this.props.checkLoggedIn(this.toggleLoading)
   }
 
-  checkLoginStatus = () =>{
-    // fetch('http://localhost:3000/logged_in',{
-      fetch('https://gentle-inlet-80267.herokuapp.com/logged_in',{
+  // checkLoginStatus = () =>{
+  //   // fetch('http://localhost:3000/logged_in',{
+  //     fetch('https://gentle-inlet-80267.herokuapp.com/logged_in',{
 
-      credentials: 'include'
+  //     credentials: 'include'
 
-    }).then(resp=>resp.json()).then(json=>{
-    })
-  }
+  //   }).then(resp=>resp.json()).then(json=>{
+  //   })
+  // }
 
 
 
