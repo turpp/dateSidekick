@@ -2,9 +2,13 @@ import React from 'react'
 import FoodSelection from './FoodSelection'
 import ActivitySelection from './ActivitySelection'
 import {Card} from 'react-bootstrap'
+import {deleteDate} from '../redux/actions/authActions'
+import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 
-export default class PastDate extends React.Component{
+
+ class PastDate extends React.Component{
 
 
 
@@ -21,6 +25,7 @@ export default class PastDate extends React.Component{
                     <FoodSelection food={this.props.date.activities[0]} addFoodToDate={''} random='true' />
                     <Card.Footer>
                         <button onClick={()=>'this.handleFoodDate()'}>View Date</button>
+                        <button onClick={()=>this.props.deleteDate(this.props.date, this.props.history)}>Delete Date</button>
                     </Card.Footer>
                     </Card>
                     
@@ -43,7 +48,8 @@ export default class PastDate extends React.Component{
                     <ActivitySelection activity={this.props.date.activities[1]} addActivityToDate={''} random='true'/>
                     
                     <Card.Footer>
-                        <button onClick={()=>this.handleFoodActivityDate()}>Save date to profile</button>
+                        <button onClick={()=>'this.handleFoodActivityDate()'}>View Date</button>
+                        <button onClick={()=>this.props.deleteDate(this.props.date, this.props.history)}>Delete Date</button>
                     </Card.Footer>
 
                     </Card>
@@ -66,3 +72,11 @@ export default class PastDate extends React.Component{
 
 
 }
+
+
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        deleteDate: (date, history)=>{dispatch(deleteDate(date, history))}
+    }
+}
+export default withRouter(connect(null,mapDispatchToProps)(PastDate))

@@ -127,4 +127,21 @@ export const checkLoggedIn = (callback) =>{
             history.push('/profile')
         })
     }
+
+}
+
+
+export const deleteDate =(date, history)=>{
+    // debugger
+    return dispatch=>{
+        fetch(`${fetchUrl()}/outings/${date.id}`, {
+            method:'DELETE',
+            credentials: 'include'
+        } ).then(resp=>resp.json()).then(json=>{
+            dispatch({
+                type:'NOTHING'
+            })
+            window.location.reload()
+        })
+    }
 }
