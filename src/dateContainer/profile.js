@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import ActivitySelection from '../datePresentation/ActivitySelection'
 import PastDate from '../datePresentation/PastDate'
-class Profile extends React.Component{
+class Account extends React.Component{
     state={
         activities: [],
         dates: []
@@ -87,4 +87,4 @@ const mapStateToProps =(state)=>{
         user: state.authReducer.currentUser
     }
 }
-export default connect(mapStateToProps)(Profile)
+export default connect(mapStateToProps)(Account)
