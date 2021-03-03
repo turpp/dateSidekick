@@ -7,7 +7,7 @@ import Login from './dateContainer/Login'
 import Home from './datePresentation/Home'
 import {BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import Signup from './dateContainer/Signup'
-// import Profile from './dateContainer/Profile'
+import Profile from './dateContainer/Profile'
 import Navbar from './dateContainer/Navbar'
 import { compose } from 'redux';
 import {checkLoggedIn} from './redux/actions/authActions'
@@ -104,14 +104,14 @@ render(){
           <Route exact path='/random' component={Random}/>
           <Route exact path='/custom' component={Custom}/>
           <Route exact path='/login' component={Login}/>
-          {/* <Route exact path='/profile' render={props=>{
+          <Route exact path='/profile' render={props=>{
             if(this.props.loggedIn){
               return <Profile {...props}/>
             }else{
               return <Redirect to='/login'/>
               // return <Login {...props}/>
             }
-          }}  /> */}
+          }}  />
           <Route exact path='/signup' component={Signup}/>
         </Switch>
       </Router>
