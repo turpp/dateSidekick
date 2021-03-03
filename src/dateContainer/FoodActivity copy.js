@@ -3,7 +3,7 @@ import FoodSelection from '../datePresentation/FoodSelection'
 import ActivitySelection from '../datePresentation/ActivitySelection'
 import CardDeck from 'react-bootstrap/CardDeck'
 import CurrentDate from '../datePresentation/CurrentDate'
-
+import {fetchUrl} from '../url'
 
 
 
@@ -63,8 +63,11 @@ export default class FoodActivity extends React.Component{
     componentDidMount(){
         // fetch(`http://localhost:3000/search/${this.props.zipcode}/${this.props.type}`).then(resp=>resp.json()).then(json=>{
             // console.log(json)
-            fetch(`https://gentle-inlet-80267.herokuapp.com/search/${this.props.zipcode}/${this.props.type}`).then(resp=>resp.json()).then(json=>{
+            // fetch(`https://gentle-inlet-80267.herokuapp.com/search/${this.props.zipcode}/${this.props.type}`).then(resp=>resp.json()).then(json=>{
 
+                        fetch(`${fetchUrl()}/search/${this.props.zipcode}/${this.props.type}`).then(resp=>resp.json()).then(json=>{
+
+            
             this.setState({
                 foodResults: json.food.businesses,
                 activityResults: json.activity.businesses

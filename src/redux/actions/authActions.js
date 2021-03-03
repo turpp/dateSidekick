@@ -1,8 +1,11 @@
+import {fetchUrl} from '../../url'
+
 export const signup=(user, history)=>{
     return dispatch=>{
         // fetch('http://localhost:3000/users',{
-            fetch('https://gentle-inlet-80267.herokuapp.com/users',{
-   
+            // fetch('https://gentle-inlet-80267.herokuapp.com/users',{
+                fetch(`${fetchUrl()}/users`,{
+
         method: 'POST',
 
             headers:{
@@ -28,7 +31,8 @@ export const signup=(user, history)=>{
 export const login=(user, history)=>{
     return dispatch=>{
         // fetch('http://localhost:3000/sessions',{
-            fetch('https://gentle-inlet-80267.herokuapp.com/sessions',{
+            // fetch('https://gentle-inlet-80267.herokuapp.com/sessions',{
+                fetch(`${fetchUrl()}/sessions`,{
 
             method: 'POST',
             headers:{
@@ -52,7 +56,8 @@ export const login=(user, history)=>{
 export const checkLoggedIn = (callback) =>{
     return(dispatch)=>{
     // fetch('http://localhost:3000/logged_in',{
-        fetch('https://gentle-inlet-80267.herokuapp.com/logged_in',{
+        // fetch('https://gentle-inlet-80267.herokuapp.com/logged_in',{
+    fetch(`${fetchUrl()}/logged_in`,{
 
       credentials: 'include'
     }).then(resp=>resp.json()).then(json=>{
@@ -69,7 +74,8 @@ export const checkLoggedIn = (callback) =>{
   export const logout =(history)=>{
       return dispatch=>{
         //   fetch('http://localhost:3000/logout',{
-            fetch('https://gentle-inlet-80267.herokuapp.com/logout',{
+            // fetch('https://gentle-inlet-80267.herokuapp.com/logout',{
+                fetch(`${fetchUrl()}/logout`,{
 
               method:'DELETE',
               credentials: 'include'
@@ -85,9 +91,9 @@ export const checkLoggedIn = (callback) =>{
   export const saveFoodDate = (food, user, history)=>{
       return dispatch=>{
         //   fetch('http://localhost:3000/outings', {
-            fetch('https://gentle-inlet-80267.herokuapp.com/outings', {
-
-            method: 'POST',
+            // fetch('https://gentle-inlet-80267.herokuapp.com/outings', {
+                fetch(`${fetchUrl()}/outings`, {
+                    method: 'POST',
             headers:{
                 'Content-Type': 'application/json'
             },
@@ -105,7 +111,8 @@ export const checkLoggedIn = (callback) =>{
   export const saveFoodActivityDate = (food, activity, user, history)=>{
     return dispatch=>{
         // fetch('http://localhost:3000/outings', {
-            fetch('https://gentle-inlet-80267.herokuapp.com/outings', {
+            // fetch('https://gentle-inlet-80267.herokuapp.com/outings', {
+                fetch(`${fetchUrl()}/outings`, {
 
           method: 'POST',
           headers:{

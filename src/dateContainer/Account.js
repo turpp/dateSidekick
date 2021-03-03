@@ -2,6 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import ActivitySelection from '../datePresentation/ActivitySelection'
 import PastDate from '../datePresentation/PastDate'
+import {fetchUrl} from '../url'
+
 class Account extends React.Component{
     state={
         activities: [],
@@ -21,7 +23,9 @@ componentDidMount(){
 
     // fetch(`http://localhost:3000/users/${this.props.user.id}`).then(resp=>resp.json()).then(json=>{
         // console.log(json)
-        fetch(`https://gentle-inlet-80267.herokuapp.com/users/${this.props.user.id}`).then(resp=>resp.json()).then(json=>{
+        // fetch(`https://gentle-inlet-80267.herokuapp.com/users/${this.props.user.id}`).then(resp=>resp.json()).then(json=>{
+
+            fetch(`${fetchUrl()}/users/${this.props.user.id}`).then(resp=>resp.json()).then(json=>{
 
         let activities = json.outings.map((outing)=>{
 //need to get the activites to save to store corecctly and then it will be working

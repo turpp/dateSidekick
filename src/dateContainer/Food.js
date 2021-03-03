@@ -2,6 +2,7 @@ import React from 'react'
 import FoodSelection from '../datePresentation/FoodSelection'
 import CardDeck from 'react-bootstrap/CardDeck'
 import CurrentDate from '../datePresentation/CurrentDate'
+import {fetchUrl} from '../url'
 
 export default class Food extends React.Component{
 
@@ -49,7 +50,8 @@ export default class Food extends React.Component{
 
         // debugger
         // fetch(`http://localhost:3000/search/${this.props.zipcode}/${this.props.type}`).then(resp=>resp.json()).then(json=>{
-            fetch(`https://gentle-inlet-80267.herokuapp.com/search/${this.props.zipcode}/${this.props.type}`).then(resp=>resp.json()).then(json=>{
+            // fetch(`https://gentle-inlet-80267.herokuapp.com/search/${this.props.zipcode}/${this.props.type}`).then(resp=>resp.json()).then(json=>{
+                fetch(`${fetchUrl()}/search/${this.props.zipcode}/${this.props.type}`).then(resp=>resp.json()).then(json=>{
 
             // console.log(json)
             this.setState({

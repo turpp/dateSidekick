@@ -13,6 +13,7 @@ import { compose } from 'redux';
 import {checkLoggedIn} from './redux/actions/authActions'
 import {connect} from 'react-redux'
 import {redirect} from 'react-router-dom'
+import {fetchUrl} from './url'
 
 
 class App extends React.Component {
@@ -85,6 +86,7 @@ class App extends React.Component {
 
 
 render(){
+  console.log(fetchUrl())
   if(this.state.loading) return <h1>Loading...</h1>
   return (
     <div className="App">
