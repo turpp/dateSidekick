@@ -26,45 +26,50 @@ componentDidMount(){
         // fetch(`https://gentle-inlet-80267.herokuapp.com/users/${this.props.user.id}`).then(resp=>resp.json()).then(json=>{
 
             fetch(`${fetchUrl()}/users/${this.props.user.id}`).then(resp=>resp.json()).then(json=>{
+                // debugger
 
-        let activities = json.outings.map((outing)=>{
 //need to get the activites to save to store corecctly and then it will be working
 // I need the activites to be saved as an array of objects
 // I have to figure out a way to get the two activiy date to just be objects and not arrays
-            let a = []
-            if(outing.activities.length==1){
-                return outing.activities[0]
-            }
-            if (outing.activities.length==2){
-                a.push(outing.activities[0])
-                a.push (outing.activities[1])
-            }
-            return a
-        })
+            let activities = []
+            let outings =[]
+            json.included.forEach(data=>{
+                if(data.type==='activity'){
+                 activities.push(data)
+                } else {
+                    outings.push(data)
+                }
+            })
+            
+
+
+
         // debugger
         this.setState({
             activities: activities,
-            dates: json.outings
+            dates: outings
         })
     
     })
 }
 
 renderActivities=()=>{
+    // debugger
     if(this.state.activities.length >0){
         return this.state.activities.map(activity =>{
-            return <ActivitySelection activity={activity} addActivityToDate={''} random='true'/>
+            return <ActivitySelection activity={activity.attributes} addActivityToDate={''} random='true'/>
         })
     }
 }
 
 renderDates=()=>{
-    if(this.state.activities.length >0){
+    // debugger
+    if(this.state.dates.length >0){
         return this.state.dates.map(date=>{
-            if(date.activities.length == 1){
-            return <PastDate date={date} type='food'/>
+            if(date.attributes.activities.length == 1){
+            return <PastDate date={date.attributes} type='food'/>
             }else{
-            return <PastDate date={date} type='food-activity'/>
+            return <PastDate date={date.attributes} type='food-activity'/>
 
             }
         })

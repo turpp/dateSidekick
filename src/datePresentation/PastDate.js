@@ -9,7 +9,7 @@ export default class PastDate extends React.Component{
 
 
     renderPastDate=()=>{
-
+        // debugger
         switch(this.props.type){
             case('food'):
             
