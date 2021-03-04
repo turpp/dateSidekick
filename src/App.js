@@ -8,7 +8,7 @@ import Home from './datePresentation/Home'
 import {BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import Signup from './dateContainer/Signup'
 import Account from './dateContainer/Account'
-import Navbar from './dateContainer/Navbar'
+import Navbarr from './dateContainer/Navbar'
 import {checkLoggedIn} from './redux/actions/authActions'
 import {connect} from 'react-redux'
 
@@ -19,11 +19,11 @@ class App extends React.Component {
     loading: true
   }
 
-    toggleLoading =()=>{
-      this.setState({
-        loading: !this.state.loading
-      })
-    }
+  toggleLoading =()=>{
+    this.setState({
+      loading: !this.state.loading
+    })
+  }
 
   componentDidMount(){
     this.props.checkLoggedIn(this.toggleLoading)
@@ -34,7 +34,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <Navbar/>
+          <Navbarr/>
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route exact path='/random' component={Random}/>
