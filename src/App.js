@@ -9,51 +9,12 @@ import {BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-do
 import Signup from './dateContainer/Signup'
 import Account from './dateContainer/Account'
 import Navbar from './dateContainer/Navbar'
-import { compose } from 'redux';
 import {checkLoggedIn} from './redux/actions/authActions'
 import {connect} from 'react-redux'
-import {redirect} from 'react-router-dom'
-import {fetchUrl} from './url'
 
 
 class App extends React.Component {
-  state={
-    activeButton: ''
-  }
   
-  handleClick=(event)=>{
-    switch(event.target.id){
-      case('custom-date'):
-        this.setState({
-          activeButton: 'custom-date'
-        })
-      break
-      case('random-date'):
-        this.setState({
-          activeButton: 'random-date'
-        })
-      break
-      case('sign-in'):
-        this.setState({
-          activeButton: 'sign-in'
-        })
-      break
-      default:
-        return <p>Sorry button is under service. Check back later.</p>
-    }
-  }
-
-  renderComponet=()=>{
-    switch(this.state.activeButton){
-      case 'custom-date':
-        return <Custom/>
-      case 'random-date':
-        return <Random/>
-      case 'sign-in':
-        return <Login/>
-      default: 
-    }
-  }
   state={
     loading: true
   }
@@ -69,7 +30,6 @@ class App extends React.Component {
   }
 
   render(){
-    console.log(fetchUrl())
     if(this.state.loading) return <h1>Loading...</h1>
     return (
       <div className="App">
