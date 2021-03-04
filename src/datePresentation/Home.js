@@ -8,8 +8,6 @@ function Home(){
         <a href='/custom'><button id='custom-date'>Create custom Date</button></a>
         <a href='/signin'><button id='sign-in'>Sign In</button></a>
         </div>
-
-
     )
 }
 

@@ -9,7 +9,6 @@ class Login extends React.Component{
         password: '',
     }
 
-
     handleChange=(event)=>{
         this.setState({
             [event.target.name]: event.target.value
@@ -18,10 +17,8 @@ class Login extends React.Component{
 
     handleSubmit=(event)=>{
         event.preventDefault()
-        // debugger
        this.props.login(this.state, this.props.history)
-}
-
+    }
 
     render(){
         return <div>
@@ -31,9 +28,7 @@ class Login extends React.Component{
                 <label>Password:</label>
                 <input name='password' type='password' value={this.state.password} placeholder='password' onChange={this.handleChange}/>
                 <input type='submit'/>
-                
             </form>
-
         </div>
     }
 }

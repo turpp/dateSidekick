@@ -1,7 +1,6 @@
 export default (state={loggedIn: false, currentUser: {}}, action)=>{
     switch(action.type){
         case 'AUTH_SUCCESSFUL':
-            // debugger
             return {
                 ...state,
                  loggedIn: action.payload.loggedIn,

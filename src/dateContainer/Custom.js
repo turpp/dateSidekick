@@ -25,11 +25,8 @@ export default class Custom extends React.Component{
         })
     }
 
-
     handleChange=(event)=>{
         let prevState=this.state.zipcode
-        
-
         if(event.target.value !== 5){
             this.setState({
                 renderFood: false,
@@ -41,77 +38,57 @@ export default class Custom extends React.Component{
                 zipcode: event.target.value
             })
         }
-        
-        
-        
     }
 
 
     handleSubmit=(event)=>{
         event.preventDefault()
-        // debugger
         if(this.state.dateType  && this.state.zipcode !== ''){
-        switch(this.state.dateType){
-            case 'food':
-               this.setState({
-                   renderFood: true,
-                   renderActivity: false
-               })
-               break
-            case 'food-activity':
+            switch(this.state.dateType){
+                case 'food':
                 this.setState({
-                    renderActivity: true,
-                    renderFood: true
-                })
-                break
-            default:
-                this.setState({
-                    renderFood: false,
+                    renderFood: true,
                     renderActivity: false
                 })
-                // return <DateTemplates handleClick={this.handleClick}/>
+                break
+                case 'food-activity':
+                    this.setState({
+                        renderActivity: true,
+                        renderFood: true
+                    })
+                break
+                default:
+                    this.setState({
+                        renderFood: false,
+                        renderActivity: false
+                    })
+            }
         }
-    }
     }
 
     renderTemplate=()=>{
-
-    //     if(this.state.dateType  && this.state.zipcode !== ''){
-    //     switch(this.state.dateType){
-    //         case 'food':
-    //             return <Food/>
-    //         case 'food-activity':
-    //             return <FoodActivity/>
-    //         default:
-    //     }
-    // } else{
-    //     return <DateTemplates handleClick={this.handleClick}/>
-    // }
-    // }
         return <DateTemplates handleClick={this.handleClick} handleSubmit={this.handleSubmit} handleChange={this.handleChange} zipcode={this.state.zipcode}/>
     }
-
     
     renderChoices=()=>{
         switch(true){
             case(this.state.renderFood && this.state.renderActivity):
                return <div>
-               <CurrentDate food={this.state.dateFood} activity={this.state.dateActivity} type='food-activity'/>
-               <Food zipcode={this.state.zipcode} type='food' random='false' addFoodToDate={this.addFoodToDate}/>
-               <Activity zipcode={this.state.zipcode} type='food-activity' random='false' addActivityToDate={this.addActivityToDate}/>
-               </div>
+                    <CurrentDate food={this.state.dateFood} activity={this.state.dateActivity} type='food-activity'/>
+                    <Food zipcode={this.state.zipcode} type='food' random='false' addFoodToDate={this.addFoodToDate}/>
+                    <Activity zipcode={this.state.zipcode} type='food-activity' random='false' addActivityToDate={this.addActivityToDate}/>
+                </div>
             case (!this.state.renderActivity && this.state.renderFood):
                 return <div>
                     <CurrentDate food={this.state.dateFood} activity={this.state.dateActivity} type='food'/>
                     <Food zipcode={this.state.zipcode} type='food' random='false' addFoodToDate={this.addFoodToDate}/>
-                    </div>
+                </div>
             default: 
              return <p>Select date type and enter 5 digit zipcode</p>
         }
     }
 
     addFoodToDate=(food)=>{
-        // debugger
         this.setState({
             dateFood: food
         })
@@ -123,23 +100,10 @@ export default class Custom extends React.Component{
         })
     }
 
-
-
-    // render
     render(){
         return <div>
             {this.renderTemplate()}
-            {/* <form onSubmit={this.handleSubmit}>
-                <label>Zipcode:</label>
-                <input type='number' value={this.state.zipcode} onChange={this.handleChange}/>
-                <input type='submit'/>
-            </form> */}
-            {/* {this.state.renderFood == true ? <Food zipcode={this.state.zipcode} type='food' random='false'/>: '' }
-            {this.state.renderFoodActivity == true ? <FoodActivity zipcode={this.state.zipcode} type='food-activity' random='false'/>: ''} */}
             {this.renderChoices()}
-            </div>
-            
-
-        //can put a if statement to render the buttons and also zipcode and once both submit render the swtich statement
+        </div>
     }
 }

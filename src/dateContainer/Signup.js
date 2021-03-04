@@ -10,7 +10,6 @@ class Signup extends React.Component{
         password_confirmation: '',
     }
 
-
     handleChange=(event)=>{
         this.setState({
             [event.target.name]: event.target.value
@@ -19,10 +18,8 @@ class Signup extends React.Component{
 
     handleSubmit=(event)=>{
         event.preventDefault()
-        // debugger
-       this.props.signup(this.state, this.props.history)
+        this.props.signup(this.state, this.props.history)
 }
-
 
     render(){
         return <div>
@@ -33,10 +30,8 @@ class Signup extends React.Component{
                 <input name='password' type='password' value={this.state.password} placeholder='password' onChange={this.handleChange}/>
                 <label>Password Confirmation:</label>
                 <input name='password_confirmation' type='password' value ={this.state.password_confirmation} placeholder='retype password' onChange={this.handleChange}/>
-                <input type='submit'/>
-                
+                <input type='submit'/> 
             </form>
-
         </div>
     }
 }
