@@ -19,10 +19,12 @@ class FoodSelection extends React.Component {
                         <h6>{this.props.food.price}</h6>
                         <p>{this.props.food.location.display_address}</p>
                         <p>{this.props.food.display_phone}</p>
+                        <div>
                         <h4>Categories</h4>
                         <ul>
                             {this.renderCategories()}
                         </ul>
+                        </div>
                     </Card.Text>
                     {this.props.random ==='false' ? <Button variant='primary' value={this.props.food} onClick={()=>this.props.addFoodToDate(this.props.food)}>Add To Date</Button> : ''}
                     <a href={this.props.food.url} target='_blank'><Button variant='secondary'>Check out on Yelp!</Button></a>
