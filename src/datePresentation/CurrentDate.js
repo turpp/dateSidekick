@@ -1,7 +1,7 @@
 import React from 'react'
 import FoodSelection from './FoodSelection'
 import ActivitySelection from './ActivitySelection'
-import {Card} from 'react-bootstrap'
+import {Card, Container, Row, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {saveFoodDate} from '../redux/actions/authActions'
 import {saveFoodActivityDate} from '../redux/actions/authActions'
@@ -22,13 +22,13 @@ class CurrentDate extends React.Component{
             case('food'):
             if(!Array.isArray(this.props.food)){
                 return <div>
-                    <Card>
+                    <Card >
                         <Card.Header>
                             <h4>Current Date</h4>
                         </Card.Header>
                         <FoodSelection food={this.props.food} addFoodToDate={''} random='true' />
                         <Card.Footer>
-                            <button onClick={()=>this.handleFoodDate()}>Save date to profile</button>
+                            <Button onClick={()=>this.handleFoodDate()}>Save date to profile</Button>
                         </Card.Footer>
                     </Card>
                 <br></br>
@@ -39,17 +39,22 @@ class CurrentDate extends React.Component{
             }
             case('food-activity'):
             if(Array.isArray(this.props.food)&&(Array.isArray(this.props.activity))){
-                return <h4> Select a place to eat and something to do from below</h4>
+                return <h4><u>Select a place to eat and something to do from below</u></h4>
             }else{
                 return <div>
                     <Card>
                         <Card.Header>
                             <h4>Current Date</h4>
                         </Card.Header>
+                        <Container>
+                            <Row>
                         {!Array.isArray(this.props.food)? <FoodSelection food={this.props.food} addFoodToDate='' random = 'true'/>: ''}
+                        
                         {!Array.isArray(this.props.activity)? <ActivitySelection activity={this.props.activity} addActivityToDate={''} random='true'/> : ''}
+                        </Row>
+                        </Container>
                         <Card.Footer>
-                            <button onClick={()=>this.handleFoodActivityDate()}>Save date to profile</button>
+                            <Button variant = 'success' onClick={()=>this.handleFoodActivityDate()}>Save date to profile</Button>
                         </Card.Footer>
                     </Card>
                 <br></br>
@@ -58,7 +63,7 @@ class CurrentDate extends React.Component{
             }
             default:
                 return <div>
-                    <h4>Select a place to eat from below</h4>
+                    <h4><u>Select a place to eat from below</u></h4>
                 </div>
         }
     }

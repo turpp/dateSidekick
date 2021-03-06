@@ -1,6 +1,6 @@
 import React from 'react'
 import ActivitySelection from '../datePresentation/ActivitySelection'
-import CardDeck from 'react-bootstrap/CardDeck'
+import {CardDeck, Carousel, Container, ListGroup, Row, Col} from 'react-bootstrap'
 import CurrentDate from '../datePresentation/CurrentDate'
 import {fetchUrl} from '../url'
 
@@ -17,9 +17,31 @@ export default class Activity extends React.Component{
                 let randomActivity = this.state.activityResults[Math.floor(Math.random() * this.state.activityResults.length)]
                 return <ActivitySelection activity={randomActivity} addActivityToDate={this.props.addActivityToDate} random='true'/>
             }else{
-                return this.state.activityResults.map(result=>{
+                // return this.state.activityResults.map(result=>{
+                //     return <ActivitySelection activity={result} addActivityToDate={this.props.addActivityToDate} random='false'/>
+                // })
+
+                let activityCards = this.state.activityResults.map(result=>{
                     return <ActivitySelection activity={result} addActivityToDate={this.props.addActivityToDate} random='false'/>
+            })
+
+            let slides = [activityCards.slice(0,3),activityCards.slice(3,6),activityCards.slice(6,9),activityCards.slice(9,12),activityCards.slice(12,15),activityCards.slice(15,18),activityCards.slice(18,21)]
+            return <Carousel >
+            {slides.map(slide=>{
+               return <Carousel.Item >
+                <Row>
+                {slide.map(result=>{
+                    return <Col>
+                    <div className='d-block h-50'>
+                    {result}
+                    </div>
+                    </Col>
                 })
+            }
+            </Row>
+            </Carousel.Item>
+            })}
+            </Carousel>
             }
         }
     }
@@ -34,10 +56,14 @@ export default class Activity extends React.Component{
 
     render(){
         return <div>
-            <h4>Activity offerings</h4>
-            <CardDeck>
-                {this.renderActivitySelection()}
-            </CardDeck>
+            <h2>Activity Offerings</h2>
+            <Container fluid>
+               <Row>
+            <Col>
+{this.renderActivitySelection()}    
+        </Col>
+        </Row> 
+        </Container>
         </div>
     }
 }

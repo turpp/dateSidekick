@@ -1,4 +1,5 @@
 import React from 'react'
+import { Container, Row } from 'react-bootstrap'
 import {connect} from 'react-redux'
 import ActivitySelection from '../datePresentation/ActivitySelection'
 import PastDate from '../datePresentation/PastDate'
@@ -39,22 +40,41 @@ class Account extends React.Component{
         if(this.state.dates.length >0){
             return this.state.dates.map(date=>{
                 if(date.attributes.activities.length == 1){
-                    return <PastDate date={date.attributes} type='food'/>
+                    return <div>
+                        <Container fluid>
+                        <Row className="justify-content-md-center">
+
+                        <PastDate date={date.attributes} type='food'/>
+                        </Row>
+                        </Container>
+                        </div>
                 }else{
-                    return <PastDate date={date.attributes} type='food-activity'/>
+                    return<div>
+                            <Container fluid>
+                        <Row className="justify-content-md-center">
+
+                        <PastDate date={date.attributes} type='food-activity'/>
+                        </Row>
+                        </Container>
+
+                    </div> 
                 }
             })
         }
     }
         render(){
         return <div>
-            <h2>Welcome {this.props.user.username}, this is your profile</h2>
-            <h4>Dates you have saved</h4>
+            <h2>Welcome {this.props.user.username}, this is your Account</h2>
+            <h4><u>Dates you have saved</u></h4>
             {this.renderDates()}
 
             <h4>All Food and Places you have saved</h4>
             <ul> Total places = {this.state.activities.length}
+            <Container>
+            <Row className="justify-content-md-center">
                     {this.renderActivities()}
+                    </Row>
+                    </Container>
             </ul>
         </div>
         }

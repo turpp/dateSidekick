@@ -32,13 +32,15 @@ export default class Food extends React.Component{
                 })
 
                 let slides = [foodCards.slice(0,3),foodCards.slice(3,6),foodCards.slice(6,9),foodCards.slice(9,12),foodCards.slice(12,15),foodCards.slice(15,18),foodCards.slice(18,21)]
-                return <Carousel>
+                return <Carousel >
                 {slides.map(slide=>{
-                   return <Carousel.Item>
+                   return <Carousel.Item >
                     <Row>
                     {slide.map(result=>{
                         return <Col>
+                        <div className='d-block h-50'>
                         {result}
+                        </div>
                         </Col>
                     })
                 }
@@ -60,7 +62,7 @@ export default class Food extends React.Component{
 
     render(){
         return <div>
-            <h4>Food offerings</h4>
+            <h2>Food Offerings</h2>
             <Container fluid>
                <Row>
             <Col>

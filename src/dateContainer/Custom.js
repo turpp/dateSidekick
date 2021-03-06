@@ -79,14 +79,31 @@ export default class Custom extends React.Component{
         switch(true){
             case(this.state.renderFood && this.state.renderActivity):
                return <div>
-                    <CurrentDate food={this.state.dateFood} activity={this.state.dateActivity} type='food-activity'/>
+                    {/* <CurrentDate food={this.state.dateFood} activity={this.state.dateActivity} type='food-activity'/> */}
+                    <Container fluid>
+                        <Row className="justify-content-md-center">
+
                     <Food zipcode={this.state.zipcode} type='food' random='false' addFoodToDate={this.addFoodToDate}/>
+                    </Row>
+                    </Container>
+                    <br></br>
+                    <br></br>
+                    <Container fluid>
+                        <Row className="justify-content-md-center">
+
                     <Activity zipcode={this.state.zipcode} type='food-activity' random='false' addActivityToDate={this.addActivityToDate}/>
+                    </Row>
+                    </Container>
+
                 </div>
             case (!this.state.renderActivity && this.state.renderFood):
                 return <div>
-                    <CurrentDate food={this.state.dateFood} activity={this.state.dateActivity} type='food'/>
+                    {/* <CurrentDate food={this.state.dateFood} activity={this.state.dateActivity} type='food'/> */}
+                    <Container fluid>
+                        <Row className="justify-content-md-center">
                     <Food zipcode={this.state.zipcode} type='food' random='false' addFoodToDate={this.addFoodToDate}/>
+                    </Row>
+                    </Container>
                 </div>
             default: 
              return <p>Select date type and enter 5 digit zipcode</p>
@@ -121,14 +138,21 @@ return <div>
 
 </Jumbotron>
 <Container fluid>
-    <Row className="justify-content-md-center">
+                        <Row className="justify-content-md-center">
 
-   
-{this.renderChoices()}    
+{this.state.dateType !== '' ? <CurrentDate food={this.state.dateFood} activity={this.state.dateActivity} type={this.state.dateType}/>: '' }
 </Row>
+                    </Container>
 
-</Container>
+{/* <Container fluid> */}
+    {/* <Row className="justify-content-md-center"> */}
+{this.renderChoices()}    
+{/* </Row> */}
 
+{/* </Container> */}
+<br></br>
+<br></br>
+<br></br>
   
 </div>
 

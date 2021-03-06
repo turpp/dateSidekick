@@ -45,23 +45,24 @@
 
 }
 
-/* .carousel{
-  width: 85% !important;
-  position: relative !important;
-  margin: auto !important
-} */
 
 .carousel-indicators li {
   background-color: black !important;
+  margin-bottom: -200px  !important;
 }
-.carousel-control-prev-icon, .carousel-control-next-icon {
+ol.carousel-indicators{
+  margin-bottom: -25px;
+}
+.carousel-control-prev-icon {
   background-color: black !important;
+  margin-left: -100px;
+  
 }
+.carousel-control-next-icon{
+  background-color: black !important;
+  margin-right: -100px;
 
-/* #carouselExampleIndicators{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-
-} */
+}
+.carousel-control-next, .carousel-control-prev{
+  width: 0%
+}

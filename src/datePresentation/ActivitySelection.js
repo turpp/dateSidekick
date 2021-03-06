@@ -10,7 +10,7 @@ class ActivitySelection extends React.Component{
     }
 
     render(){
-        return <div>
+        return (
             <Card style={{ width: '18rem' }}>
                 <Card.Img variant='top' src={this.props.activity.image_url} width='300px' height='300px'/>
                 <Card.Body>
@@ -28,7 +28,7 @@ class ActivitySelection extends React.Component{
                     <a href={this.props.activity.url} target='_blank'><Button variant='secondary'>Check out on Yelp!</Button></a>
                 </Card.Body>
             </Card>
-        </div>
+        )
     }
 }
 
