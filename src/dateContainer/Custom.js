@@ -3,6 +3,9 @@ import DateTemplates from '../datePresentation/DateTemplates'
 import Food from './Food'
 import Activity from './Activity'
 import CurrentDate from '../datePresentation/CurrentDate'
+import { Container, Jumbotron, CardDeck, Row } from 'react-bootstrap'
+import '../App.css';
+
 
 
 export default class Custom extends React.Component{
@@ -16,8 +19,9 @@ export default class Custom extends React.Component{
     }
 
     handleClick=(event)=>{
+        // debugger
         this.setState({
-            dateType: event.target.id,
+            dateType: event.target.name,
             renderFood: false,
             renderActivity: false,
             dateFood:[],
@@ -42,6 +46,7 @@ export default class Custom extends React.Component{
 
 
     handleSubmit=(event)=>{
+        // debugger
         event.preventDefault()
         if(this.state.dateType  && this.state.zipcode !== ''){
             switch(this.state.dateType){
@@ -101,9 +106,31 @@ export default class Custom extends React.Component{
     }
 
     render(){
-        return <div>
-            {this.renderTemplate()}
-            {this.renderChoices()}
-        </div>
+
+
+
+
+
+
+return <div>
+<Jumbotron fluid>
+
+
+
+<DateTemplates handleClick={this.handleClick} handleSubmit={this.handleSubmit} handleChange={this.handleChange} zipcode={this.state.zipcode}/>  
+
+</Jumbotron>
+<Container fluid>
+    <Row className="justify-content-md-center">
+
+   
+{this.renderChoices()}    
+</Row>
+
+</Container>
+
+  
+</div>
+
     }
 }

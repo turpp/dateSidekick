@@ -34,6 +34,7 @@ class Navbarr extends React.Component{
                 <Nav.Link><Link to='/signup'>Signup</Link></Nav.Link>
             </Nav.Item>
 
+                {/* <Link to='/signup'>Signup</Link> */}
             <Nav.Item>
                 <Nav.Link><Link to='/login'>Login</Link></Nav.Link>
             </Nav.Item>

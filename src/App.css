@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin: auto;
 }
 
 .App-logo {
@@ -37,3 +38,30 @@
   }
 }
 
+.Test{
+  text-align: center;
+  margin: auto;
+  width: 65%;
+
+}
+
+/* .carousel{
+  width: 85% !important;
+  position: relative !important;
+  margin: auto !important
+} */
+
+.carousel-indicators li {
+  background-color: black !important;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  background-color: black !important;
+}
+
+/* #carouselExampleIndicators{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+
+} */
