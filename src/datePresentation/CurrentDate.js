@@ -42,7 +42,7 @@ class CurrentDate extends React.Component{
                 return <h4><u>Select a place to eat and something to do from below</u></h4>
             }else{
                 return <div>
-                    <Card>
+                    <Card >
                         <Card.Header>
                             <h4>Current Date</h4>
                         </Card.Header>

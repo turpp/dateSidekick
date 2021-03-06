@@ -10,22 +10,22 @@ class FoodSelection extends React.Component {
     }
 
     render(){
+        // debugger
         return (
             
-             <Card style={{ width: '18rem' }}>
-                <Card.Img variant='top' src={this.props.food.image_url} width='200px' height='200px'/>
+             <Card style={{ width: '18rem' }} className="shadow-sm p-3 mb-5 bg-body rounded">
+                <Card.Img className="border border-dark rounded" variant='top' src={this.props.food.image_url} width='250px' height='250px'/>
                 <Card.Body>
                     <Card.Title><h3>{this.props.food.name}</h3></Card.Title>
                     <Card.Text>
                         <h6>{this.props.food.price}</h6>
-                        <p>{this.props.food.location.display_address}</p>
+                        <p>{this.props.food.location.display_address[0]}<br></br>{this.props.food.location.display_address[1]}</p>
+                        
                         <p>{this.props.food.display_phone}</p>
-                        <div>
                         <h4>Categories</h4>
                         <ul>
                             {this.renderCategories()}
                         </ul>
-                        </div>
                     </Card.Text>
                     {this.props.random ==='false' ? <Button variant='primary' value={this.props.food} onClick={()=>this.props.addFoodToDate(this.props.food)}>Add To Date</Button> : ''}
                     <a href={this.props.food.url} target='_blank'><Button variant='secondary'>Check out on Yelp!</Button></a>

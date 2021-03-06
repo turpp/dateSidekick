@@ -54,15 +54,30 @@ ol.carousel-indicators{
   margin-bottom: -25px;
 }
 .carousel-control-prev-icon {
-  background-color: black !important;
+  background-color: blue !important;
+  height: 50px;
   margin-left: -100px;
-  
 }
+  
+
+/* .carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  color: red; */
+/* } */
 .carousel-control-next-icon{
-  background-color: black !important;
+  background-color: blue !important;
   margin-right: -100px;
+  height: 50px;
 
 }
 .carousel-control-next, .carousel-control-prev{
-  width: 0%
+  width: 0%;
+  opacity: .7 !important;
+
+}
+
+.navbar-nav{
+  margin-left: auto
 }

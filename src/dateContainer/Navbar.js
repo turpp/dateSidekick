@@ -3,12 +3,12 @@ import {Link} from 'react-router-dom'
 import {logout} from '../redux/actions/authActions'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
-import {Navbar,Nav} from 'react-bootstrap'
+import {Navbar,Nav, Row, Container, Col} from 'react-bootstrap'
 class Navbarr extends React.Component{
     render(){
         return  <Navbar bg="light" variant="light" >
             <Navbar.Brand><Link to='/'>Date Sidekick</Link></Navbar.Brand>
-            <Nav className="mr-auto">
+            <Nav className="mr-right">
             <Nav.Item>
                 <Nav.Link><Link to='/random'>Random Outing</Link></Nav.Link>
             </Nav.Item>

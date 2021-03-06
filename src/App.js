@@ -12,6 +12,7 @@ import Navbarr from './dateContainer/Navbar'
 import {checkLoggedIn} from './redux/actions/authActions'
 import {connect} from 'react-redux'
 import Loader from "react-loader-spinner";
+import {Container} from 'react-bootstrap'
 
 class App extends React.Component {
   
