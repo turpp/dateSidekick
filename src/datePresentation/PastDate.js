@@ -6,6 +6,7 @@ import {deleteDate, editDate} from '../redux/actions/authActions'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {Modal,Form} from 'react-bootstrap'
+import '../App'
 
  class PastDate extends React.Component{
 
@@ -49,14 +50,15 @@ import {Modal,Form} from 'react-bootstrap'
             case('food'):
                 return <div>
                     <Card>
-                        <Card.Header>
+                        {/* <Card.Header>
                             <h4>Date</h4>
-                        </Card.Header>
+                        </Card.Header> */}
+                        <Card.Body>
                         <FoodSelection food={this.props.date.activities[0]} addFoodToDate={''} random='true' />
-                        <h5 style={{textAlign: 'left'}}>When: <br></br>{!!this.props.date.date ? this.renderPrettyDate(): 'Add me!'}</h5>
+                        <h5 style={{textAlign: 'left'}}>When: <br></br>{!!this.props.date.date ? this.renderPrettyDate(): ' Add me!'}</h5>
 
                         <h5 style={{textAlign: 'left'}}>Notes:<br></br>{!!this.props.date.notes ? this.props.date.notes: '- Tell me about it?!?!?'}</h5>
-
+                        </Card.Body>
                         <Card.Footer>
                         <Button variant="info" onClick={this.handleShow}>Edit Date</Button>
                             {/* <Button variant='info' onClick={()=>'this.handleFoodDate()'}>Edit Date</Button> */}
@@ -93,9 +95,9 @@ import {Modal,Form} from 'react-bootstrap'
             case('food-activity'):
                 return <div>
                     <Card>
-                        <Card.Header>
+                        {/* <Card.Header>
                             <h4>Date</h4>
-                        </Card.Header>
+                        </Card.Header> */}
                         <Container>
                             <Row>
 

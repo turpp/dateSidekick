@@ -50,9 +50,9 @@
   background-color: black !important;
   margin-bottom: -200px  !important;
 }
-ol.carousel-indicators{
+/* ol.carousel-indicators{
   margin-bottom: -25px;
-}
+} */
 .carousel-control-prev-icon {
   background-color: blue !important;
   height: 50px;
@@ -84,4 +84,11 @@ ol.carousel-indicators{
 
 a {
   padding: 0px 10px;
+}
+li{
+  text-align: left;
+}
+
+.mb-5{
+  margin-bottom: 1rem !important;
 }

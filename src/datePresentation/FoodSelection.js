@@ -13,16 +13,16 @@ class FoodSelection extends React.Component {
         // debugger
         return (
             
-             <Card style={{ width: '18rem' }} className="shadow-sm p-3 mb-5 bg-body rounded">
-                <Card.Img className="border border-dark rounded" variant='top' src={this.props.food.image_url} width='250px' height='250px'/>
+             <Card style={{ width: '20rem' }} className="shadow-sm p-3 mb-5 bg-body rounded">
+                <Card.Img className="border border-dark rounded" variant='top' src={this.props.food.image_url} width='200px' height='200px'/>
                 <Card.Body>
-                    <Card.Title><h3>{this.props.food.name}</h3></Card.Title>
+                    <Card.Title><h5>{this.props.food.name}</h5></Card.Title>
                    
                         <h6>{this.props.food.price}</h6>
                         <p>{this.props.food.location.display_address[0]}<br></br>{this.props.food.location.display_address[1]}</p>
                         
                         <p>{this.props.food.display_phone}</p>
-                        <h4>Categories</h4>
+                        <h6><u>Categories</u></h6>
                         <ul>
                             {this.renderCategories()}
                         </ul>
