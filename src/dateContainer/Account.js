@@ -21,6 +21,11 @@ class Account extends React.Component{
                     outings.push(data)
                 }
             })
+            // debugger
+            outings.sort(function(a,b){
+                return b.attributes.id - a.attributes.id
+            })
+
             this.setState({
                 activities: activities,
                 dates: outings
@@ -37,6 +42,12 @@ class Account extends React.Component{
     }
 
     renderDates=()=>{
+        // this.state.dates.sort(function(a,b){
+        //     debugger
+        //     return a.attributes.date - b.attributes.date
+        // })
+        // debugger
+        
         if(this.state.dates.length >0){
             return this.state.dates.map(date=>{
                 if(date.attributes.activities.length == 1){
