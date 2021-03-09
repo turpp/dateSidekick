@@ -4,11 +4,14 @@ import {connect} from 'react-redux'
 import ActivitySelection from '../datePresentation/ActivitySelection'
 import PastDate from '../datePresentation/PastDate'
 import {fetchUrl} from '../url'
+import Loader from "react-loader-spinner";
+
 
 class Account extends React.Component{
     state={
         activities: [],
-        dates: []
+        dates: [],
+        loading: true
     }
     componentDidMount(){
         fetch(`${fetchUrl()}/users/${this.props.user.id}`).then(resp=>resp.json()).then(json=>{
@@ -28,7 +31,8 @@ class Account extends React.Component{
 
             this.setState({
                 activities: activities,
-                dates: outings
+                dates: outings,
+                loading: false
             })
         })
     }
@@ -74,6 +78,17 @@ class Account extends React.Component{
         }
     }
         render(){
+            if(this.state.loading){
+                return <div className='App'>
+    <Loader
+      type="Puff"
+      color="#00BFFF"
+      height={100}
+      width={100}
+      timeout={3000} //3 secs
+    />
+  </div>
+            }
         return <div>
             <h2>Welcome {this.props.user.username}, this is your Account</h2>
             <h4><u>Dates you have saved</u></h4>
