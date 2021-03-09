@@ -121,3 +121,24 @@ export const deleteDate =(date, history)=>{
         })
     }
 }
+
+export const editDate =(outing, notes, date)=>{
+    // debugger
+    let dateObj = new Date(date)
+    let formatedDate = dateObj.toDateString()
+    return dispatch =>{
+        fetch(`${fetchUrl()}/outings/${outing.id}`,{
+            method: 'PATCH',
+            headers:{
+                'Content-Type': 'application/json'
+          },
+            credentials: 'include',
+            body: JSON.stringify({outing:{notes: notes, date:formatedDate}})
+        }).then(resp=>resp.json()).then(json=>{
+            dispatch({
+                type: 'NOTHING'
+            })
+            window.location.reload()
+        })
+    }
+}
