@@ -101,9 +101,7 @@ export default class Random extends React.Component{
             <Container >
                 <Row className="justify-content-md-center">
             <CardDeck>
-               
                 {this.state.renderDate ? this.renderRandomDate():<p>Please select a date template and enter zipcode</p>}
-                
             </CardDeck>
             </Row>
             </Container>

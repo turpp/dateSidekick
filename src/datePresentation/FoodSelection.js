@@ -5,7 +5,7 @@ class FoodSelection extends React.Component {
     
     renderCategories=()=>{
         return this.props.food.categories.map(c=>{
-            return <li>{c.title}</li>
+            return <li key={c.title}>{c.title}</li>
         })
     }
 
@@ -17,7 +17,7 @@ class FoodSelection extends React.Component {
                 <Card.Img className="border border-dark rounded" variant='top' src={this.props.food.image_url} width='250px' height='250px'/>
                 <Card.Body>
                     <Card.Title><h3>{this.props.food.name}</h3></Card.Title>
-                    <Card.Text>
+                   
                         <h6>{this.props.food.price}</h6>
                         <p>{this.props.food.location.display_address[0]}<br></br>{this.props.food.location.display_address[1]}</p>
                         
@@ -26,7 +26,7 @@ class FoodSelection extends React.Component {
                         <ul>
                             {this.renderCategories()}
                         </ul>
-                    </Card.Text>
+                    
                     {this.props.random ==='false' ? <Button variant='primary' value={this.props.food} onClick={()=>this.props.addFoodToDate(this.props.food)}>Add To Date</Button> : ''}
                     <a href={this.props.food.url} target='_blank'><Button variant='secondary'>Check out on Yelp!</Button></a>
                 </Card.Body>
