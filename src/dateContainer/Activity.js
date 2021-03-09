@@ -3,12 +3,15 @@ import ActivitySelection from '../datePresentation/ActivitySelection'
 import {CardDeck, Carousel, Container, ListGroup, Row, Col} from 'react-bootstrap'
 import CurrentDate from '../datePresentation/CurrentDate'
 import {fetchUrl} from '../url'
+import Loader from "react-loader-spinner";
+
 
 export default class Activity extends React.Component{
     state={
         search: '', 
         activityResults: [],
-        dateActivity:{}
+        dateActivity:{},
+        loading: true
     }
 
     renderActivitySelection=()=>{
@@ -26,7 +29,7 @@ export default class Activity extends React.Component{
             })
 
             let slides = [activityCards.slice(0,3),activityCards.slice(3,6),activityCards.slice(6,9),activityCards.slice(9,12),activityCards.slice(12,15),activityCards.slice(15,18),activityCards.slice(18,21)]
-            return <Carousel >
+            return <Carousel fade >
             {slides.map(slide=>{
                return <Carousel.Item >
                 <Row>
@@ -49,12 +52,24 @@ export default class Activity extends React.Component{
     componentDidMount(){
         fetch(`${fetchUrl()}/search/${this.props.zipcode}/${this.props.type}`).then(resp=>resp.json()).then(json=>{
             this.setState({
-                activityResults: json.activity.businesses
+                activityResults: json.activity.businesses,
+                loading: false
             })           
         })
     }
 
     render(){
+        if(this.state.loading){
+            return <div className='App'>
+    <Loader
+      type="Puff"
+      color="#00BFFF"
+      height={100}
+      width={100}
+      timeout={3000} //3 secs
+    />
+  </div>
+        }
         return <div>
             <h2>Activity Offerings</h2>
             <Container fluid>

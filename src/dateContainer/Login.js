@@ -2,6 +2,7 @@ import React from 'react'
 import {login} from '../redux/actions/authActions'
 import {connect} from 'react-redux'
 import {Form,Card, Button, Container,Row} from 'react-bootstrap'
+import Loader from "react-loader-spinner";
 
 class Login extends React.Component{
 
@@ -22,6 +23,17 @@ class Login extends React.Component{
     }
 
     render(){
+        if(this.props.loading){
+            return <div className='App'>
+            <Loader
+              type="Puff"
+              color="#00BFFF"
+              height={100}
+              width={100}
+              timeout={3000} //3 secs
+            />
+          </div>
+        }
         return <div id='login'>
             <br></br>
             <br></br>
@@ -56,5 +68,10 @@ const mapDispatchToProps = (dispatch)=>{
         login : (user, history)=>{dispatch(login(user,history))}
     }
 }
+const mapStateToProps =(state)=>{
+    return{
+        loading: state.authReducer.fetching
+    }
+}
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

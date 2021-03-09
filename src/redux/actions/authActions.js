@@ -2,6 +2,7 @@ import {fetchUrl} from '../../url'
 
 export const signup=(user, history)=>{
     return dispatch=>{
+        dispatch({type: 'STARTING_FETCH'})
         fetch(`${fetchUrl()}/users`,{
             method: 'POST',
             headers:{
@@ -32,6 +33,7 @@ export const signup=(user, history)=>{
 
 export const login=(user, history)=>{
     return dispatch=>{
+        dispatch({type: 'STARTING_FETCH'})
         fetch(`${fetchUrl()}/sessions`,{
             method: 'POST',
             headers:{
@@ -81,6 +83,7 @@ export const logout =(history)=>{
 
 export const saveFoodDate = (food, user, history)=>{
     return dispatch=>{
+        dispatch({type: 'STARTING_FETCH'})
         fetch(`${fetchUrl()}/outings`, {
             method: 'POST',
             headers:{
@@ -99,6 +102,7 @@ export const saveFoodDate = (food, user, history)=>{
 
 export const saveFoodActivityDate = (food, activity, user, history)=>{
     return dispatch=>{
+        dispatch({type: 'STARTING_FETCH'})
         fetch(`${fetchUrl()}/outings`, {
             method: 'POST',
             headers:{
@@ -135,6 +139,7 @@ export const editDate =(outing, notes, date)=>{
     // let formatedDate = dateObj.toDateString()
     // debugger
     return dispatch =>{
+        dispatch({type: 'STARTING_FETCH'})
         fetch(`${fetchUrl()}/outings/${outing.id}`,{
             method: 'PATCH',
             headers:{

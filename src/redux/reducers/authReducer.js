@@ -1,16 +1,23 @@
-export default (state={loggedIn: false, currentUser: {}, errorMessage: ''}, action)=>{
+export default (state={loggedIn: false, currentUser: {}, errorMessage: '', fetching: false}, action)=>{
     switch(action.type){
         case 'AUTH_SUCCESSFUL':
             return {
                 ...state,
                  loggedIn: action.payload.loggedIn,
                   currentUser: action.payload.currentUser,
-                  errorMessage: ''
+                  errorMessage: '',
+                  fetching: false
                 }
         case 'AUTH_FAILED':
             return{
                 ...state,
-                errorMessage: action.payload.errorMessage
+                errorMessage: action.payload.errorMessage,
+                fetching: false
+            }
+        case 'STARTING_FETCH':
+            return{
+                ...state,
+                fetching: true
             }
             case 'LOGOUT':
                 return {
@@ -19,6 +26,9 @@ export default (state={loggedIn: false, currentUser: {}, errorMessage: ''}, acti
                     currentUser: {}
                 }
         default:
-            return state
+            return {
+                ...state,
+                fetching: false
+            }
     }
 }

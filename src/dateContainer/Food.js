@@ -3,6 +3,8 @@ import FoodSelection from '../datePresentation/FoodSelection'
 import {CardDeck, Carousel, Container, ListGroup, Row, Col} from 'react-bootstrap'
 import CurrentDate from '../datePresentation/CurrentDate'
 import {fetchUrl} from '../url'
+import Loader from "react-loader-spinner";
+
 import '../App.css';
 // import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -13,7 +15,8 @@ export default class Food extends React.Component{
     state={
         search: '', 
         results: [],
-        dateFood: {}
+        dateFood: {},
+        loading: true
     }
 
 
@@ -32,7 +35,7 @@ export default class Food extends React.Component{
                 })
 
                 let slides = [foodCards.slice(0,3),foodCards.slice(3,6),foodCards.slice(6,9),foodCards.slice(9,12),foodCards.slice(12,15),foodCards.slice(15,18),foodCards.slice(18,21)]
-                return <Carousel >
+                return <Carousel fade >
                 {slides.map(slide=>{
                    return <Carousel.Item >
                     <Row>
@@ -55,12 +58,25 @@ export default class Food extends React.Component{
     componentDidMount(){
         fetch(`${fetchUrl()}/search/${this.props.zipcode}/${this.props.type}`).then(resp=>resp.json()).then(json=>{
             this.setState({
-                results: json.businesses
+                results: json.businesses,
+                loading: false
             })           
         })
+        
     }
 
     render(){
+        if(this.state.loading){
+            return <div className='App'>
+    <Loader
+      type="Puff"
+      color="#00BFFF"
+      height={100}
+      width={100}
+      timeout={3000} //3 secs
+    />
+  </div>
+        }
         return <div>
             <h2>Food Offerings</h2>
             <Container fluid>
