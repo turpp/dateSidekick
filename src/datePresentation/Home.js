@@ -15,7 +15,6 @@ function Home(){
             <Button variant="primary" onClick={()=>window.location.href='/random'}>Random Date</Button>{' '}
 
         <Button variant="primary" onClick={()=>window.location.href='/custom'}>Create a custom date</Button>{' '}
-        <Button variant="primary" onClick={()=>window.location.href='/login'}>Login</Button>{' '}
 
         </Container>
         </Jumbotron>
