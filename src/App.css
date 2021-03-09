@@ -81,3 +81,7 @@ ol.carousel-indicators{
 .navbar-nav{
   margin-left: auto
 }
+
+a {
+  padding: 0px 10px;
+}
