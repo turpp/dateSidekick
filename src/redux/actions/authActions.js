@@ -131,9 +131,9 @@ export const deleteDate =(date, history)=>{
 }
 
 export const editDate =(outing, notes, date)=>{
+    // let dateObj = new Date(date)
+    // let formatedDate = dateObj.toDateString()
     // debugger
-    let dateObj = new Date(date)
-    let formatedDate = dateObj.toDateString()
     return dispatch =>{
         fetch(`${fetchUrl()}/outings/${outing.id}`,{
             method: 'PATCH',
@@ -141,7 +141,7 @@ export const editDate =(outing, notes, date)=>{
                 'Content-Type': 'application/json'
           },
             credentials: 'include',
-            body: JSON.stringify({outing:{notes: notes, date:formatedDate}})
+            body: JSON.stringify({outing:{notes: notes, date:date}})
         }).then(resp=>resp.json()).then(json=>{
             dispatch({
                 type: 'NOTHING'

@@ -34,6 +34,13 @@ import {Modal,Form} from 'react-bootstrap'
         })
     }
 
+    renderPrettyDate=()=>{
+     
+        let dateObj = new Date(this.props.date.date)
+        return dateObj.toDateString()
+    
+    }
+
 
 
     renderPastDate=()=>{
@@ -46,7 +53,7 @@ import {Modal,Form} from 'react-bootstrap'
                             <h4>Date</h4>
                         </Card.Header>
                         <FoodSelection food={this.props.date.activities[0]} addFoodToDate={''} random='true' />
-                        <h5 style={{textAlign: 'left'}}>When: <br></br>{!!this.props.date.date ? this.props.date.date: 'Add me!'}</h5>
+                        <h5 style={{textAlign: 'left'}}>When: <br></br>{!!this.props.date.date ? this.renderPrettyDate(): 'Add me!'}</h5>
 
                         <h5 style={{textAlign: 'left'}}>Notes:<br></br>{!!this.props.date.notes ? this.props.date.notes: '- Tell me about it?!?!?'}</h5>
 
@@ -96,7 +103,7 @@ import {Modal,Form} from 'react-bootstrap'
                         <ActivitySelection activity={this.props.date.activities[1]} addActivityToDate={''} random='true'/>
                         </Row>
                         </Container>
-                        <h5 style={{textAlign: 'left'}}>When: <br></br>{!!this.props.date.date ? this.props.date.date: 'Add me!'}</h5>
+                        <h5 style={{textAlign: 'left'}}>When: <br></br>{!!this.props.date.date ? this.renderPrettyDate(): 'Add me!'}</h5>
 
                         <h5 style={{textAlign: 'left'}}>Notes:<br></br>{!!this.props.date.notes ? this.props.date.notes: '- Tell me about it?!?!?'}</h5>
 
