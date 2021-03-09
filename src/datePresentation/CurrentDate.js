@@ -18,6 +18,7 @@ class CurrentDate extends React.Component{
     }
 
     renderCurrentDate=()=>{
+        // debugger
         switch(this.props.type){
             case('food'):
             if(!Array.isArray(this.props.food)){
@@ -28,7 +29,7 @@ class CurrentDate extends React.Component{
                         </Card.Header>
                         <FoodSelection food={this.props.food} addFoodToDate={''} random='true' />
                         <Card.Footer>
-                            <Button onClick={()=>this.handleFoodDate()}>Save date to profile</Button>
+                            {this.props.loggedIn?<Button onClick={()=>this.handleFoodDate()}>Save date to profile</Button>:"Login or Signup to save"}
                         </Card.Footer>
                     </Card>
                 <br></br>
@@ -54,7 +55,7 @@ class CurrentDate extends React.Component{
                         </Row>
                         </Container>
                         <Card.Footer>
-                            <Button variant = 'success' onClick={()=>this.handleFoodActivityDate()}>Save date to profile</Button>
+                            {this.props.loggedIn?<Button variant = 'success' onClick={()=>this.handleFoodActivityDate()}>Save date to profile</Button>:"Login or Signup to save"}
                         </Card.Footer>
                     </Card>
                 <br></br>
@@ -82,7 +83,8 @@ const mapDispatchToProps = (dispatch)=>{
 
 const mapStateToProps = (state)=>{
     return {
-        user: state.authReducer.currentUser
+        user: state.authReducer.currentUser,
+        loggedIn: state.authReducer.loggedIn
     }
 }
 
