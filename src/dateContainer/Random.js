@@ -76,7 +76,7 @@ export default class Random extends React.Component{
     }
 
     handleSubmit=(event)=>{
-        // debugger
+        debugger
         event.preventDefault()
         if((this.state.dateType !== '') && (this.state.zipcode.length == 5)){
             this.setState({
