@@ -1,7 +1,7 @@
 import React from 'react'
 import {signup} from '../redux/actions/authActions'
 import {connect} from 'react-redux'
-import { Button, Form,Container,Row,Card } from 'react-bootstrap'
+import { Button, Form,Container,Row,Card, Alert } from 'react-bootstrap'
 
 class Signup extends React.Component{
 
@@ -24,6 +24,7 @@ class Signup extends React.Component{
 
     render(){
         return <div>
+            {this.props.error !== ''?<Alert variant='danger'>{this.props.error}</Alert>: ''}
             <br></br>
             <br></br>
             <br></br>
@@ -60,5 +61,10 @@ const mapDispatchToProps = (dispatch)=>{
         signup : (user, history)=>{dispatch(signup(user,history))}
     }
 }
+const mapStateToProps = (state)=>{
+    return{
+        error: state.authReducer.errorMessage
+    }
+}
 
-export default connect(null, mapDispatchToProps)(Signup)
+export default connect(mapStateToProps, mapDispatchToProps)(Signup)

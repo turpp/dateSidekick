@@ -12,11 +12,19 @@ export const signup=(user, history)=>{
         })
         .then((resp)=>resp.json())
         .then((json)=>{
+            if(!!json.message){
+                dispatch({
+                    type: 'AUTH_FAILED',
+                    payload: {errorMessage: json.message}
+                })
+                history.push('/signup')
+            }else{
             dispatch({
                 type: 'AUTH_SUCCESSFUL',
                  payload: {loggedIn: json.logged_in, currentUser: json.user}
             })
             history.push('/profile')
+        }
         })
     }
 }
