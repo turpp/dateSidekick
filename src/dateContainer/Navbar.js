@@ -22,7 +22,7 @@ class Navbarr extends React.Component{
             {this.props.loggedIn?(
                 <>
             <Nav.Item>
-                <Link to='/profile'>Profile</Link>
+                <Link to={`/user/${this.props.user.id}`}>Profile</Link>
             </Nav.Item>
 
             <Nav.Item>
@@ -57,7 +57,8 @@ const mapDispatchToProps=(dispatch)=>{
 
 const mapStateToProps=(state)=>{
     return{
-        loggedIn: state.authReducer.loggedIn
+        loggedIn: state.authReducer.loggedIn,
+        user: state.authReducer.currentUser
     }
 }
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbarr))

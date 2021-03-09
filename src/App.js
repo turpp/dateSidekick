@@ -49,7 +49,7 @@ class App extends React.Component {
             <Route exact path='/random' component={Random}/>
             <Route exact path='/custom' component={Custom}/>
             <Route exact path='/login' component={Login}/>
-            <Route exact path='/profile' render={props=>{
+            <Route exact path='/user/:id'render={props=>{
               if(this.props.loggedIn){
                 return <Account {...props}/>
               }else{
@@ -73,7 +73,8 @@ const mapDispatchToProps=(dispatch)=>{
 
 const mapStateToProps=(state)=>{
   return {
-    loggedIn: state.authReducer.loggedIn
+    loggedIn: state.authReducer.loggedIn,
+    user: state.authReducer.currentUser
   }
 }
 
