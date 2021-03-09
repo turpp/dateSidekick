@@ -3,8 +3,8 @@ import FoodSelection from './FoodSelection'
 import ActivitySelection from './ActivitySelection'
 import {Card, Container, Row, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
-import {saveFoodDate} from '../redux/actions/authActions'
-import {saveFoodActivityDate} from '../redux/actions/authActions'
+import {saveFoodDate} from '../redux/actions/dateActions'
+import {saveFoodActivityDate} from '../redux/actions/dateActions'
 import {withRouter} from 'react-router-dom'
 
 class CurrentDate extends React.Component{
