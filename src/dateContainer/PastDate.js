@@ -1,11 +1,11 @@
 import React from 'react'
-import FoodSelection from './FoodSelection'
-import ActivitySelection from './ActivitySelection'
+import FoodSelection from '../datePresentation/FoodSelection'
+import ActivitySelection from '../datePresentation/ActivitySelection'
 import {Card,Container, Row,Button} from 'react-bootstrap'
 import {deleteDate, editDate} from '../redux/actions/dateActions'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import EditDateModal from './EditDateModal'
+import EditDateModal from '../datePresentation/EditDateModal'
 import '../App'
 
  class PastDate extends React.Component{

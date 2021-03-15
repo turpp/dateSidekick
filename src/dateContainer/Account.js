@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Row } from 'react-bootstrap'
 import {connect} from 'react-redux'
 import ActivitySelection from '../datePresentation/ActivitySelection'
-import PastDate from '../datePresentation/PastDate'
+import PastDate from './PastDate'
 import {fetchUrl} from '../url'
 import Loader from "react-loader-spinner";
 
