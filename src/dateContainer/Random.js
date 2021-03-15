@@ -10,22 +10,10 @@ export default class Random extends React.Component{
     state={
         dateType: '',
         zipcode: '',
-        foodResults: ['test food'],
-        activityResults: ['test actvity'],
         renderDate: false
     }
 
-    addFoodToDate=(event)=>{
-        this.setState({
-            dateFood: event.target.value
-        })
-    }
 
-    addActivityToDate=(event)=>{
-        this.setState({
-            dateActivity: event.target.value
-        })
-    }
 
     handleChange=(event)=>{
         if(event.target.value !== 5){
