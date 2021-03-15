@@ -3,8 +3,11 @@ import DateTemplates from '../datePresentation/DateTemplates'
 import Food from './Food'
 import Activity from './Activity'
 import {CardDeck, Jumbotron, Container, Row, Col} from 'react-bootstrap'
+import RandomFood from '../datePresentation/RandomFood'
+import RandomFoodActivity from '../datePresentation/RandomFoodActivity'
+import {withRouter} from 'react-router-dom'
 
-export default class Random extends React.Component{
+class Random extends React.Component{
     state={
         dateType: '',
         zipcode: '',
@@ -33,11 +36,25 @@ export default class Random extends React.Component{
         })
     }
 
+    //I have a presentation component to render with new route.
+    // I need to find out how to and where to redirect after submit of the form to the new route that will render new presentational components
+    // I will need to add in new route component a button to keep getting new dates and also to start over.
+    // I will need to make it where if you go straight to route and no zipcode props then redirects back to new route
     renderRandomDate=()=>{
-        return <div>
-            {this.state.dateType=='food'? <Row><Food zipcode={this.state.zipcode} type='food'  random='true'/></Row>: '' }
-            {this.state.dateType=='food-activity'? <Row><Col><Food zipcode={this.state.zipcode} type='food'  random='true'/></Col>+<Col><Activity zipcode={this.state.zipcode} type='food-activity' random={'true'} /></Col></Row>: ''}        
-        </div>
+        // debugger
+        if(this.state.dateType=='food'){
+            this.props.history.push(`/random-food-dates/${this.state.zipcode}`)
+        }else{
+            this.props.history.push(`/random-food-activity-dates/${this.state.zipcode}`)
+        }
+        // return <div>
+        //     {this.state.dateType=='food'? <RandomFood zipcode={this.state.zipcode}/>: '' }
+        //     {this.state.dateType=='food-activity'? <RandomFoodActivity zipcode={this.state.zipcode}/> : ''}        
+
+            
+            {/* {this.state.dateType=='food'? <Row><Food zipcode={this.state.zipcode} type='food'  random='true'/></Row>: '' }
+            {this.state.dateType=='food-activity'? <Row><Col><Food zipcode={this.state.zipcode} type='food'  random='true'/></Col>+<Col><Activity zipcode={this.state.zipcode} type='food-activity' random={'true'} /></Col></Row>: ''}         */}
+        // </div>
     }
 
     handleSubmit=(event)=>{
@@ -68,3 +85,5 @@ export default class Random extends React.Component{
         </div>
     }
 }
+
+export default withRouter(Random)

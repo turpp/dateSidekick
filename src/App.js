@@ -13,6 +13,8 @@ import {checkLoggedIn} from './redux/actions/authActions'
 import {connect} from 'react-redux'
 import Loader from "react-loader-spinner";
 import {Container} from 'react-bootstrap'
+import RandomFood from './datePresentation/RandomFood'
+import RandomFoodActivity from './datePresentation/RandomFoodActivity'
 
 class App extends React.Component {
   
@@ -47,6 +49,8 @@ class App extends React.Component {
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route exact path='/random-date/new' component={Random}/>
+            <Route path='/random-food-dates/:zipcode' render={routerProps=><RandomFood {...routerProps}/>}/>
+            <Route path='/random-food-activity-dates/:zipcode' render={routerProps=><RandomFoodActivity {...routerProps}/>}/>
             <Route exact path='/custom-date/new' component={Custom}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/user/:id'render={props=>{

@@ -62,7 +62,7 @@ function DateTemplates(props){
                 (5 digit zipcode) 
             </Form.Text>
             </Form.Group>
-          <Button type='submit' size='sm' >Submit</Button>
+          <Button type='submit' size='sm' >Search!</Button>
           </Form>
         </Col>
       </Row>
