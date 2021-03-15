@@ -15,7 +15,7 @@ export const saveFoodDate = (food, user, history)=>{
                 dispatch({
                 type: 'NOTHING'
             })
-              history.push('/profile')
+            history.push(`/user/${user.id}`)
         })
     }
 }
@@ -34,7 +34,7 @@ export const saveFoodActivityDate = (food, activity, user, history)=>{
             dispatch({
               type: 'NOTHING'
             })
-            history.push('/profile')
+            history.push(`/user/${user.id}`)
         })
     }
 }

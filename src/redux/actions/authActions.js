@@ -24,7 +24,7 @@ export const signup=(user, history)=>{
                 type: 'AUTH_SUCCESSFUL',
                  payload: {loggedIn: json.logged_in, currentUser: json.user}
             })
-            history.push('/profile')
+            history.push(`/user/${json.user.id}`)
         }
         })
     }
@@ -44,11 +44,25 @@ export const login=(user, history)=>{
         })
         .then((resp)=>resp.json())
         .then((json)=>{
+            if(!!json.message){
+                dispatch({
+                    type: 'AUTH_FAILED',
+                    payload: {errorMessage: json.message}
+                })
+                history.push('/login')
+            }else{
             dispatch({
                 type: 'AUTH_SUCCESSFUL',
                  payload: {loggedIn: json.logged_in, currentUser: json.user}
             })
             history.push(`/user/${json.user.id}`)
+        }
+
+            // dispatch({
+            //     type: 'AUTH_SUCCESSFUL',
+            //      payload: {loggedIn: json.logged_in, currentUser: json.user}
+            // })
+            // history.push(`/user/${json.user.id}`)
         })
     }
 }
