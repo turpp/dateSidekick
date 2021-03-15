@@ -1,7 +1,5 @@
 import React from 'react'
 import DateTemplates from '../datePresentation/DateTemplates'
-import ActivitySelection from '../datePresentation/ActivitySelection'
-import FoodSelection from '../datePresentation/FoodSelection'
 import Food from './Food'
 import Activity from './Activity'
 import {CardDeck, Jumbotron, Container, Row, Col} from 'react-bootstrap'
