@@ -5,7 +5,7 @@ import {Card,Container, Row,Button} from 'react-bootstrap'
 import {deleteDate, editDate} from '../redux/actions/dateActions'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {Modal,Form} from 'react-bootstrap'
+import EditDateModal from './EditDateModal'
 import '../App'
 
  class PastDate extends React.Component{
@@ -58,23 +58,8 @@ import '../App'
                     </Card>
                 <br></br>
                 <br></br>
-                <Modal show={this.state.show} onHide={this.handleClose} backdrop="static" keyboard={false}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Add/Edit notes and date</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <Form>
-                            <Form.Label>Notes:</Form.Label>
-                            <Form.Control as="textarea" rows={3} value={this.state.notes} onChange={this.handleChange} name='notes'/>
-                            <Form.Label>Date:</Form.Label>
-                            <Form.Control type='date' value={this.state.date} onChange={this.handleChange} name='date'/>
-                        </Form>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={this.handleClose}>Close</Button>
-                        <Button variant="primary" onClick={()=>this.props.editDate(this.props.date, this.state.notes, this.state.date)}>Save Changes</Button>
-                    </Modal.Footer>
-                </Modal>
+
+                <EditDateModal show={this.state.show} onHide={this.handleClose} notes={this.state.notes} date={this.state.date} onChange={this.handleChange} save={()=>this.props.editDate(this.props.date, this.state.notes, this.state.date)} handleClose={this.handleClose}/>
                 </div>
             case('food-activity'):
                 return <div>
@@ -94,23 +79,7 @@ import '../App'
                     </Card>
                 <br></br>
                 <br></br>
-                <Modal show={this.state.show} onHide={this.handleClose} backdrop="static" keyboard={false}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Add/Edit notes and date</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <Form>
-                            <Form.Label>Notes:</Form.Label>
-                            <Form.Control as="textarea" rows={3} value={this.state.notes} onChange={this.handleChange} name='notes'/>
-                            <Form.Label>Date:</Form.Label>
-                            <Form.Control type='date' value={this.state.date} onChange={this.handleChange} name='date'/>
-                        </Form>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={this.handleClose}>Close</Button>
-                        <Button variant="primary" onClick={()=>this.props.editDate(this.props.date, this.state.notes, this.state.date)}>Save Changes</Button>
-                    </Modal.Footer>
-                </Modal>
+                <EditDateModal show={this.state.show} onHide={this.handleClose} notes={this.state.notes} date={this.state.date} onChange={this.handleChange} save={()=>this.props.editDate(this.props.date, this.state.notes, this.state.date)} handleClose={this.handleClose}/>
                 </div>
             default:
                 return <h6>Error</h6>
