@@ -46,8 +46,8 @@ class App extends React.Component {
           <Navbarr/>
           <Switch>
             <Route exact path='/' component={Home}/>
-            <Route exact path='/random' component={Random}/>
-            <Route exact path='/custom' component={Custom}/>
+            <Route exact path='/random-date/new' component={Random}/>
+            <Route exact path='/custom-date/new' component={Custom}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/user/:id'render={props=>{
               if(this.props.loggedIn){

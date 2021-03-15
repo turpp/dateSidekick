@@ -12,11 +12,11 @@ class Navbarr extends React.Component{
             <Navbar.Brand><Link to='/'>Date Sidekick</Link></Navbar.Brand>
             <Nav className="mr-right">
                 <Nav.Item>
-                    <Link to='/random'>Random Outing</Link>
+                    <Link to='/random-date/new'>Random Outing</Link>
                 </Nav.Item>
 
                 <Nav.Item>
-                    <Link to='/custom'>Desgin Outing</Link>
+                    <Link to='/custom-date/new'>Desgin Outing</Link>
                 </Nav.Item>
 
                 {this.props.loggedIn?(
