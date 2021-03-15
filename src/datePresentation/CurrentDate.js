@@ -18,7 +18,6 @@ class CurrentDate extends React.Component{
     }
 
     renderCurrentDate=()=>{
-        // debugger
         switch(this.props.type){
             case('food'):
             if(!Array.isArray(this.props.food)){
@@ -50,7 +49,6 @@ class CurrentDate extends React.Component{
                         <Container>
                             <Row>
                         {!Array.isArray(this.props.food)? <FoodSelection food={this.props.food} addFoodToDate='' random = 'true'/>: ''}
-                        
                         {!Array.isArray(this.props.activity)? <ActivitySelection activity={this.props.activity} addActivityToDate={''} random='true'/> : ''}
                         </Row>
                         </Container>

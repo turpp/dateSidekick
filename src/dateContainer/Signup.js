@@ -42,27 +42,24 @@ class Signup extends React.Component{
             <br></br>
             <br></br>
             <Container>
-                
-            <Row className="justify-content-md-center">
-            <Card style={{width: '35em'}} className="card border-info mb-3 shadow-lg p-3 mb-5 bg-body rounded">
-                <Card.Header>
-                    <h4>Welcome, Create an Account!</h4>
-                </Card.Header>
-
-            <Form onSubmit={this.handleSubmit}>
-            <Form.Group>
-
-                <Form.Label>Username:</Form.Label>
-                <Form.Control name='username' type='text' value={this.state.username} placeholder='username' onChange={this.handleChange}/>
-                <Form.Label>Password:</Form.Label>
-                <Form.Control name='password' type='password' value={this.state.password} placeholder='password' onChange={this.handleChange}/>
-                <Form.Label>Password Confirmation:</Form.Label>
-                <Form.Control name='password_confirmation' type='password' value ={this.state.password_confirmation} placeholder='retype password' onChange={this.handleChange}/>
-                </Form.Group>
-                <Button type='submit'>Create Account</Button>
-                </Form>
-            </Card>
-            </Row>
+                <Row className="justify-content-md-center">
+                    <Card style={{width: '35em'}} className="card border-info mb-3 shadow-lg p-3 mb-5 bg-body rounded">
+                        <Card.Header>
+                            <h4>Welcome, Create an Account!</h4>
+                        </Card.Header>
+                        <Form onSubmit={this.handleSubmit}>
+                            <Form.Group>
+                                <Form.Label>Username:</Form.Label>
+                                <Form.Control name='username' type='text' value={this.state.username} placeholder='username' onChange={this.handleChange}/>
+                                <Form.Label>Password:</Form.Label>
+                                <Form.Control name='password' type='password' value={this.state.password} placeholder='password' onChange={this.handleChange}/>
+                                <Form.Label>Password Confirmation:</Form.Label>
+                                <Form.Control name='password_confirmation' type='password' value ={this.state.password_confirmation} placeholder='retype password' onChange={this.handleChange}/>
+                            </Form.Group>
+                        <Button type='submit'>Create Account</Button>
+                        </Form>
+                    </Card>
+                </Row>
             </Container>
         </div>
     }
@@ -77,7 +74,6 @@ const mapStateToProps = (state)=>{
     return{
         error: state.authReducer.errorMessage,
         loading: state.authReducer.fetching
-
     }
 }
 

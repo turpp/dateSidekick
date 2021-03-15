@@ -24,7 +24,6 @@ class Account extends React.Component{
                     outings.push(data)
                 }
             })
-            // debugger
             outings.sort(function(a,b){
                 return b.attributes.id - a.attributes.id
             })
@@ -46,19 +45,12 @@ class Account extends React.Component{
     }
 
     renderDates=()=>{
-        // this.state.dates.sort(function(a,b){
-        //     debugger
-        //     return a.attributes.date - b.attributes.date
-        // })
-        // debugger
-        
         if(this.state.dates.length >0){
             return this.state.dates.map(date=>{
                 if(date.attributes.activities.length == 1){
                     return <div>
                         <Container fluid>
                         <Row className="justify-content-md-center">
-
                         <PastDate date={date.attributes} type='food'/>
                         </Row>
                         </Container>
@@ -80,27 +72,26 @@ class Account extends React.Component{
         render(){
             if(this.state.loading){
                 return <div className='App'>
-    <Loader
-      type="Puff"
-      color="#00BFFF"
-      height={100}
-      width={100}
-      timeout={3000} //3 secs
-    />
-  </div>
+                    <Loader
+                    type="Puff"
+                    color="#00BFFF"
+                    height={100}
+                    width={100}
+                    timeout={3000} //3 secs
+                    />
+                </div>
             }
         return <div>
             <h2>Welcome {this.props.user.username}, this is your Account</h2>
             <h4><u>Dates you have saved</u></h4>
             {this.renderDates()}
-
             <h4>All Food and Places you have saved</h4>
             <ul> Total places = {this.state.activities.length}
             <Container>
             <Row className="justify-content-md-center">
-                    {this.renderActivities()}
-                    </Row>
-                    </Container>
+                {this.renderActivities()}
+            </Row>
+            </Container>
             </ul>
         </div>
         }

@@ -28,8 +28,6 @@ export default class Random extends React.Component{
     }
 
     handleChange=(event)=>{
-        let prevState=this.state.zipcode
-        
         if(event.target.value !== 5){
             this.setState({
                 renderDate: false,
@@ -43,31 +41,12 @@ export default class Random extends React.Component{
     }
 
     handleClick=(event)=>{
-        // debugger
         this.setState({
             dateType: event.target.name,
             renderDate: false
         })
     }
 
-    renderFoodSelction=()=>{
-        return this.state.foodResults.map(result=>{
-            return <FoodSelection result={result} addFoodToDate={this.addFoodToDate}/>
-        })
-    }
-
-    renderActivitySelection=()=>{
-        return this.state.activityResults.map(result=>{
-            return <ActivitySelection result={result} addActivityToDate={this.addActivityToDate}/>
-        })
-    }
-
-    renderFoodAndActivty=()=>{
-        return <div>
-            {this.renderFoodSelction()}
-            {this.renderActivitySelection()}
-        </div>
-    }
     renderRandomDate=()=>{
         return <div>
             {this.state.dateType=='food'? <Row><Food zipcode={this.state.zipcode} type='food'  random='true'/></Row>: '' }
@@ -76,7 +55,6 @@ export default class Random extends React.Component{
     }
 
     handleSubmit=(event)=>{
-        debugger
         event.preventDefault()
         if((this.state.dateType !== '') && (this.state.zipcode.length == 5)){
             this.setState({
@@ -92,20 +70,15 @@ export default class Random extends React.Component{
     render(){
         return <div>
             <Jumbotron fluid>
-
-
-
-            <DateTemplates handleClick={this.handleClick} handleSubmit={this.handleSubmit} handleChange={this.handleChange} zipcode={this.state.zipcode}/>  
-
+                <DateTemplates handleClick={this.handleClick} handleSubmit={this.handleSubmit} handleChange={this.handleChange} zipcode={this.state.zipcode}/>  
             </Jumbotron>
             <Container >
                 <Row className="justify-content-md-center">
-            <CardDeck>
-                {this.state.renderDate ? this.renderRandomDate():<p>Please select a date template and enter zipcode</p>}
-            </CardDeck>
-            </Row>
+                    <CardDeck>
+                        {this.state.renderDate ? this.renderRandomDate():<p>Select date type and enter 5 digit zipcode</p>}
+                    </CardDeck>
+                </Row>
             </Container>
-
         </div>
     }
 }
