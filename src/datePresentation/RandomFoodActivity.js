@@ -23,7 +23,11 @@ class RandomFoodActivity extends React.Component{
         reloader: Math.random()
     }
     render(){
-        
+        if(this.props.match.params.zipcode.length > 5){
+            this.props.history.push('/random-date/new')
+            return null
+        }else{
+
     return <Jumbotron>
     <Container fluid>
     <Row className="justify-content-md-center">
@@ -36,6 +40,7 @@ class RandomFoodActivity extends React.Component{
 <Button variant='info' onClick={()=>this.props.history.push('/random-date/new')}>Start Over</Button>
 </Jumbotron>
     }
+}
 
 }
 

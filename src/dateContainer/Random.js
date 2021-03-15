@@ -36,10 +36,6 @@ class Random extends React.Component{
         })
     }
 
-    //I have a presentation component to render with new route.
-    // I need to find out how to and where to redirect after submit of the form to the new route that will render new presentational components
-    // I will need to add in new route component a button to keep getting new dates and also to start over.
-    // I will need to make it where if you go straight to route and no zipcode props then redirects back to new route
     renderRandomDate=()=>{
         // debugger
         if(this.state.dateType=='food'){
@@ -47,14 +43,6 @@ class Random extends React.Component{
         }else{
             this.props.history.push(`/random-food-activity-dates/${this.state.zipcode}`)
         }
-        // return <div>
-        //     {this.state.dateType=='food'? <RandomFood zipcode={this.state.zipcode}/>: '' }
-        //     {this.state.dateType=='food-activity'? <RandomFoodActivity zipcode={this.state.zipcode}/> : ''}        
-
-            
-            {/* {this.state.dateType=='food'? <Row><Food zipcode={this.state.zipcode} type='food'  random='true'/></Row>: '' }
-            {this.state.dateType=='food-activity'? <Row><Col><Food zipcode={this.state.zipcode} type='food'  random='true'/></Col>+<Col><Activity zipcode={this.state.zipcode} type='food-activity' random={'true'} /></Col></Row>: ''}         */}
-        // </div>
     }
 
     handleSubmit=(event)=>{
