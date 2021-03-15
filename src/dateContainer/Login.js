@@ -1,7 +1,7 @@
 import React from 'react'
 import {login} from '../redux/actions/authActions'
 import {connect} from 'react-redux'
-import {Form,Card, Button, Container,Row} from 'react-bootstrap'
+import {Form,Card, Button, Container,Row,Alert} from 'react-bootstrap'
 import Loader from "react-loader-spinner";
 
 class Login extends React.Component{
@@ -35,6 +35,7 @@ class Login extends React.Component{
           </div>
         }
         return <div id='login'>
+            {this.props.error !== ''?<Alert variant='danger'>{this.props.error}</Alert>: ''}
             <br></br>
             <br></br>
             <br></br>
@@ -68,7 +69,8 @@ const mapDispatchToProps = (dispatch)=>{
 }
 const mapStateToProps =(state)=>{
     return{
-        loading: state.authReducer.fetching
+        loading: state.authReducer.fetching,
+        error: state.authReducer.errorMessage,
     }
 }
 
