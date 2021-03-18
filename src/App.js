@@ -11,7 +11,7 @@ import Account from './dateContainer/Account'
 import Navbarr from './dateContainer/Navbar'
 import {checkLoggedIn} from './redux/actions/authActions'
 import {connect} from 'react-redux'
-import Loader from "react-loader-spinner";
+import LoaderWheel from './datePresentation/LoaderWheel'
 import {Container} from 'react-bootstrap'
 import RandomFood from './datePresentation/RandomFood'
 import RandomFoodActivity from './datePresentation/RandomFoodActivity'
@@ -34,13 +34,7 @@ class App extends React.Component {
 
   render(){
     if(this.state.loading) return  <div className='App'>
-    <Loader
-      type="Puff"
-      color="#00BFFF"
-      height={100}
-      width={100}
-      timeout={3000} //3 secs
-    />
+    <LoaderWheel/>
   </div>
     return (
       <div className="App">

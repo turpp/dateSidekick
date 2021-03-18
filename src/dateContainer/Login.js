@@ -2,7 +2,7 @@ import React from 'react'
 import {login} from '../redux/actions/authActions'
 import {connect} from 'react-redux'
 import {Form,Card, Button, Container,Row,Alert} from 'react-bootstrap'
-import Loader from "react-loader-spinner";
+import LoaderWheel from '../datePresentation/LoaderWheel'
 
 class Login extends React.Component{
 
@@ -25,13 +25,7 @@ class Login extends React.Component{
     render(){
         if(this.props.loading){
             return <div className='App'>
-            <Loader
-              type="Puff"
-              color="#00BFFF"
-              height={100}
-              width={100}
-              timeout={3000} //3 secs
-            />
+            <LoaderWheel/>
           </div>
         }
         return <div id='login'>

@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import ActivitySelection from '../datePresentation/ActivitySelection'
 import PastDate from './PastDate'
 import {fetchUrl} from '../url'
-import Loader from "react-loader-spinner";
+import LoaderWheel from '../datePresentation/LoaderWheel'
 
 
 class Account extends React.Component{
@@ -50,20 +50,18 @@ class Account extends React.Component{
                 if(date.attributes.activities.length == 1){
                     return <div>
                         <Container fluid>
-                        <Row className="justify-content-md-center">
-                        <PastDate date={date.attributes} type='food'/>
-                        </Row>
+                            <Row className="justify-content-md-center">
+                                <PastDate date={date.attributes} type='food'/>
+                            </Row>
                         </Container>
                         </div>
                 }else{
                     return<div>
-                            <Container fluid>
-                        <Row className="justify-content-md-center">
-
-                        <PastDate date={date.attributes} type='food-activity'/>
-                        </Row>
+                        <Container fluid>
+                            <Row className="justify-content-md-center">
+                                <PastDate date={date.attributes} type='food-activity'/>
+                            </Row>
                         </Container>
-
                     </div> 
                 }
             })
@@ -71,15 +69,7 @@ class Account extends React.Component{
     }
         render(){
             if(this.state.loading){
-                return <div className='App'>
-                    <Loader
-                    type="Puff"
-                    color="#00BFFF"
-                    height={100}
-                    width={100}
-                    timeout={3000} //3 secs
-                    />
-                </div>
+                return <LoaderWheel/>
             }
         return <div>
             <h2>Welcome {this.props.user.username}, this is your Account</h2>

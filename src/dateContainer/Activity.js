@@ -2,7 +2,7 @@ import React from 'react'
 import ActivitySelection from '../datePresentation/ActivitySelection'
 import { Carousel, Container, Row, Col} from 'react-bootstrap'
 import {fetchUrl} from '../url'
-import Loader from "react-loader-spinner";
+import LoaderWheel from '../datePresentation/LoaderWheel'
 
 
 export default class Activity extends React.Component{
@@ -56,13 +56,7 @@ export default class Activity extends React.Component{
     render(){
         if(this.state.loading){
             return <div className='App'>
-    <Loader
-      type="Puff"
-      color="#00BFFF"
-      height={100}
-      width={100}
-      timeout={3000} //3 secs
-    />
+    <LoaderWheel/>
   </div>
         }
         return <div>
