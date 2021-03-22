@@ -4,7 +4,7 @@ import {fetchUrl} from '../url'
 import LoaderWheel from '../datePresentation/LoaderWheel'
 import SelectionCard from '../datePresentation/SelectionCard'
 
-export default class Activity extends React.Component{
+export default class SelectionType extends React.Component{
     state={
         search: '', 
         activityResults: [],
@@ -45,10 +45,17 @@ export default class Activity extends React.Component{
 
     componentDidMount(){
         fetch(`${fetchUrl()}/search/${this.props.zipcode}/${this.props.type}`).then(resp=>resp.json()).then(json=>{
+            if(this.props.type==='food-activity'){
             this.setState({
                 activityResults: json.activity.businesses,
                 loading: false
-            })           
+            })
+        }else{
+            this.setState({
+                activityResults: json.businesses,
+                loading: false
+            })   
+        }           
         })
     }
 
@@ -59,7 +66,7 @@ export default class Activity extends React.Component{
   </div>
         }
         return <div>
-            <h2>Activity Offerings</h2>
+            {this.props.type === 'food'?<h2>Food Offerings</h2>: <h2>Activity Offerings</h2> }
             <Container fluid>
                 <Row>
                     <Col>

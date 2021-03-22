@@ -1,10 +1,10 @@
 import React from 'react'
 import DateTemplates from '../datePresentation/DateTemplates'
-import Food from './Food'
-import Activity from './Activity'
 import CurrentDate from '../datePresentation/CurrentDate'
 import { Container, Jumbotron, Row } from 'react-bootstrap'
 import '../App.css';
+import SelectionType from './SelectionType'
+import SelectionCard from '../datePresentation/SelectionCard'
 
 
 
@@ -78,14 +78,14 @@ export default class Custom extends React.Component{
                return <div>
                     <Container fluid>
                         <Row className="justify-content-md-center">
-                            <Food zipcode={this.state.zipcode} type='food' random='false' addFoodToDate={this.addFoodToDate}/>
+                            <SelectionType zipcode={this.state.zipcode} type='food' random='false' addActivityToDate={this.addFoodToDate}/>
                         </Row>
                     </Container>
                     <br></br>
                     <br></br>
                     <Container fluid>
                         <Row className="justify-content-md-center">
-                            <Activity zipcode={this.state.zipcode} type='food-activity' random='false' addActivityToDate={this.addActivityToDate}/>
+                            <SelectionType zipcode={this.state.zipcode} type='food-activity' random='false' addActivityToDate={this.addActivityToDate}/>
                         </Row>
                     </Container>
                 </div>
@@ -93,7 +93,7 @@ export default class Custom extends React.Component{
                 return <div>
                     <Container fluid>
                         <Row className="justify-content-md-center">
-                            <Food zipcode={this.state.zipcode} type='food' random='false' addFoodToDate={this.addFoodToDate}/>
+                            <SelectionType zipcode={this.state.zipcode} type='food' random='false' addActivityToDate={this.addFoodToDate}/>
                         </Row>
                     </Container>
                 </div>

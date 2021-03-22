@@ -1,7 +1,7 @@
 
 import React from 'react'
 import {Row, Container, CardDeck, Jumbotron, Button} from 'react-bootstrap'
-import Food from '../dateContainer/Food'
+import SelectionType from '../dateContainer/SelectionType'
 
 
 class RandomFood extends React.Component{
@@ -18,7 +18,8 @@ class RandomFood extends React.Component{
     <Container fluid>
     <Row className="justify-content-md-center">
         <CardDeck>
-        <Row><Food zipcode={this.props.match.params.zipcode} type='food'  random='true'/></Row>        </CardDeck>
+            <Row><SelectionType zipcode={this.props.match.params.zipcode} type='food'  random='true'/></Row>
+        </CardDeck>
     </Row>
 </Container>
 <Button variant='info' onClick={()=>this.setState({reloader: Math.random()})}>Try Again</Button>{'   '}

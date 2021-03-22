@@ -13,8 +13,7 @@
 
 import React from 'react'
 import {Row, Container, CardDeck, Jumbotron, Button,Col} from 'react-bootstrap'
-import Food from '../dateContainer/Food'
-import Activity from '../dateContainer/Activity'
+import SelectionType from '../dateContainer/SelectionType'
 
 
 
@@ -32,7 +31,7 @@ class RandomFoodActivity extends React.Component{
     <Container fluid>
     <Row className="justify-content-md-center">
         <CardDeck>
-        <Row><Col><Food zipcode={this.props.match.params.zipcode} type='food'  random='true'/></Col>+<Col><Activity zipcode={this.props.match.params.zipcode} type='food-activity' random={'true'} /></Col></Row>
+        <Row><Col><SelectionType zipcode={this.props.match.params.zipcode} type='food'  random='true'/></Col>+<Col><SelectionType zipcode={this.props.match.params.zipcode} type='food-activity' random={'true'} /></Col></Row>
         </CardDeck>
     </Row>
 </Container>
