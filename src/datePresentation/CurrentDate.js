@@ -1,6 +1,4 @@
 import React from 'react'
-import FoodSelection from './FoodSelection'
-import ActivitySelection from './ActivitySelection'
 import {Card, Container, Row, Button,Alert} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {saveFoodDate} from '../redux/actions/dateActions'

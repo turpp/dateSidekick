@@ -1,5 +1,4 @@
 import React from 'react'
-import ActivitySelection from '../datePresentation/ActivitySelection'
 import { Carousel, Container, Row, Col} from 'react-bootstrap'
 import {fetchUrl} from '../url'
 import LoaderWheel from '../datePresentation/LoaderWheel'

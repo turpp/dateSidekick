@@ -1,6 +1,4 @@
 import React from 'react'
-import FoodSelection from '../datePresentation/FoodSelection'
-import ActivitySelection from '../datePresentation/ActivitySelection'
 import {Card,Container, Row,Button} from 'react-bootstrap'
 import {deleteDate, editDate} from '../redux/actions/dateActions'
 import {withRouter} from 'react-router-dom'
