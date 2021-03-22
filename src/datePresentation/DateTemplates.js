@@ -1,5 +1,5 @@
 import {React,useState} from 'react'
-import {Button,Card,ToggleButton, ButtonGroup,Form, Container, Row, Col} from 'react-bootstrap'
+import {Button,ToggleButton, ButtonGroup,Form, Container, Row, Col} from 'react-bootstrap'
 import '../App.css';
 
 function DateTemplates(props){

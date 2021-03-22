@@ -14,7 +14,7 @@ export default class SelectionType extends React.Component{
 
     renderActivitySelection=()=>{
         if(this.state.activityResults.length >0){
-            if(this.props.random=='true'){
+            if(this.props.random==='true'){
                 let randomActivity = this.state.activityResults[Math.floor(Math.random() * this.state.activityResults.length)]
                 return <SelectionCard activity={randomActivity} addActivityToDate={this.props.addActivityToDate} random='true'/>
             }else{

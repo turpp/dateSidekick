@@ -1,6 +1,6 @@
 import React from 'react'
 import DateTemplates from '../datePresentation/DateTemplates'
-import {CardDeck, Jumbotron, Container, Row, Col} from 'react-bootstrap'
+import {CardDeck, Jumbotron, Container, Row} from 'react-bootstrap'
 import {withRouter} from 'react-router-dom'
 
 class Random extends React.Component{
@@ -33,7 +33,7 @@ class Random extends React.Component{
     }
 
     renderRandomDate=()=>{
-        if(this.state.dateType=='food'){
+        if(this.state.dateType==='food'){
             this.props.history.push(`/random-food-dates/${this.state.zipcode}`)
         }else{
             this.props.history.push(`/random-food-activity-dates/${this.state.zipcode}`)
@@ -42,7 +42,7 @@ class Random extends React.Component{
 
     handleSubmit=(event)=>{
         event.preventDefault()
-        if((this.state.dateType !== '') && (this.state.zipcode.length == 5)){
+        if((this.state.dateType !== '') && (this.state.zipcode.length === 5)){
             this.setState({
                 renderDate: true,
             })

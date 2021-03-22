@@ -45,7 +45,7 @@ class Account extends React.Component{
     renderDates=()=>{
         if(this.state.dates.length >0){
             return this.state.dates.map(date=>{
-                if(date.attributes.activities.length == 1){
+                if(date.attributes.activities.length === 1){
                     return <div>
                         <Container fluid>
                             <Row className="justify-content-md-center">

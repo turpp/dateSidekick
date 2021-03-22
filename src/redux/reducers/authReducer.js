@@ -1,4 +1,6 @@
-export default (state={loggedIn: false, currentUser: {}, errorMessage: '', fetching: false}, action)=>{
+
+
+export const authReducer = (state={loggedIn: false, currentUser: {}, errorMessage: '', fetching: false}, action)=>{
     switch(action.type){
         case 'AUTH_SUCCESSFUL':
             return {

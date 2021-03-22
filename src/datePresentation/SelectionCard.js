@@ -23,7 +23,7 @@ class SelectionCard extends React.Component{
                             {this.renderCategories()}
                         </ul>
                     {this.props.random ==='false' ? <Button variant='primary' value={this.props.activity} onClick={()=>this.props.addActivityToDate(this.props.activity)}>Add To Date</Button>: ''}
-                    <a href={this.props.activity.url} target='_blank'><Button variant='secondary'>Check out on Yelp!</Button></a>
+                    <a href={this.props.activity.url} target='_blank' rel="noreferrer"><Button variant='secondary'>Check out on Yelp!</Button></a>
                 </Card.Body>
             </Card>
         )
