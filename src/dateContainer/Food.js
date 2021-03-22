@@ -5,6 +5,7 @@ import {fetchUrl} from '../url'
 import LoaderWheel from '../datePresentation/LoaderWheel'
 import '../App.css';
 import 'react-multi-carousel/lib/styles.css';
+import SelectionCard from '../datePresentation/SelectionCard'
 
 
 export default class Food extends React.Component{
@@ -20,10 +21,10 @@ export default class Food extends React.Component{
         if(this.state.results.length >0){
             if(this.props.random=='true'){
                 let randomFood = this.state.results[Math.floor(Math.random() * this.state.results.length)]
-                return <FoodSelection food={randomFood} addFoodToDate={this.props.addFoodToDate} random='true'/>
+                return <SelectionCard activity={randomFood} addActivityToDate={this.props.addFoodToDate} random='true'/>
             }else{                
                 let foodCards = this.state.results.map(result=>{
-                return <FoodSelection food={result} addFoodToDate={this.props.addFoodToDate} random='false'/>
+                return <SelectionCard activity={result} addActivityToDate={this.props.addFoodToDate} random='false'/>
             })
                 let slides = [foodCards.slice(0,3),foodCards.slice(3,6),foodCards.slice(6,9),foodCards.slice(9,12),foodCards.slice(12,15),foodCards.slice(15,18),foodCards.slice(18,21)]
                 return <Carousel fade >

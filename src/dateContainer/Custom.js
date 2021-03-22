@@ -19,7 +19,6 @@ export default class Custom extends React.Component{
     }
 
     handleClick=(event)=>{
-        // debugger
         this.setState({
             dateType: event.target.name,
             renderFood: false,

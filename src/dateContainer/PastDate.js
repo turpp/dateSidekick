@@ -7,6 +7,7 @@ import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import EditDateModal from '../datePresentation/EditDateModal'
 import '../App'
+import SelectionCard from '../datePresentation/SelectionCard'
 
  class PastDate extends React.Component{
 
@@ -47,7 +48,7 @@ import '../App'
                 return <div>
                     <Card>
                         <Card.Body>
-                            <FoodSelection food={this.props.date.activities[0]} addFoodToDate={''} random='true' />
+                            <SelectionCard activity={this.props.date.activities[0]} addActivityToDate={''} random='true' />
                             <h5 style={{textAlign: 'left'}}>When: <br></br>{!!this.props.date.date ? this.renderPrettyDate(): ' Add me!'}</h5>
                             <h5 style={{textAlign: 'left'}}>Notes:<br></br>{!!this.props.date.notes ? this.props.date.notes: '- Tell me about it?!?!?'}</h5>
                         </Card.Body>
@@ -66,8 +67,8 @@ import '../App'
                     <Card>
                         <Container>
                             <Row>
-                                <FoodSelection food={this.props.date.activities[0]} addFoodToDate='' random = 'true'/>
-                                <ActivitySelection activity={this.props.date.activities[1]} addActivityToDate={''} random='true'/>
+                                <SelectionCard activity={this.props.date.activities[0]} addActivityToDate='' random = 'true'/>
+                                <SelectionCard activity={this.props.date.activities[1]} addActivityToDate={''} random='true'/>
                                 </Row>
                         </Container>
                         <h5 style={{textAlign: 'left'}}>When: <br></br>{!!this.props.date.date ? this.renderPrettyDate(): 'Add me!'}</h5>

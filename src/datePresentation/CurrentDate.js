@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import {saveFoodDate} from '../redux/actions/dateActions'
 import {saveFoodActivityDate} from '../redux/actions/dateActions'
 import {withRouter} from 'react-router-dom'
+import SelectionCard from './SelectionCard'
 
 class CurrentDate extends React.Component{
 
@@ -31,7 +32,7 @@ class CurrentDate extends React.Component{
                         <Card.Header>
                             <h4>Current Date</h4>
                         </Card.Header>
-                        <FoodSelection food={this.props.food} addFoodToDate={''} random='true' />
+                        <SelectionCard activity={this.props.food} addActivityToDate={''} random='true' />
                         <Card.Footer>
                             {this.props.loggedIn?<Button onClick={()=>this.handleFoodDate()}>Save date to profile</Button>:"Login or Signup to save"}
                         </Card.Footer>
@@ -53,8 +54,8 @@ class CurrentDate extends React.Component{
                         </Card.Header>
                         <Container>
                             <Row>
-                        {!Array.isArray(this.props.food)? <FoodSelection food={this.props.food} addFoodToDate='' random = 'true'/>: ''}
-                        {!Array.isArray(this.props.activity)? <ActivitySelection activity={this.props.activity} addActivityToDate={''} random='true'/> : ''}
+                        {!Array.isArray(this.props.food)? <SelectionCard activity={this.props.food} addActivityToDate='' random = 'true'/>: ''}
+                        {!Array.isArray(this.props.activity)? <SelectionCard activity={this.props.activity} addActivityToDate={''} random='true'/> : ''}
                         </Row>
                         </Container>
                         <Card.Footer>

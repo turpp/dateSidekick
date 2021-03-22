@@ -5,6 +5,7 @@ import ActivitySelection from '../datePresentation/ActivitySelection'
 import PastDate from './PastDate'
 import {fetchUrl} from '../url'
 import LoaderWheel from '../datePresentation/LoaderWheel'
+import SelectionCard from '../datePresentation/SelectionCard'
 
 
 class Account extends React.Component{
@@ -39,7 +40,7 @@ class Account extends React.Component{
     renderActivities=()=>{
         if(this.state.activities.length >0){
             return this.state.activities.map(activity =>{
-                return <ActivitySelection activity={activity.attributes} addActivityToDate={''} random='true'/>
+                return <SelectionCard activity={activity.attributes} addActivityToDate={''} random='true'/>
             })
         }
     }
