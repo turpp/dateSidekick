@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, Container, Row, Button,Alert} from 'react-bootstrap'
+import {Card, Container, Row, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {saveFoodDate} from '../redux/actions/dateActions'
 import {saveFoodActivityDate} from '../redux/actions/dateActions'
@@ -14,7 +14,7 @@ class CurrentDate extends React.Component{
 
     handleFoodActivityDate=(event)=>{
         if(!Array.isArray(this.props.food) && !Array.isArray(this.props.activity)){
-        this.props.saveFoodActivityDate(this.props.food, this.props.activity, this.props.user, this.props.history)
+            this.props.saveFoodActivityDate(this.props.food, this.props.activity, this.props.user, this.props.history)
         }else{
             alert("Make sure to add both a food and activity to date before saving.")
         }

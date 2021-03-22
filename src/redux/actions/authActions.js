@@ -57,12 +57,6 @@ export const login=(user, history)=>{
             })
             history.push(`/user/${json.user.id}`)
         }
-
-            // dispatch({
-            //     type: 'AUTH_SUCCESSFUL',
-            //      payload: {loggedIn: json.logged_in, currentUser: json.user}
-            // })
-            // history.push(`/user/${json.user.id}`)
         })
     }
 }

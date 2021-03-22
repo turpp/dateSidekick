@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react'
 import Custom from './dateContainer/Custom'
@@ -12,7 +11,6 @@ import Navbarr from './dateContainer/Navbar'
 import {checkLoggedIn} from './redux/actions/authActions'
 import {connect} from 'react-redux'
 import LoaderWheel from './datePresentation/LoaderWheel'
-import {Container} from 'react-bootstrap'
 import RandomDate from './datePresentation/RandomDate'
 class App extends React.Component {
   

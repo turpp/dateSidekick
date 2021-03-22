@@ -55,9 +55,6 @@ export const deleteDate =(date, history)=>{
 }
 
 export const editDate =(outing, notes, date)=>{
-    // let dateObj = new Date(date)
-    // let formatedDate = dateObj.toDateString()
-    // debugger
     return dispatch =>{
         dispatch({type: 'STARTING_FETCH'})
         fetch(`${fetchUrl()}/outings/${outing.id}`,{

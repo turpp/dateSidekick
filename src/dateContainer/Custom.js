@@ -4,7 +4,6 @@ import CurrentDate from '../datePresentation/CurrentDate'
 import { Container, Jumbotron, Row } from 'react-bootstrap'
 import '../App.css';
 import SelectionType from './SelectionType'
-import SelectionCard from '../datePresentation/SelectionCard'
 
 
 

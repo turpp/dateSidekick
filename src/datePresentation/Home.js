@@ -3,8 +3,6 @@ import {Jumbotron , Container, Button} from 'react-bootstrap'
 
 function Home(){
     return(
-
-
         <Jumbotron fluid>
             <Container>
                 <h1>Welcome to Date Sidekick!</h1>
@@ -15,9 +13,6 @@ function Home(){
                 <Button variant="primary" onClick={()=>window.location.href='/custom-date/new'}>Create a custom date</Button>{' '}
             </Container>
         </Jumbotron>
-
-
-
     )
 }
 

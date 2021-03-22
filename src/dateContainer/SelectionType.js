@@ -30,7 +30,7 @@ export default class SelectionType extends React.Component{
                         {slide.map(result=>{
                             return <Col>
                             <div className='d-block h-50'>
-                            {result}
+                                {result}
                             </div>
                             </Col>
                         })
@@ -50,12 +50,12 @@ export default class SelectionType extends React.Component{
                 activityResults: json.activity.businesses,
                 loading: false
             })
-        }else{
-            this.setState({
-                activityResults: json.businesses,
-                loading: false
-            })   
-        }           
+            }else{
+                this.setState({
+                    activityResults: json.businesses,
+                    loading: false
+                })   
+            }           
         })
     }
 
@@ -70,7 +70,7 @@ export default class SelectionType extends React.Component{
             <Container fluid>
                 <Row>
                     <Col>
-                    {this.renderActivitySelection()}    
+                        {this.renderActivitySelection()}    
                     </Col>
                 </Row> 
             </Container>

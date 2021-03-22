@@ -28,7 +28,6 @@ class Navbarr extends React.Component{
                 <Nav.Item>
                     <Link to='' onClick={()=>this.props.logout(this.props.history)}>Logout</Link>
                 </Nav.Item>
-
                     </>
                 ) : (
                     <>

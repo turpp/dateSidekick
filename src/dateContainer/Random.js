@@ -33,7 +33,6 @@ class Random extends React.Component{
     }
 
     renderRandomDate=()=>{
-        // debugger
         if(this.state.dateType=='food'){
             this.props.history.push(`/random-food-dates/${this.state.zipcode}`)
         }else{

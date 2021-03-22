@@ -6,7 +6,6 @@ import {fetchUrl} from '../url'
 import LoaderWheel from '../datePresentation/LoaderWheel'
 import SelectionCard from '../datePresentation/SelectionCard'
 
-
 class Account extends React.Component{
     state={
         activities: [],
@@ -27,7 +26,6 @@ class Account extends React.Component{
             outings.sort(function(a,b){
                 return b.attributes.id - a.attributes.id
             })
-
             this.setState({
                 activities: activities,
                 dates: outings,
@@ -77,20 +75,20 @@ class Account extends React.Component{
             {this.renderDates()}
             <h4>All Food and Places you have saved</h4>
             <ul> Total places = {this.state.activities.length}
-            <Container>
-            <Row className="justify-content-md-center">
-                {this.renderActivities()}
-            </Row>
-            </Container>
+                <Container>
+                    <Row className="justify-content-md-center">
+                        {this.renderActivities()}
+                    </Row>
+                </Container>
             </ul>
         </div>
         }
-    }
+}
 
     const mapStateToProps =(state)=>{
         return {
             user: state.authReducer.currentUser
         }
-}
+    }
 
 export default connect(mapStateToProps)(Account)
