@@ -1,8 +1,6 @@
 import React from 'react'
 import DateTemplates from '../datePresentation/DateTemplates'
 import {CardDeck, Jumbotron, Container, Row, Col} from 'react-bootstrap'
-import RandomFood from '../datePresentation/RandomFood'
-import RandomFoodActivity from '../datePresentation/RandomFoodActivity'
 import {withRouter} from 'react-router-dom'
 
 class Random extends React.Component{
