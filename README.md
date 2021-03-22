@@ -1,11 +1,7 @@
-testing to make sure git works
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
 
 ### `yarn start`
 
@@ -15,10 +11,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `yarn build`
 
@@ -69,3 +61,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Required infomration
+
+This application was used with date_Sidekick_api. You can visit this at https://github.com/turpp/date_sidekick_api. You will need to have the backend running at http://localhost:3000 and npm start at http://localhost:3001. This is required or you will get an issue with the fetch request from front-end to backend.
+
+* This application uses Redux to manage state for the users. 
+* State for random dates and to get information from Yelp is stored in local state since it is not vital to the entire appliation.
+* I have sperated my components into presentational and Container for better organization
