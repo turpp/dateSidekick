@@ -19,8 +19,8 @@ export default class SelectionType extends React.Component{
                 return <SelectionCard activity={randomActivity} addActivityToDate={this.props.addActivityToDate} random='true'/>
             }else{
                 let activityCards = this.state.activityResults.map(result=>{
-                return <SelectionCard activity={result} addActivityToDate={this.props.addActivityToDate} random='false'/>
-            })
+                    return <SelectionCard activity={result} addActivityToDate={this.props.addActivityToDate} random='false'/>
+                })
 
             let slides = [activityCards.slice(0,3),activityCards.slice(3,6),activityCards.slice(6,9),activityCards.slice(9,12),activityCards.slice(12,15),activityCards.slice(15,18),activityCards.slice(18,21)]
             return <Carousel fade >

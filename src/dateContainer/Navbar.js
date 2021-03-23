@@ -16,7 +16,7 @@ class Navbarr extends React.Component{
                 </Nav.Item>
 
                 <Nav.Item>
-                    <Link to='/custom-date/new'>Desgin Outing</Link>
+                    <Link to='/custom-date/new'>Design Outing</Link>
                 </Nav.Item>
 
                 {this.props.loggedIn?(
