@@ -65,8 +65,8 @@ export default class SelectionType extends React.Component{
     <LoaderWheel/>
   </div>
         }
-        return <div>
-            {this.props.type === 'food'?<h2>Food Offerings</h2>: <h2>Activity Offerings</h2> }
+        return <div className='datecard'>
+            {this.props.type === 'food'?<h1>Food Offerings</h1>: <h1>Activity Offerings</h1> }
             <Container fluid>
                 <Row>
                     <Col>
