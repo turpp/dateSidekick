@@ -132,3 +132,8 @@ li{
   width: 10em;
   margin: 1em;
 }
+
+.card-deck{
+  margin: auto !important;
+  width: fit-content !important;
+}
