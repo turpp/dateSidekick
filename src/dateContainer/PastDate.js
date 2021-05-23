@@ -13,7 +13,7 @@ import SelectionCard from '../datePresentation/SelectionCard'
         show: false,
         notes: this.props.date.notes,
         date: this.props.date.date,
-        likes: 0
+        // likes: 0
     }
 
     handleClose= ()=>{
@@ -34,12 +34,12 @@ import SelectionCard from '../datePresentation/SelectionCard'
         })
     }
 
-    handleLike=()=>{
-        let likes=this.state.likes
-        this.setState({
-            likes: likes + 1
-        })
-    }
+    // handleLike=()=>{
+    //     let likes=this.state.likes
+    //     this.setState({
+    //         likes: likes + 1
+    //     })
+    // }
 
     renderPrettyDate=()=>{
         let dateObj = new Date(this.props.date.date)
@@ -60,7 +60,7 @@ import SelectionCard from '../datePresentation/SelectionCard'
                         </Card.Body>
                         <Card.Footer>
                             {/* add a like button. On button have an event listner to change liked amount */}
-                            <Button variant='primary' onClick={this.handleLike}>Like me! {this.state.likes}</Button>
+                            {/* <Button variant='primary' onClick={this.handleLike}>Like me! {this.state.likes}</Button> */}
                             <Button variant="info" onClick={this.handleShow}>Edit Date</Button>
                             <Button variant='danger' onClick={()=>this.props.deleteDate(this.props.date, this.props.history)}>Delete Date</Button>
                         </Card.Footer>
@@ -82,7 +82,7 @@ import SelectionCard from '../datePresentation/SelectionCard'
                         <h5 style={{textAlign: 'left'}}>When: <br></br>{!!this.props.date.date ? this.renderPrettyDate(): 'Add me!'}</h5>
                         <h5 style={{textAlign: 'left'}}>Notes:<br></br>{!!this.props.date.notes ? this.props.date.notes: '- Tell me about it?!?!?'}</h5>
                         <Card.Footer>
-                        <Button variant='primary' onClick={this.handleLike}>Like me! {this.state.likes}</Button>
+                        {/* <Button variant='primary' onClick={this.handleLike}>Like me! {this.state.likes}</Button> */}
 
                             <Button variant="info" onClick={this.handleShow}>Edit Date</Button>
                             <Button variant='danger' onClick={()=>this.props.deleteDate(this.props.date, this.props.history)}>Delete Date</Button>
