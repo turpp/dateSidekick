@@ -54,7 +54,7 @@
   margin-bottom: -25px;
 } */
 .carousel-control-prev-icon {
-  background-color: blue !important;
+  background-color: #eb6864 !important;
   height: 50px;
   margin-left: -100px;
 }
@@ -67,7 +67,7 @@
   color: red; */
 /* } */
 .carousel-control-next-icon{
-  background-color: blue !important;
+  background-color: #eb6864 !important;
   margin-right: -100px;
   height: 50px;
 
@@ -104,7 +104,7 @@ li{
 }
 
 .home-content{
-  background-color: gainsboro;
+  background-color: #FFFACD;
   padding: 20px;
   border-radius: 25px;
 }
@@ -114,7 +114,7 @@ li{
 }
 
 .nav{
-  background-color: gainsboro !important;
+  background-color:  lightcyan!important;
 }
 
 .navbar-light .navbar-toggler{
@@ -136,4 +136,30 @@ li{
 .card-deck{
   margin: auto !important;
   width: fit-content !important;
+}
+
+.jumbotron{
+  background-color: #FFFACD !important;
+
+
+}
+
+
+
+.btn-secondary{
+  background-color: lightcyan;
+  border-color: lightcyan;
+  color: #eb6864
+}
+
+.datecard h1{
+  color: #eb6864
+}
+
+.card-footer{
+  background-color: lightcyan;
+}
+
+.card-header{
+  background-color: lightcyan;
 }
