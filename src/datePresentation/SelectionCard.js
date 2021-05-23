@@ -11,7 +11,7 @@ class SelectionCard extends React.Component{
 
     render(){
         return (
-            <Card style={{ width: '20rem' }} className="shadow-sm p-3 mb-5 bg-body rounded">
+            <Card style={{ width: '20rem', margin: '1em'}} className="shadow-sm p-3 mb-5 bg-body rounded">
                 <Card.Img className="border border-dark rounded" variant='top' src={this.props.activity.image_url} width='200' height='200'/>
                 <Card.Body>
                     <Card.Title><h5>{this.props.activity.name}</h5></Card.Title>
