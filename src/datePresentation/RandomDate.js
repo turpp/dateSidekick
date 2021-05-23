@@ -15,7 +15,7 @@ class RandomFood extends React.Component{
             <Container fluid>
                 <Row className="justify-content-md-center">
                     <CardDeck>
-                        {this.props.type==='food'?<Row><SelectionType zipcode={this.props.match.params.zipcode} type='food'  random='true'/></Row> : <Row><Col><SelectionType zipcode={this.props.match.params.zipcode} type='food'  random='true'/></Col>+<Col><SelectionType zipcode={this.props.match.params.zipcode} type='food-activity' random={'true'} /></Col></Row>}
+                        {this.props.type==='food'?<Row><SelectionType zipcode={this.props.match.params.zipcode} type='food'  random='true'/></Row> : <Row><Col><SelectionType zipcode={this.props.match.params.zipcode} type='food'  random='true'/></Col><Col><SelectionType zipcode={this.props.match.params.zipcode} type='food-activity' random={'true'} /></Col></Row>}
                     </CardDeck>
                 </Row>
             </Container>
