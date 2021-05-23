@@ -10,8 +10,7 @@ function DateTemplates(props){
         { name: 'Food and Activity', value: '2', type: 'food-activity' },
       ];
 
-    return <div>
-      <Container fluid="md">
+    return <Container fluid="md">
         <Row>
           <Col>
             <h1>What type of date?</h1>
@@ -47,27 +46,32 @@ function DateTemplates(props){
         </Row>
       <br></br>
       <br></br>
-      <Row className="justify-content-md-center">
-        <Col md='auto'>
-          <Form inline onSubmit={props.handleSubmit} >
+      <Row >
+        <Col >
+          <Form onSubmit={props.handleSubmit} >
             <Form.Group>
+            <Form.Row>
+
+            <Col >
             <Form.Label>Zipcode: </Form.Label>
             <Form.Control
               type="number"
-              className="mx-sm-3"
+              className='zipcode-field'
               value={props.zipcode}
               onChange={props.handleChange}
+              placeholder='5 digit zipcode'
+    
             />
-            <Form.Text id="passwordHelpInline" muted style={{paddingReft: 80}}>
-                (5 digit zipcode) 
-            </Form.Text>
-            </Form.Group>
-          <Button type='submit' size='sm' >Search!</Button>
+            
+          <Button type='submit' size='lg' >Search!</Button>
+          </Col>
+          </Form.Row>
+          </Form.Group>
           </Form>
         </Col>
       </Row>
       </Container>
-    </div>
+
 }
 
 export default DateTemplates

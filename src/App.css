@@ -120,3 +120,15 @@ li{
 .navbar-light .navbar-toggler{
   background-color: #eb6864;
 }
+
+.form-row>.col{
+ display: flex;
+ align-items: center;
+ max-width: fit-content;
+ margin: auto;
+}
+
+.zipcode-field{
+  width: 10em;
+  margin: 1em;
+}
