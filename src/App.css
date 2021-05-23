@@ -112,3 +112,11 @@ li{
 .home-content h1, p{
   padding-bottom: 4vh;
 }
+
+.nav{
+  background-color: gainsboro !important;
+}
+
+.navbar-light .navbar-toggler{
+  background-color: #eb6864;
+}

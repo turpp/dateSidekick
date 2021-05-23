@@ -8,15 +8,17 @@ import '../App.css';
 
 class Navbarr extends React.Component{
     render(){
-        return  <Navbar bg="light" variant="light" >
+        return  <Navbar bg="light" variant="light" expand='md' className='nav' >
             <Navbar.Brand><Link to='/'>Date Sidekick</Link></Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-right">
                 <Nav.Item>
                     <Link to='/random-date/new'>Random Outing</Link>
                 </Nav.Item>
 
                 <Nav.Item>
-                    <Link to='/custom-date/new'>Design Outing</Link>
+                    <Link to='/custom-date/new'>Create Outing</Link>
                 </Nav.Item>
 
                 {this.props.loggedIn?(
@@ -41,6 +43,7 @@ class Navbarr extends React.Component{
                     </>
                 )}
             </Nav>
+            </Navbar.Collapse>
         </Navbar>
     }
 }
