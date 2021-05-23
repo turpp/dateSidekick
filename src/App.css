@@ -92,3 +92,23 @@ li{
 .mb-5{
   margin-bottom: 1rem !important;
 }
+
+.home-container{
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.home-content{
+  background-color: gainsboro;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+.home-content h1, p{
+  padding-bottom: 4vh;
+}
