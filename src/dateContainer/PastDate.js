@@ -52,7 +52,7 @@ import SelectionCard from '../datePresentation/SelectionCard'
         switch(this.props.type){
             case('food'):
                 return <div>
-                    <Card>
+                    <Card style={{backgroundColor: '#FFFACD'}}>
                         <Card.Body>
                             <SelectionCard activity={this.props.date.activities[0]} addActivityToDate={''} random='true' />
                             <h5 style={{textAlign: 'left'}}>When: <br></br>{!!this.props.date.date ? this.renderPrettyDate(): ' Add me!'}</h5>
@@ -72,7 +72,7 @@ import SelectionCard from '../datePresentation/SelectionCard'
                 </div>
             case('food-activity'):
                 return <div>
-                    <Card>
+                    <Card style={{backgroundColor: '#FFFACD'}}>
                         <Container>
                             <Row>
                                 <SelectionCard activity={this.props.date.activities[0]} addActivityToDate='' random = 'true'/>
