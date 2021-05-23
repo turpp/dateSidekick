@@ -28,7 +28,7 @@ function DateTemplates(props){
                 <ToggleButton
                   key={idx}
                   type="radio"
-                  variant="warning"
+                  variant="secondary"
                   name={radio.type}
                   value={radio.value}
                   checked={radioValue === radio.value}
