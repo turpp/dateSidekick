@@ -164,8 +164,8 @@ li{
   background-color: lightcyan;
 }
 
-.past-food-date{
-  width: 100% !important;
+.past-food-activity{
+  width: 50% !important;
 }
 
 @media only screen and (max-width: 750px) {

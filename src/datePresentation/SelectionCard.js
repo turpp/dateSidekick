@@ -27,7 +27,7 @@ class SelectionCard extends React.Component{
     render(){
     
         return (
-            <Card style={{ width: '50%',margin: 'auto'}} className={`shadow-sm p-3 mb-5 bg-body rounded ${this.props.foodOnly}`} >
+            <Card style={{ width: '100%',margin: 'auto'}} className={`shadow-sm p-3 mb-5 bg-body rounded ${this.props.foodOnly}`} >
                 <Card.Img variant='top' src={this.props.activity.image_url} style={{width: '95%', height: '300px', margin: 'auto', objectFit: 'contain'}}  onClick={this.showMore}/>
                 <Card.Body>
                     <Card.Title><h5>{this.props.activity.name}</h5></Card.Title>
