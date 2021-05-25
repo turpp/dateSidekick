@@ -25,7 +25,7 @@ class CurrentDate extends React.Component{
         switch(this.props.type){
             case('food'):
             if(!Array.isArray(this.props.food)){
-                return <div>
+                return <Container>
                     <Card >
                         <Card.Header>
                             <h4>Current Date</h4>
@@ -37,15 +37,15 @@ class CurrentDate extends React.Component{
                     </Card>
                 <br></br>
                 <br></br>
-                </div>
+                </Container>
             } else {
-                return <h4>Select a place to eat from below</h4>
+                return <Container><h2>Select a place to eat from below</h2></Container>
             }
             case('food-activity'):
             if(Array.isArray(this.props.food)&&(Array.isArray(this.props.activity))){
                 return <h4><u>Select a place to eat and something to do from below</u></h4>
             }else{
-                return <div>
+                return <Container>
                     <Card >
                         <Card.Header>
                             <h4>Current Date</h4>
@@ -62,7 +62,7 @@ class CurrentDate extends React.Component{
                     </Card>
                 <br></br>
                 <br></br>
-                </div>
+                </Container>
             }
             default:
                 return <div>
@@ -72,7 +72,7 @@ class CurrentDate extends React.Component{
     }
 
     render(){
-        return <div>
+        return <div>    
             {this.renderCurrentDate()}</div>
     }
 }
