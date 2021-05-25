@@ -82,7 +82,7 @@ class Account extends React.Component{
             if(this.state.loading){
                 return <LoaderWheel/>
             }
-        return <Container fluid>
+        return <Container>
             <h1>Welcome {this.props.user.username}!</h1>
             {this.state.showDates ? <Button variant='primary' size='lg' onClick={this.showPastDate} style={{marginBottom: '1em'}}>Hide Dates!</Button> :<Button variant='primary' size='lg' onClick={this.showPastDate}>See Dates You Have Saved!</Button>}
             
