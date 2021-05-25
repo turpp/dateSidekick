@@ -56,7 +56,7 @@
 .carousel-control-prev-icon {
   background-color: #eb6864 !important;
   height: 50px;
-  margin-left: -100px;
+  margin-left: -50px;
 }
   
 
@@ -68,7 +68,7 @@
 /* } */
 .carousel-control-next-icon{
   background-color: #eb6864 !important;
-  margin-right: -100px;
+  margin-right: -50px;
   height: 50px;
 
 }
@@ -76,6 +76,15 @@
   width: 0%;
   opacity: .7 !important;
 
+}
+@media only screen and (max-width: 650px){
+  .carousel-control-next-icon{
+    margin-right:0px !important;
+  }
+
+  .carousel-control-prev-icon{
+    margin-left: 0px !important;
+  }
 }
 
 .navbar-nav{
