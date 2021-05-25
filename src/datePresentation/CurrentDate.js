@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, Container, Row, Button} from 'react-bootstrap'
+import {Card, Container, Row, Button, Col} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {saveFoodDate} from '../redux/actions/dateActions'
 import {saveFoodActivityDate} from '../redux/actions/dateActions'
@@ -52,8 +52,12 @@ class CurrentDate extends React.Component{
                         </Card.Header>
                         <Container>
                             <Row>
+                                <Col>
                         {!Array.isArray(this.props.food)? <SelectionCard activity={this.props.food} addActivityToDate='' random = 'true'/>: ''}
+</Col>
+<Col>
                         {!Array.isArray(this.props.activity)? <SelectionCard activity={this.props.activity} addActivityToDate={''} random='true'/> : ''}
+</Col>
                         </Row>
                         </Container>
                         <Card.Footer>
