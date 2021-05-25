@@ -129,7 +129,7 @@ export default class Custom extends React.Component{
                 </div>
             case (!this.state.renderActivity && this.state.renderFood):
                 return <div>
-                    <Container fluid>
+                    <Container>
                         <Row className="justify-content-md-center">
                             <SelectionType zipcode={this.state.zipcode} type='food' random='false' addActivityToDate={this.addFoodToDate}/>
                         </Row>
@@ -144,11 +144,21 @@ export default class Custom extends React.Component{
         this.setState({
             dateFood: food
         })
+        window.scroll({
+            top:300, 
+            left: 0,
+            behavior: 'smooth'
+        })
     }
 
     addActivityToDate=(activity)=>{
         this.setState({
             dateActivity: activity
+        })
+        window.scroll({
+            top:300, 
+            left: 0,
+            behavior: 'smooth'
         })
     }
 
