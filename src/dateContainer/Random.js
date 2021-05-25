@@ -93,13 +93,13 @@ class Random extends React.Component{
                 <DateTemplates handleClick={this.handleClick} handleSubmit={this.handleSubmit} handleChange={this.handleChange} zipcode={this.state.zipcode}/>  
             </Jumbotron>
             <Container >
-                <Row className="justify-content-md-center" >
-                    <Col>
-                    <CardDeck>
+                
+                    
+                    
                         {this.state.renderDate ? this.renderRandomDate():<p>Select date type and enter 5 digit zipcode</p>}
-                    </CardDeck>
-                    </Col>
-                </Row>
+                    
+                    
+                
             </Container>
         </div>
     }
