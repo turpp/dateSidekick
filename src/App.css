@@ -163,3 +163,17 @@ li{
 .card-header{
   background-color: lightcyan;
 }
+
+.past-food-date{
+  width: 100% !important;
+}
+
+@media only screen and (max-width: 750px) {
+.past-food-activity{
+  min-width: 350px !important;
+}
+}
+
+.card-body{
+  padding: 0;
+}
