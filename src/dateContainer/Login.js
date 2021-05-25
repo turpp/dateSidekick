@@ -28,15 +28,21 @@ class Login extends React.Component{
             <LoaderWheel/>
           </div>
         }
-        return <div id='login'>
+        // return <div id='login'>
+        //     {this.props.error !== ''?<Alert variant='danger'>{this.props.error}</Alert>: ''}
+        //     <br></br>
+        //     <br></br>
+        //     <br></br>
+        //     <br></br>
+             return <Container id='login'>
+                 <br></br>
             {this.props.error !== ''?<Alert variant='danger'>{this.props.error}</Alert>: ''}
             <br></br>
             <br></br>
             <br></br>
             <br></br>
-            <Container>
                 <Row className="justify-content-md-center">
-                    <Card style={{width: '35em'}} className="card border-info mb-3 shadow-lg p-3 mb-5 bg-body rounded">
+                    <Card style={{width: '75%', margin: 'auto', minWidth: '20em'}} className="card border-info mb-3 shadow-lg p-3 mb-5 bg-body rounded">
                         <Card.Header>
                             <h4>Welcome back!</h4>
                         </Card.Header>
@@ -52,7 +58,7 @@ class Login extends React.Component{
                     </Card>
                 </Row>
             </Container>
-        </div>
+        // </div>
     }
 }
 
