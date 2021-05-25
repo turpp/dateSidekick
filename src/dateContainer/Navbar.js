@@ -13,6 +13,12 @@ class Navbarr extends React.Component{
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-right">
+                
+                <Nav.Item>
+                    <Link to='/'>Home</Link>
+                </Nav.Item>
+
+
                 <Nav.Item>
                     <Link to='/random-date/new'>Random Outing</Link>
                 </Nav.Item>
