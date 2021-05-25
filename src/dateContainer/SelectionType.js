@@ -29,9 +29,9 @@ export default class SelectionType extends React.Component{
                         <Row>
                         {slide.map(result=>{
                             return <Col>
-                            <div className='d-block h-50'>
+                            {/* <div className='d-block h-50'> */}
                                 {result}
-                            </div>
+                            {/* </div> */}
                             </Col>
                         })
                         }
@@ -67,7 +67,7 @@ export default class SelectionType extends React.Component{
         }
         return <div className='datecard'>
             {this.props.type === 'food'?<h1>Food Offering</h1>: <h1>Activity Offering</h1> }
-            <Container fluid>
+            <Container>
                 <Row>
                     <Col>
                         {this.renderActivitySelection()}    
