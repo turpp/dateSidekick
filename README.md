@@ -28,6 +28,7 @@ npm install
 ```
 > Make sure your server is running in localhost:3000 and your front end is hosted on localhost:3001 due to cors.
 
+<<<<<<< HEAD
 
 ## Author
 
@@ -42,3 +43,25 @@ Give a ⭐️ if this project helped you!
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+=======
+##Main Technologies
+React
+Bootstrap
+Yelp Fusion API
+Ruby on Rails
+
+
+## Author
+
+👤 **Tripp White**
+
+* Github: [@turpp](https://github.com/turpp)
+* LinkedIn: @Thomas (Tripp) White www.linkedin.com/in/thomas-tripp-white
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+>>>>>>> a7196762c5e1b523e2c65eac4e8318a14b2bc0d7
