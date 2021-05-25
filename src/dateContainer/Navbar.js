@@ -8,10 +8,10 @@ import '../App.css';
 
 class Navbarr extends React.Component{
     render(){
-        return  <Navbar bg="light" variant="light" expand='md' className='nav' >
+        return  <Navbar collapseOnSelect bg="light" variant="light" expand='md' className='nav'  >
             <Navbar.Brand><Link to='/'>Date Sidekick</Link></Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-right">
                 <Nav.Item>
                     <Link to='/random-date/new'>Random Outing</Link>
