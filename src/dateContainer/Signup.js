@@ -29,15 +29,22 @@ class Signup extends React.Component{
             <LoaderWheel/>
           </div>
         }
-        return <div>
+        // return <div>
+        //     {this.props.error !== ''?<Alert variant='danger'>{this.props.error}</Alert>: ''}
+        //     <br></br>
+        //     <br></br>
+        //     <br></br>
+        //     <br></br>
+            return <Container>
+                <br></br>
             {this.props.error !== ''?<Alert variant='danger'>{this.props.error}</Alert>: ''}
             <br></br>
             <br></br>
             <br></br>
             <br></br>
-            <Container>
+
                 <Row className="justify-content-md-center">
-                    <Card style={{width: '35em'}} className="card border-info mb-3 shadow-lg p-3 mb-5 bg-body rounded">
+                    <Card style={{width: '75%', margin: 'auto', minWidth: '20em'}} className="card border-info mb-3 shadow-lg p-3 mb-5 bg-body rounded">
                         <Card.Header>
                             <h4>Welcome, Create an Account!</h4>
                         </Card.Header>
@@ -48,14 +55,14 @@ class Signup extends React.Component{
                                 <Form.Label>Password:</Form.Label>
                                 <Form.Control name='password' type='password' value={this.state.password} placeholder='password' onChange={this.handleChange}/>
                                 <Form.Label>Password Confirmation:</Form.Label>
-                                <Form.Control name='password_confirmation' type='password' value ={this.state.password_confirmation} placeholder='retype password' onChange={this.handleChange}/>
+                                <Form.Control name='password_confirmation' type='password' value ={this.state.password_confirmation} placeholder='confirm password' onChange={this.handleChange}/>
                             </Form.Group>
                         <Button type='submit'>Create Account</Button>
                         </Form>
                     </Card>
                 </Row>
             </Container>
-        </div>
+        // </div>
     }
 }
 
