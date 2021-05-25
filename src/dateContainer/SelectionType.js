@@ -66,7 +66,7 @@ export default class SelectionType extends React.Component{
   </div>
         }
         return <div className='datecard'>
-            {this.props.type === 'food'?<h1>Food Offerings</h1>: <h1>Activity Offerings</h1> }
+            {this.props.type === 'food'?<h1>Food Offering</h1>: <h1>Activity Offering</h1> }
             <Container fluid>
                 <Row>
                     <Col>
