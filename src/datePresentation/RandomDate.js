@@ -1,5 +1,5 @@
 import React from 'react'
-import {Row, Container, CardDeck, Jumbotron, Button,Col} from 'react-bootstrap'
+import {Row, Jumbotron, Button,Col} from 'react-bootstrap'
 import SelectionType from '../dateContainer/SelectionType'
 
 class RandomFood extends React.Component{

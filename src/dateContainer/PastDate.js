@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card,Container, Row,Button, Col} from 'react-bootstrap'
+import {Card,Container, Row,Button} from 'react-bootstrap'
 import {deleteDate, editDate} from '../redux/actions/dateActions'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'

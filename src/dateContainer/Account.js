@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, Col, Button, Fade, Collapse } from 'react-bootstrap'
+import { Container, Row, Col, Button, Collapse } from 'react-bootstrap'
 import {connect} from 'react-redux'
 import PastDate from './PastDate'
 import {fetchUrl} from '../url'

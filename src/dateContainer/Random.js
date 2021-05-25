@@ -1,6 +1,6 @@
 import React from 'react'
 import DateTemplates from '../datePresentation/DateTemplates'
-import {CardDeck, Jumbotron, Container, Row, Col, Alert} from 'react-bootstrap'
+import { Jumbotron, Container, Alert} from 'react-bootstrap'
 import {withRouter} from 'react-router-dom'
 
 class Random extends React.Component{
