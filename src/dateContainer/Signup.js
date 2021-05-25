@@ -44,7 +44,7 @@ class Signup extends React.Component{
             <br></br>
 
                 <Row className="justify-content-md-center">
-                    <Card style={{width: '75%', margin: 'auto', minWidth: '20em'}} className="card border-info mb-3 shadow-lg p-3 mb-5 bg-body rounded">
+                    <Card style={{width: '75%', margin: 'auto', minWidth: '20em', maxWidth: '40em'}} className="card border-info mb-3 shadow-lg p-3 mb-5 bg-body rounded">
                         <Card.Header>
                             <h4>Welcome, Create an Account!</h4>
                         </Card.Header>
