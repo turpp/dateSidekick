@@ -60,7 +60,7 @@ class Account extends React.Component{
                 if(date.attributes.activities.length === 1){
                     return <>
                             {/* <Row className="justify-content-md-center"> */}
-                                <Col>
+                                <Col style={{padding: '0'}}>
                                 <PastDate date={date.attributes} type='food'/>
                                 </Col>
                             {/* </Row> */}
@@ -68,7 +68,7 @@ class Account extends React.Component{
                 }else{
                     return <>
                             {/* <Row className="justify-content-md-center"> */}
-                            <Col>
+                            <Col style={{padding: '0'}}>
                              
                                 <PastDate date={date.attributes} type='food-activity'/>
                                 </Col>
@@ -84,7 +84,7 @@ class Account extends React.Component{
             }
         return <Container fluid>
             <h1>Welcome {this.props.user.username}!</h1>
-            {this.state.showDates ? <Button variant='primary' size='lg' onClick={this.showPastDate}>Hide Dates!</Button> :<Button variant='primary' size='lg' onClick={this.showPastDate}>See Dates You Have Saved!</Button>}
+            {this.state.showDates ? <Button variant='primary' size='lg' onClick={this.showPastDate} style={{marginBottom: '1em'}}>Hide Dates!</Button> :<Button variant='primary' size='lg' onClick={this.showPastDate}>See Dates You Have Saved!</Button>}
             
             <Collapse in={this.state.showDates}>
                 <div>
