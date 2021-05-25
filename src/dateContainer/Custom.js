@@ -1,7 +1,7 @@
 import React from 'react'
 import DateTemplates from '../datePresentation/DateTemplates'
 import CurrentDate from '../datePresentation/CurrentDate'
-import { Container, Jumbotron, Row } from 'react-bootstrap'
+import { Container, Jumbotron, Row, Alert } from 'react-bootstrap'
 import '../App.css';
 import SelectionType from './SelectionType'
 
@@ -14,7 +14,9 @@ export default class Custom extends React.Component{
         renderFood: false,
         renderActivity: false,
         dateFood:[],
-        dateActivity: []
+        dateActivity: [],
+        showZipAlert: false,
+        showDateTypeAlert: false
     }
 
     handleClick=(event)=>{
@@ -28,41 +30,78 @@ export default class Custom extends React.Component{
     }
 
     handleChange=(event)=>{
-        if(event.target.value !== 5){
+
+
+        if(event.target.value.length <= 5){
             this.setState({
                 renderFood: false,
                 renderActivity: false,
                 zipcode: event.target.value
             })
-        } else{
-            this.setState({
-                zipcode: event.target.value
-            })
         }
+        // else{
+        //     this.setState({
+        //         zipcode: event.target.value
+        //     })
+        // }
+
+
+
+
+
+
+
+        // if(event.target.value !== 5){
+        //     this.setState({
+        //         renderFood: false,
+        //         renderActivity: false,
+        //         zipcode: event.target.value
+        //     })
+        // } else{
+        //     this.setState({
+        //         zipcode: event.target.value
+        //     })
+        // }
     }
 
 
     handleSubmit=(event)=>{
         event.preventDefault()
-        if(this.state.dateType  && this.state.zipcode !== ''){
+        if(this.state.dateType  && this.state.zipcode.length === 5){
             switch(this.state.dateType){
                 case 'food':
                 this.setState({
                     renderFood: true,
-                    renderActivity: false
+                    renderActivity: false,
+                    showZipAlert: false,
+                    showDateTypeAlert: false
                 })
                 break
                 case 'food-activity':
                     this.setState({
                         renderActivity: true,
-                        renderFood: true
+                        renderFood: true,
+                        showZipAlert: false,
+                        showDateTypeAlert: false
                     })
                 break
                 default:
                     this.setState({
                         renderFood: false,
-                        renderActivity: false
+                        renderActivity: false,
                     })
+            }
+        } else{
+            if(this.state.zipcode.length !== 5){
+                this.setState({
+                    showZipAlert: true,
+                    showDateTypeAlert: false
+                })
+            } else{
+                this.setState({
+                    showDateTypeAlert: true,
+                    showZipAlert: false
+                })
             }
         }
     }
@@ -115,6 +154,8 @@ export default class Custom extends React.Component{
 
     render(){
         return <div>
+            {this.state.showZipAlert ? <Alert variant='danger'>Make sure to enter a 5 digit zipcode.</Alert>: ''}
+            {this.state.showDateTypeAlert ? <Alert variant='danger'>Make sure to select Food or Food and Activity Button.</Alert>: ''}
             <Jumbotron fluid>
                 <DateTemplates handleClick={this.handleClick} handleSubmit={this.handleSubmit} handleChange={this.handleChange} zipcode={this.state.zipcode}/>  
             </Jumbotron>

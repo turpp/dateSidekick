@@ -1,28 +1,42 @@
 import React from 'react'
 import DateTemplates from '../datePresentation/DateTemplates'
-import {CardDeck, Jumbotron, Container, Row, Col} from 'react-bootstrap'
+import {CardDeck, Jumbotron, Container, Row, Col, Alert} from 'react-bootstrap'
 import {withRouter} from 'react-router-dom'
 
 class Random extends React.Component{
     state={
         dateType: '',
         zipcode: '',
-        renderDate: false
+        renderDate: false,
+        showAlert: false,
+        showZipAlert: false,
+        showDateTypeAlert: false
     }
 
 
-
+//need to redo to enter max of 5 like with custom
     handleChange=(event)=>{
-        if(event.target.value !== 5){
-            this.setState({
-                renderDate: false,
-                zipcode: event.target.value
-            })
-        } else{
+        if(event.target.value.length <=5){
             this.setState({
                 zipcode: event.target.value
             })
         }
+
+
+
+
+
+
+        // if(event.target.value !== 5){
+        //     this.setState({
+        //         renderDate: false,
+        //         zipcode: event.target.value
+        //     })
+        // } else{
+        //     this.setState({
+        //         zipcode: event.target.value
+        //     })
+        // }
     }
 
     handleClick=(event)=>{
@@ -47,14 +61,34 @@ class Random extends React.Component{
                 renderDate: true,
             })
         }else{
-            this.setState({
-                renderDate: false
-            })
+            if(this.state.dateType === ''){
+                this.setState({
+                    showDateTypeAlert: true,
+                    showZipAlert: false
+                })
+            } else {
+                this.setState({
+                    showZipAlert: true,
+                    showDateTypeAlert: false
+                })
+            }
+
+
+
+
+
+
+            // this.setState({
+            //     renderDate: false,
+            //     showAlert: true
+            // })
         }
     }
 
     render(){
         return <div>
+            {this.state.showZipAlert ? <Alert variant='danger'>Make sure to enter a 5 digit zipcode.</Alert>: ''}
+            {this.state.showDateTypeAlert ? <Alert variant='danger'>Make sure to select Food or Food and Activity Button.</Alert>: ''}
             <Jumbotron fluid>
                 <DateTemplates handleClick={this.handleClick} handleSubmit={this.handleSubmit} handleChange={this.handleChange} zipcode={this.state.zipcode}/>  
             </Jumbotron>
