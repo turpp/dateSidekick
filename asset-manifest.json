@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/dateSidekick/static/css/main.fd5d9efe.chunk.css",
+    "main.js": "/dateSidekick/static/js/main.365794cb.chunk.js",
+    "main.js.map": "/dateSidekick/static/js/main.365794cb.chunk.js.map",
+    "runtime-main.js": "/dateSidekick/static/js/runtime-main.0fe428fa.js",
+    "runtime-main.js.map": "/dateSidekick/static/js/runtime-main.0fe428fa.js.map",
+    "static/css/2.b531ca33.chunk.css": "/dateSidekick/static/css/2.b531ca33.chunk.css",
+    "static/js/2.8fff1625.chunk.js": "/dateSidekick/static/js/2.8fff1625.chunk.js",
+    "static/js/2.8fff1625.chunk.js.map": "/dateSidekick/static/js/2.8fff1625.chunk.js.map",
+    "static/js/3.2ec64531.chunk.js": "/dateSidekick/static/js/3.2ec64531.chunk.js",
+    "static/js/3.2ec64531.chunk.js.map": "/dateSidekick/static/js/3.2ec64531.chunk.js.map",
+    "index.html": "/dateSidekick/index.html",
+    "static/css/2.b531ca33.chunk.css.map": "/dateSidekick/static/css/2.b531ca33.chunk.css.map",
+    "static/css/main.fd5d9efe.chunk.css.map": "/dateSidekick/static/css/main.fd5d9efe.chunk.css.map",
+    "static/js/2.8fff1625.chunk.js.LICENSE.txt": "/dateSidekick/static/js/2.8fff1625.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0fe428fa.js",
+    "static/css/2.b531ca33.chunk.css",
+    "static/js/2.8fff1625.chunk.js",
+    "static/css/main.fd5d9efe.chunk.css",
+    "static/js/main.365794cb.chunk.js"
+  ]
+}
