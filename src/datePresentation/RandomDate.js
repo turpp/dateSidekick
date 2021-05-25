@@ -11,14 +11,10 @@ class RandomFood extends React.Component{
             this.props.history.push('/random-date/new')
             return null
         }else{
-        return <Jumbotron>
-            <Container fluid>
-                <Row className="justify-content-md-center">
-                    <CardDeck>
-                        {this.props.type==='food'?<Row><SelectionType zipcode={this.props.match.params.zipcode} type='food'  random='true'/></Row> : <Row><Col><SelectionType zipcode={this.props.match.params.zipcode} type='food'  random='true'/></Col><Col><SelectionType zipcode={this.props.match.params.zipcode} type='food-activity' random={'true'} /></Col></Row>}
-                    </CardDeck>
+        return <Jumbotron style={{padding: '1rem .5rem'}}>           
+                <Row className="justify-content-md-center">  
+                        {this.props.type==='food'?<Col style={{padding: '0px', maxWidth: '600px'}}><SelectionType zipcode={this.props.match.params.zipcode} type='food'  random='true'/></Col> : <><Col style={{padding: '0px', maxWidth: '600px'}}><SelectionType zipcode={this.props.match.params.zipcode} type='food'  random='true'/></Col><Col style={{padding: '0px', maxWidth:'600px'}}><SelectionType zipcode={this.props.match.params.zipcode} type='food-activity' random={'true'} /></Col></>}                   
                 </Row>
-            </Container>
             <Button variant='info' onClick={()=>this.setState({reloader: Math.random()})}>Try Again</Button>{'   '}
             <Button variant='info' onClick={()=>this.props.history.push('/random-date/new')}>Start Over</Button>
         </Jumbotron>
