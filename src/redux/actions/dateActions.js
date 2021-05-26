@@ -49,7 +49,7 @@ export const deleteDate =(date, history)=>{
             dispatch({
                 type:'NOTHING'
             })
-            window.location.reload()
+            window.location.reload(true)
         })
     }
 }
@@ -68,7 +68,7 @@ export const editDate =(outing, notes, date)=>{
             dispatch({
                 type: 'NOTHING'
             })
-            window.location.reload()
+            window.location.reload(true)
         })
     }
 }
