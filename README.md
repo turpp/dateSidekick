@@ -28,7 +28,7 @@ npm install
 ```
 > Make sure your server is running in localhost:3000 and your front end is hosted on localhost:3001 due to cors.
 
-<<<<<<< HEAD
+
 
 ## Author
 
@@ -41,9 +41,7 @@ npm install
 
 Give a ⭐️ if this project helped you!
 
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
-=======
+
 ##Main Technologies
 React
 Bootstrap
